@@ -1,21 +1,23 @@
 #pragma once
 
-#include <SFML/Graphics.hpp>
+#include "widgets/widget.hpp"
 
-class mfGUI
+namespace mf
 {
-private:
-	mfGUI(/* args */);
+	class GUI
+	{
+	private:
+		GUI(/* args */);
+		~GUI();
+		static sf::Window	*mWindow;
 
-	static sf::Window	*mWindow;
+	public:
+		static void				Init(sf::Window *tWindow);
+		static void				HandleEvents(sf::Event	&tEvent);
+		static void				Render();
 
-public:
-	~mfGUI();
+		static void				AddWidget(widget *tWidget);
+		static void				RemoveWidget(widget *tWidget);
 
-	static void				Init(sf::Window *tWindow);
-	static void				HandleEvents(sf::Event	&tEvent);
-	static void				Render();
-
-};
-
-
+	};
+} // namespace mf

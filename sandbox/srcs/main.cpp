@@ -26,7 +26,7 @@
 int main()
 {
 	sf::RenderWindow	window(sf::VideoMode(1600, 900), "Sandbox", sf::Style::Default);
-	mfGUI::Init(&window);
+	mf::GUI::Init(&window);
 
 	while (window.isOpen())
 	{
@@ -35,10 +35,10 @@ int main()
 		{
 			if (event.type == sf::Event::Closed)
 				window.close();
-			mfGUI::HandleEvents(event);
+			mf::GUI::HandleEvents(event);
 		}
 		window.clear(sf::Color::Red);
-		mfGUI::Render();
+		mf::GUI::Render();
 		window.display();
 	}
 }

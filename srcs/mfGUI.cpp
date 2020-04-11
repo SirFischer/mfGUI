@@ -1,18 +1,33 @@
 #include "mfGUI.hpp"
 
-sf::Window	*mfGUI::mWindow = NULL;
-
-void		mfGUI::Init(sf::Window *tWindow)
+namespace mf
 {
-	mWindow = tWindow;
-}
+	sf::Window	*GUI::mWindow = NULL;
 
-void		mfGUI::HandleEvents(sf::Event	&tEvent)
-{
-	(void)tEvent;
-}
+	void		GUI::Init(sf::Window *tWindow)
+	{
+		mWindow = tWindow;
+	}
 
-void		mfGUI::Render()
-{
+	void		GUI::HandleEvents(sf::Event	&tEvent)
+	{
+		(void)tEvent;
+	}
 
-}
+	void		GUI::Render()
+	{
+
+	}
+
+	void		GUI::AddWidget(widget *tWidget)
+	{
+		(void)tWidget;
+	}
+
+	void		GUI::RemoveWidget(widget *tWidget)
+	{
+		(void)tWidget;
+	}
+
+} // namespace mf
+
