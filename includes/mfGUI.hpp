@@ -1,6 +1,6 @@
 #pragma once
 
-#include "widgets/widget.hpp"
+#include "widgets/Widget.hpp"
 
 namespace mf
 {
@@ -10,14 +10,18 @@ namespace mf
 		GUI(/* args */);
 		~GUI();
 		static sf::Window	*mWindow;
+		static Widget		*mBaseWidget;
 
 	public:
 		static void				Init(sf::Window *tWindow);
-		static void				HandleEvents(sf::Event	&tEvent);
+		static void				HandleEvent(sf::Event	&tEvent);
 		static void				Render();
 
-		static void				AddWidget(widget *tWidget);
-		static void				RemoveWidget(widget *tWidget);
+		static void				AddWidget(Widget *tWidget);
+		static void				RemoveWidget(Widget *tWidget);
+		static void				ClearWidgets();
+
+		static void				Render();
 
 	};
 } // namespace mf

@@ -3,30 +3,39 @@
 namespace mf
 {
 	sf::Window	*GUI::mWindow = NULL;
+	Widget		*GUI::mBaseWidget = NULL;
 
 	void		GUI::Init(sf::Window *tWindow)
 	{
 		mWindow = tWindow;
+		mBaseWidget = Widget::Create();
+		mBaseWidget->SetSize(sf::Vector2f(tWindow->getSize()));
+
 	}
 
-	void		GUI::HandleEvents(sf::Event	&tEvent)
+	void		GUI::HandleEvent(sf::Event	&tEvent)
 	{
-		(void)tEvent;
+		mBaseWidget->HandleEvent(tEvent);
 	}
 
 	void		GUI::Render()
 	{
-
+		mBaseWidget->Render(mWindow);
 	}
 
-	void		GUI::AddWidget(widget *tWidget)
+	void		GUI::AddWidget(Widget *tWidget)
 	{
-		(void)tWidget;
+		mBaseWidget->AddWidget(tWidget);
 	}
 
-	void		GUI::RemoveWidget(widget *tWidget)
+	void		GUI::RemoveWidget(Widget *tWidget)
 	{
-		(void)tWidget;
+		mBaseWidget->RemoveWidget(tWidget);
+	}
+
+	void		GUI::ClearWidgets()
+	{
+		mBaseWidget->ClearWidgets();
 	}
 
 } // namespace mf

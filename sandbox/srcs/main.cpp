@@ -28,6 +28,10 @@ int main()
 	sf::RenderWindow	window(sf::VideoMode(1600, 900), "Sandbox", sf::Style::Default);
 	mf::GUI::Init(&window);
 
+	mf::GUI::AddWidget(mf::Widget::Create()->SetPosition(sf::Vector2f(0, 0))
+	->SetSize(sf::Vector2f(100, 100))
+	->SetPositionType(mf::ePosition::ABSOLUTE));
+
 	while (window.isOpen())
 	{
 		sf::Event event;
@@ -35,7 +39,7 @@ int main()
 		{
 			if (event.type == sf::Event::Closed)
 				window.close();
-			mf::GUI::HandleEvents(event);
+			mf::GUI::HandleEvent(event);
 		}
 		window.clear(sf::Color::Red);
 		mf::GUI::Render();
