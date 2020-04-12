@@ -28,7 +28,7 @@ int main()
 	sf::RenderWindow	window(sf::VideoMode(1600, 900), "Sandbox", sf::Style::Default);
 	mf::GUI::Init(&window);
 
-	mf::GUI::AddWidget(mf::Widget::Create()->SetPosition(sf::Vector2f(0, 0))
+	mf::GUI::AddWidget(mf::Image::Create("../assets/default_image.jpg")->SetPosition(sf::Vector2f(0, 0))
 	->SetSize(sf::Vector2f(100, 100))
 	->SetPositionType(mf::ePosition::ABSOLUTE));
 

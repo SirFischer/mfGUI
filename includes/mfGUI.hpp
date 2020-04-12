@@ -1,6 +1,7 @@
 #pragma once
 
 #include "widgets/Widget.hpp"
+#include "Image.hpp"
 
 namespace mf
 {
