@@ -2,10 +2,10 @@
 
 namespace mf
 {
-	sf::Window	*GUI::mWindow = NULL;
-	Widget		*GUI::mBaseWidget = NULL;
+	sf::RenderWindow	*GUI::mWindow = NULL;
+	Widget				*GUI::mBaseWidget = NULL;
 
-	void		GUI::Init(sf::Window *tWindow)
+	void		GUI::Init(sf::RenderWindow *tWindow)
 	{
 		mWindow = tWindow;
 		mBaseWidget = Widget::Create();

@@ -1,28 +1,29 @@
 #pragma once
 
 #include <SFML/Graphics.hpp>
+#include <memory>
 
 namespace mf
 {
     class Background
     {
     protected:
-        sf::Drawable    *mBackGround;
+        std::unique_ptr<sf::RectangleShape>   mBackground;
+        sf::Texture                     mTexture;
+
+        sf::Vector2f                    *mSize;
+        sf::Vector2f                    *mPos;
 
     public:
-        Background(/* args */);
+        Background(sf::Vector2f *tSize, sf::Vector2f *tPos);
         ~Background();
 
-        virtual void            SetBackground(sf::Drawable *tBackground) = 0;
-        virtual sf::Drawable    *GetBackground() = 0;
+        void            SetBackground(sf::RectangleShape *tBackground);
+        void            SetBackground(sf::Color tColor);
+        void            SetBackground(std::string tPath);
+        sf::Drawable    *GetBackground();
+
+        void            Draw();
     };
-    
-    Background::Background(/* args */)
-    {
-    }
-    
-    Background::~Background()
-    {
-    }
     
 } // namespace mf

@@ -1,7 +1,8 @@
 #pragma once
 
 #include <SFML/Graphics.hpp>
-#include "Positions.hpp"
+#include "utils/Positions.hpp"
+#include "../widgetComponents/Background.hpp"
 
 namespace mf
 {
@@ -9,7 +10,7 @@ namespace mf
 	{
 	protected:
 		Widget(/* args */);
-		~Widget();
+		virtual ~Widget();
 
 		Widget					*mParent = NULL;
 		std::vector<Widget *>	mWidgets;
@@ -20,7 +21,7 @@ namespace mf
 
 		int				mIndex;
 
-		void			Render(sf::Window *tWindow);
+		virtual void	Render(sf::RenderWindow *tWindow);
 		void			HandleEvent(sf::Event &tEvent);
 
 	public:
@@ -30,6 +31,10 @@ namespace mf
 		void			AddWidget(Widget *tWidget);
 		void			RemoveWidget(Widget *tWidget);
 		void			ClearWidgets();
+		/**
+		 * Components
+		 **/
+		Background  	mBackground;
 
 		/**
 		 * Setters

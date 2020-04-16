@@ -10,10 +10,10 @@ namespace mf
         Image(/* args */);
         ~Image();
 
-
     public:
 
     static Widget      *Create(std::string tPath);
+    void			    Render(sf::RenderWindow *tWindow);
         
     };
 } // namespace mf
