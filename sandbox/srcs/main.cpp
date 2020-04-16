@@ -28,9 +28,12 @@ int main()
 	sf::RenderWindow	window(sf::VideoMode(1600, 900), "Sandbox", sf::Style::Default);
 	mf::GUI::Init(&window);
 
-	mf::GUI::AddWidget(mf::Image::Create("assets/photo-1542044896530-05d85be9b11a.jpeg")->SetPosition(sf::Vector2f(window.getSize().x / 2 - 500, 200))
+	mf::Widget	*image = mf::Widget::Create()->SetPosition(sf::Vector2f(20, 20))->SetSize(sf::Vector2f(1060, 860));
+	image->mBackground.SetBackground(sf::Color::Blue);
+	
+	mf::GUI::AddWidget(image->AddWidget((mf::Image::Create("assets/photo-1542044896530-05d85be9b11a.jpeg")->SetPosition(sf::Vector2f(30, 30))
 	->SetSize(sf::Vector2f(1000, 800))
-	->SetPositionType(mf::ePosition::ABSOLUTE));
+	->SetPositionType(mf::ePosition::RELATIVE))));
 
 	while (window.isOpen())
 	{

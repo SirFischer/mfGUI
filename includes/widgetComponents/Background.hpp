@@ -8,12 +8,12 @@ namespace mf
     class Background
     {
     protected:
-        std::unique_ptr<sf::RectangleShape>   mBackground;
-        sf::Texture                     mTexture;
+        std::unique_ptr<sf::RectangleShape>     mBackground = NULL;
+        sf::Texture                             mTexture;
 
-        sf::Vector2f                    *mSize;
-        sf::Vector2f                    *mPos;
-
+        sf::Vector2f                            *mPos = NULL;
+        sf::Vector2f                            *mSize = NULL;
+        
     public:
         Background(sf::Vector2f *tSize, sf::Vector2f *tPos);
         ~Background();

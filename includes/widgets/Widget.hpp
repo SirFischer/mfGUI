@@ -17,6 +17,7 @@ namespace mf
 
 		ePosition		mPositionType = ePosition::RELATIVE;
 		sf::Vector2f	mPos = sf::Vector2f(0, 0);
+		sf::Vector2f	mRelativePos = sf::Vector2f(0, 0);
 		sf::Vector2f	mSize = sf::Vector2f(100, 100);
 
 		int				mIndex;
@@ -28,7 +29,7 @@ namespace mf
 		friend class	GUI;
 
 		static Widget 	*Create();
-		void			AddWidget(Widget *tWidget);
+		Widget			*AddWidget(Widget *tWidget);
 		void			RemoveWidget(Widget *tWidget);
 		void			ClearWidgets();
 		/**

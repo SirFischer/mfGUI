@@ -3,9 +3,10 @@
 namespace mf
 {
     Background::Background(sf::Vector2f *tSize, sf::Vector2f *tPos)
+    :mPos(tPos)
+    ,mSize(tSize)
     {
-        mSize = tSize;
-        mPos = tPos;
+
     }
     
     Background::~Background()
@@ -35,6 +36,8 @@ namespace mf
 
     sf::Drawable    *Background::GetBackground()
     {
+        if (!mBackground)
+            return (NULL);
         if (mBackground->getPosition() != *mPos)
             mBackground->setPosition(*mPos);
         if (mBackground->getSize() != *mSize)

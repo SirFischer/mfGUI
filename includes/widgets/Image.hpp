@@ -13,7 +13,6 @@ namespace mf
     public:
 
     static Widget      *Create(std::string tPath);
-    void			    Render(sf::RenderWindow *tWindow);
         
     };
 } // namespace mf
