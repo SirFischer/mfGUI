@@ -2,7 +2,9 @@
 
 #include <SFML/Graphics.hpp>
 #include "utils/Positions.hpp"
+#include "utils/Events.hpp"
 #include "../widgetComponents/Background.hpp"
+#include "widgetComponents/EventManager.hpp"
 
 namespace mf
 {
@@ -36,6 +38,7 @@ namespace mf
 		 * Components
 		 **/
 		Background  	mBackground;
+		EventManager	mEventManager;
 
 		/**
 		 * Setters

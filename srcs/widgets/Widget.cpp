@@ -5,6 +5,7 @@ namespace mf
 
 Widget::Widget()
 :mBackground(&mSize, &mPos)
+,mEventManager(&mPos, &mSize)
 {
 
 }
@@ -21,6 +22,7 @@ Widget      *Widget::Create()
 
 void        Widget::HandleEvent(sf::Event &tEvent)
 {
+    mEventManager.Update(tEvent);
     //handle event for current widget
     for (auto &i : mWidgets)
         i->HandleEvent(tEvent);
