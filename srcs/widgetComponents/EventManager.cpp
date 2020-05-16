@@ -29,7 +29,7 @@ namespace mf
 			break;
 
 		case sf::Event::MouseButtonPressed:
-			if (mEvent == eEvent::ENTERED || mEvent == eEvent::INSIDE)
+			if (mEvent != eEvent::OUTSIDE && mEvent != eEvent::EXITED)
 			{
 				if (tEvent.mouseButton.button == sf::Mouse::Left)
 					mEvent = eEvent::LEFT_CLICK;
@@ -39,7 +39,7 @@ namespace mf
 		break;
 
 		case sf::Event::MouseButtonReleased:
-			if (mEvent == eEvent::ENTERED || mEvent == eEvent::INSIDE || mEvent == eEvent::LEFT_CLICK || mEvent == eEvent::RIGHT_CLICK)
+			if (mEvent != eEvent::OUTSIDE && mEvent != eEvent::EXITED)
 			{
 				if (tEvent.mouseButton.button == sf::Mouse::Left)
 					mEvent = eEvent::LEFT_CLICK_RELEASE;
@@ -53,8 +53,12 @@ namespace mf
 			break;
 		}
 
-		if (mKeyListeners[(uint32_t)mEvent])
+		if (mPreviousEvent != mEvent && mKeyListeners[(uint32_t)mEvent])
+		{
 			mKeyListeners[(uint32_t)mEvent]();
+			mPreviousEvent = mEvent;
+		}
+			
 	}
 
 	void EventManager::AddEventListener(eEvent tEvent ,std::function<void()> tListener)

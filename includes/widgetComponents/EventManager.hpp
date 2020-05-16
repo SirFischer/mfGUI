@@ -10,6 +10,7 @@ namespace mf
     {
     private:
         eEvent              mEvent = eEvent::OUTSIDE;
+        eEvent              mPreviousEvent = eEvent::OUTSIDE;
 
         sf::Vector2f        *mPos;
         sf::Vector2f        *mSize;

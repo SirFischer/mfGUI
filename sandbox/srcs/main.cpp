@@ -34,30 +34,36 @@ int main()
 	image->mBackground.SetBackground(sf::Color::Blue);
 	image->mEventManager.AddEventListener( mf::eEvent::INSIDE, [image] {
 		image->mBackground.SetBackground("assets/photo-1542044896530-05d85be9b11a.jpeg");
-		std::cout << "I am inside" << std::endl;
 	});
 
 	image->mEventManager.AddEventListener(mf::eEvent::OUTSIDE, [image] {
 		image->mBackground.SetBackground(sf::Color::Blue);
-		std::cout << "I am outside" << std::endl;
 	});
 
 	image->mEventManager.AddEventListener(mf::eEvent::LEFT_CLICK, [image] {
 		image->mBackground.SetBackground(sf::Color::Cyan);
-		std::cout << "Click!" << std::endl;
+		std::cout << "Clicked!" << std::endl;
 	});
 
 	image->mEventManager.AddEventListener(mf::eEvent::LEFT_CLICK_RELEASE, [image] {
 		image->mBackground.SetBackground(sf::Color::Green);
-		std::cout << "Click!" << std::endl;
 	});
 	
 	mf::GUI::AddWidget(image->AddWidget((mf::Image::Create("assets/photo-1542044896530-05d85be9b11a.jpeg")->SetPosition(sf::Vector2f(30, 30))
 	->SetSize(sf::Vector2f(1000, 800))
 	->SetPositionType(mf::ePosition::RELATIVE))));
 
+	int fps = 0;
+	sf::Clock fpsClock;
 	while (window.isOpen())
 	{
+		fps++;
+		if (fpsClock.getElapsedTime().asSeconds() > 1.0)
+		{
+			std::cout << "FPS: " << fps << std::endl;
+			fps = 0;
+			fpsClock.restart();
+		}
 		sf::Event event;
 		while (window.pollEvent(event))
 		{
