@@ -13,7 +13,7 @@ Image::~Image()
 
 }
 
-Widget      *Image::Create(std::string tPath)
+Image      *Image::Create(std::string tPath)
 {
     Image   *img = new Image();
     img->mBackground.SetBackground(tPath);

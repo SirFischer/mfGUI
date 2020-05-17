@@ -66,4 +66,10 @@ namespace mf
 		mKeyListeners[(uint32_t)tEvent] = tListener;
 	}
 
+	void    EventManager::TriggerEvent(eEvent tEvent)
+	{
+		if (mKeyListeners[(uint32_t)tEvent])
+			mKeyListeners[(uint32_t)tEvent]();
+	}
+
 } // namespace mf

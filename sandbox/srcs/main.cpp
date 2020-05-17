@@ -30,28 +30,21 @@ int main()
 	sf::RenderWindow	window(sf::VideoMode(1600, 900), "Sandbox", sf::Style::Default);
 	mf::GUI::Init(&window);
 
+
 	mf::Widget	*image = mf::Widget::Create()->SetPosition(sf::Vector2f(20, 20))->SetSize(sf::Vector2f(1060, 860));
 	image->mBackground.SetBackground(sf::Color::Blue);
-	image->mEventManager.AddEventListener( mf::eEvent::INSIDE, [image] {
-		image->mBackground.SetBackground("assets/photo-1542044896530-05d85be9b11a.jpeg");
-	});
-
-	image->mEventManager.AddEventListener(mf::eEvent::OUTSIDE, [image] {
-		image->mBackground.SetBackground(sf::Color::Blue);
-	});
-
-	image->mEventManager.AddEventListener(mf::eEvent::LEFT_CLICK, [image] {
-		image->mBackground.SetBackground(sf::Color::Cyan);
-		std::cout << "Clicked!" << std::endl;
-	});
-
-	image->mEventManager.AddEventListener(mf::eEvent::LEFT_CLICK_RELEASE, [image] {
-		image->mBackground.SetBackground(sf::Color::Green);
-	});
 	
 	mf::GUI::AddWidget(image->AddWidget((mf::Image::Create("assets/photo-1542044896530-05d85be9b11a.jpeg")->SetPosition(sf::Vector2f(30, 30))
 	->SetSize(sf::Vector2f(1000, 800))
 	->SetPositionType(mf::ePosition::RELATIVE))));
+
+	mf::Button	*btn = mf::Button::Create(sf::Color::Blue, sf::Color::Cyan);
+	btn->SetPosition(sf::Vector2f(1480, 20));
+	btn->mEventManager.AddEventListener(mf::eEvent::LEFT_CLICK, [&window] {
+		window.close();
+	});
+	mf::GUI::AddWidget(btn);
+
 
 	int fps = 0;
 	sf::Clock fpsClock;

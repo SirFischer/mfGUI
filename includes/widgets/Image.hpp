@@ -12,7 +12,7 @@ namespace mf
 
     public:
 
-    static Widget      *Create(std::string tPath);
+    static Image      *Create(std::string tPath);
         
     };
 } // namespace mf

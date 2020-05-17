@@ -30,7 +30,8 @@ namespace mf
     public:
         friend class Widget;
 
-       	void AddEventListener(eEvent tEvent ,std::function<void()> tListener);
+       	void    AddEventListener(eEvent tEvent ,std::function<void()> tListener);
+        void    TriggerEvent(eEvent tEvent);
 
     };
     

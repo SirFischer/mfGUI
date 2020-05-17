@@ -2,6 +2,7 @@
 
 #include "widgets/Widget.hpp"
 #include "widgets/Image.hpp"
+#include "widgets/Button.hpp"
 
 namespace mf
 {
