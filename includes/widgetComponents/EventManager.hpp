@@ -6,33 +6,37 @@
 
 namespace mf
 {
-    class EventManager
-    {
-    private:
-        eEvent              mEvent = eEvent::OUTSIDE;
-        eEvent              mPreviousEvent = eEvent::OUTSIDE;
+	namespace component
+	{
+		class EventManager
+		{
+		private:
+			eEvent              mEvent = eEvent::OUTSIDE;
+			eEvent              mPreviousEvent = eEvent::OUTSIDE;
 
-        sf::Vector2f        *mPos;
-        sf::Vector2f        *mSize;
+			sf::Vector2f        *mPos;
+			sf::Vector2f        *mSize;
 
-        std::map<uint32_t, std::function<void()>>   mKeyListeners;
-        std::function<void()> mOnLeftClickListener;
-        std::function<void()> mOnRightClickListener;
-        std::function<void()> mOnEnterListener;
-        std::function<void()> mOnHoverListener;
-        std::function<void()> mOnExitListener;
+			std::map<uint32_t, std::function<void()>>   mKeyListeners;
+			std::function<void()> mOnLeftClickListener;
+			std::function<void()> mOnRightClickListener;
+			std::function<void()> mOnEnterListener;
+			std::function<void()> mOnHoverListener;
+			std::function<void()> mOnExitListener;
 
-        void            Update(sf::Event &tEvent);
+			
 
-        EventManager(sf::Vector2f *tPos, sf::Vector2f *tSize);
-        ~EventManager();
+		public:
+			EventManager(sf::Vector2f *tPos, sf::Vector2f *tSize);
+			~EventManager();
 
-    public:
-        friend class Widget;
+			void	Update(sf::Event &tEvent);
+			void    AddEventListener(eEvent tEvent ,std::function<void()> tListener);
+			void    TriggerEvent(eEvent tEvent);
 
-       	void    AddEventListener(eEvent tEvent ,std::function<void()> tListener);
-        void    TriggerEvent(eEvent tEvent);
-
-    };
+		};
+	} // namespace component
+	
+    
     
 } // namespace mf

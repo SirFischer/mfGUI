@@ -4,8 +4,6 @@ namespace mf
 {
 
 Widget::Widget()
-:mBackground(&mSize, &mPos)
-,mEventManager(&mPos, &mSize)
 {
 
 }
@@ -22,7 +20,6 @@ Widget      *Widget::Create()
 
 void        Widget::HandleEvent(sf::Event &tEvent)
 {
-    mEventManager.Update(tEvent);
     //handle event for current widget
     for (auto &i : mWidgets)
         i->HandleEvent(tEvent);
@@ -30,11 +27,6 @@ void        Widget::HandleEvent(sf::Event &tEvent)
 
 void		Widget::Render(sf::RenderWindow *tWindow)
 {
-    //render current widget
-    if (mBackground.GetBackground())
-    {
-        tWindow->draw(*mBackground.GetBackground());    
-    }
     for (auto &i : mWidgets)
         i->Render(tWindow);
 }
@@ -54,7 +46,7 @@ void			Widget::RemoveWidget(Widget *tWidget)
 
 void        Widget::ClearWidgets()
 {
-    while (mWidgets.back())
+    while (mWidgets.size())
     {
         mWidgets.back()->ClearWidgets();
         delete mWidgets.back();

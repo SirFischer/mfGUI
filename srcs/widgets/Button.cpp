@@ -4,6 +4,8 @@ namespace mf
 {
 
 Button::Button()
+:mBackground(&mPos, &mSize)
+,mEventManager(&mPos, &mSize)
 {
 
 }
@@ -11,6 +13,21 @@ Button::Button()
 Button::~Button()
 {
 
+}
+
+void		Button::HandleEvent(sf::Event &tEvent)
+{
+	mEventManager.Update(tEvent);
+	Widget::HandleEvent(tEvent);
+}
+
+void		Button::Render(sf::RenderWindow *tWindow)
+{
+	if (mBackground.GetBackground())
+    {
+        tWindow->draw(*mBackground.GetBackground());    
+    }
+	Widget::Render(tWindow);
 }
 
 Button      *Button::Create(std::string tPathIdle, std::string tPathHover)
@@ -39,6 +56,11 @@ Button      *Button::Create(sf::Color tIdle, sf::Color tHover)
         btn->mBackground.SetBackground(tHover);
     });
     return (btn);
+}
+
+void		Button::SetClickEvent(std::function<void()> tListener)
+{
+	mEventManager.AddEventListener(eEvent::LEFT_CLICK, tListener);
 }
 
 

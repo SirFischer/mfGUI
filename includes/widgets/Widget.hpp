@@ -25,7 +25,7 @@ namespace mf
 		int				mIndex;
 
 		virtual void	Render(sf::RenderWindow *tWindow);
-		void			HandleEvent(sf::Event &tEvent);
+		virtual void	HandleEvent(sf::Event &tEvent);
 
 	public:
 		friend class	GUI;
@@ -34,11 +34,6 @@ namespace mf
 		Widget			*AddWidget(Widget *tWidget);
 		void			RemoveWidget(Widget *tWidget);
 		void			ClearWidgets();
-		/**
-		 * Components
-		 **/
-		Background  	mBackground;
-		EventManager	mEventManager;
 
 		/**
 		 * Setters
