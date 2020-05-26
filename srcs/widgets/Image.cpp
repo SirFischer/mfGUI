@@ -16,10 +16,7 @@ Image::~Image()
 
 void		Image::Render(sf::RenderWindow *tWindow)
 {
-	if (mBackground.GetBackground())
-    {
-        tWindow->draw(*mBackground.GetBackground());    
-    }
+	mBackground.Draw(tWindow);
 	Widget::Render(tWindow);
 }
 

@@ -23,10 +23,7 @@ void		Button::HandleEvent(sf::Event &tEvent)
 
 void		Button::Render(sf::RenderWindow *tWindow)
 {
-	if (mBackground.GetBackground())
-    {
-        tWindow->draw(*mBackground.GetBackground());    
-    }
+	mBackground.Draw(tWindow);
 	Widget::Render(tWindow);
 }
 

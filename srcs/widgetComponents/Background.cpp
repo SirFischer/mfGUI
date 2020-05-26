@@ -54,5 +54,13 @@ namespace mf
 				mBackground->setSize(*mSize);
 			return (mBackground.get());
 		}
+
+		void            Background::Draw(sf::RenderWindow *tWindow)
+		{
+			if (this->GetBackground())
+			{
+				tWindow->draw(*mBackground.get());
+			}
+		}
 	} // namespace component 
 } // namespace mf

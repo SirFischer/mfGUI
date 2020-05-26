@@ -26,7 +26,7 @@ namespace mf
 			void            SetBackground(std::string tPath);
 			sf::Drawable    *GetBackground();
 
-			void            Draw();
+			void            Draw(sf::RenderWindow *tWindow);
 		};
 	}
 } // namespace mf
