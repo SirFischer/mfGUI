@@ -1,8 +1,8 @@
 #include "../../includes/mfGUI.hpp"
 
-void CreateSecondMenu(sf::RenderWindow *win);
+void CreateSecondMenu(bool *isOpen);
 
-void CreateMainMenu(sf::RenderWindow	*win)
+void CreateMainMenu(bool *isOpen)
 {
 	mf::GUI::ClearWidgets();
 	mf::Widget	*image = mf::Widget::Create()->SetPosition(sf::Vector2f(20, 20))->SetSize(sf::Vector2f(1060, 860));
@@ -13,25 +13,24 @@ void CreateMainMenu(sf::RenderWindow	*win)
 
 	mf::Button	*btn = mf::Button::Create(sf::Color::Blue, sf::Color::Cyan);
 	btn->SetPosition(sf::Vector2f(1480, 20));
-	btn->SetClickEvent([&win] {
-		CreateSecondMenu(win);
+	btn->SetClickEvent([isOpen] {
+		CreateSecondMenu(isOpen);
 	});
 	mf::GUI::AddWidget(btn);
 }
 
-void CreateSecondMenu(sf::RenderWindow *win)
+void CreateSecondMenu(bool *isOpen)
 {
 	mf::GUI::ClearWidgets();
 	mf::Button *back = mf::Button::Create(sf::Color::Green, sf::Color::Red);
-	back->SetClickEvent([&win] {
-		CreateMainMenu(win);
+	back->SetClickEvent([isOpen] {
+		CreateMainMenu(isOpen);
 	});
 	mf::GUI::AddWidget(back);
 	back = mf::Button::Create(sf::Color::Red, sf::Color::Green);
-	back->SetClickEvent([&win] {
+	back->SetClickEvent([isOpen] {
 		std::cout << "Window Closed!" << std::endl;
-		if (win->isOpen())
-			win->close();
+		*isOpen = false;
 	});
 	back->SetPosition(sf::Vector2f(0, 100));
 	mf::GUI::AddWidget(back);
@@ -42,13 +41,14 @@ int main()
 {
 	sf::RenderWindow	window(sf::VideoMode(1600, 900), "Sandbox", sf::Style::Default);
 	mf::GUI::Init(&window);
+	bool	isOpen = true;
 
 
-	CreateMainMenu(&window);
+	CreateMainMenu(&isOpen);
 
 	int fps = 0;
 	sf::Clock fpsClock;
-	while (window.isOpen())
+	while (isOpen)
 	{
 		fps++;
 		if (fpsClock.getElapsedTime().asSeconds() > 1.0)
@@ -61,12 +61,13 @@ int main()
 		while (window.pollEvent(event))
 		{
 			if (event.type == sf::Event::Closed)
-				window.close();
+				isOpen = false;
 			mf::GUI::HandleEvent(event);
 		}
 		window.clear(sf::Color::White);
 		mf::GUI::Render();
 		window.display();
 	}
+	window.close();
 	mf::GUI::ClearWidgets();
 }
