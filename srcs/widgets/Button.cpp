@@ -6,6 +6,7 @@ namespace mf
 Button::Button()
 :mBackground(&mPos, &mSize)
 ,mEventManager(&mPos, &mSize)
+,mText(&mPos, &mSize)
 {
 
 }
@@ -24,6 +25,7 @@ void		Button::HandleEvent(sf::Event &tEvent)
 void		Button::Render(sf::RenderWindow *tWindow)
 {
 	mBackground.Draw(tWindow);
+	mText.Draw(tWindow);
 	Widget::Render(tWindow);
 }
 
@@ -58,6 +60,26 @@ Button      *Button::Create(sf::Color tIdle, sf::Color tHover)
 void		Button::SetClickEvent(std::function<void()> tListener)
 {
 	mEventManager.AddEventListener(eEvent::LEFT_CLICK, tListener);
+}
+
+void		Button::SetText(std::string tText)
+{
+	mText.SetString(tText);
+}
+
+void		Button::SetTextFont(std::string tPath)
+{
+	mText.LoadFont(tPath);
+}
+
+void		Button::SetTextFont(sf::Font tFont)
+{
+	mText.LoadFont(tFont);
+}
+
+void		Button::SetTextPosition(sf::Vector2f tPos)
+{
+	mText.SetPos(tPos);
 }
 
 

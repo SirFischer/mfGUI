@@ -3,8 +3,10 @@
 #include <SFML/Graphics.hpp>
 #include "utils/Positions.hpp"
 #include "utils/Events.hpp"
-#include "../widgetComponents/Background.hpp"
+
+#include "widgetComponents/Background.hpp"
 #include "widgetComponents/EventManager.hpp"
+#include "widgetComponents/Text.hpp"
 
 namespace mf
 {

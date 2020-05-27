@@ -16,6 +16,8 @@ void CreateMainMenu(bool *isOpen)
 	btn->SetClickEvent([isOpen] {
 		CreateSecondMenu(isOpen);
 	});
+	btn->SetTextFont("assets/Bangers-Regular.ttf");
+	btn->SetText("Quit!");
 	mf::GUI::AddWidget(btn);
 }
 
@@ -26,13 +28,20 @@ void CreateSecondMenu(bool *isOpen)
 	back->SetClickEvent([isOpen] {
 		CreateMainMenu(isOpen);
 	});
+	back->SetPosition(sf::Vector2f(500, 400));
+	back->SetTextFont("assets/Bangers-Regular.ttf");
+	back->SetText("No");
+	back->SetTextPosition(sf::Vector2f(35, 5));
 	mf::GUI::AddWidget(back);
 	back = mf::Button::Create(sf::Color::Red, sf::Color::Green);
 	back->SetClickEvent([isOpen] {
 		std::cout << "Window Closed!" << std::endl;
 		*isOpen = false;
 	});
-	back->SetPosition(sf::Vector2f(0, 100));
+	back->SetPosition(sf::Vector2f(500, 500));
+	back->SetTextFont("assets/Bangers-Regular.ttf");
+	back->SetTextPosition(sf::Vector2f(35, 5));
+	back->SetText("Yes");
 	mf::GUI::AddWidget(back);
 }
 
