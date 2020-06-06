@@ -1,48 +1,18 @@
 #include "../../includes/mfGUI.hpp"
 
-void CreateSecondMenu(bool *isOpen);
-
-void CreateMainMenu(bool *isOpen)
+void CreateMainMenu(bool *isOpen, bool *isRecreate)
 {
 	mf::GUI::ClearWidgets();
-	mf::Widget	*image = mf::Widget::Create()->SetPosition(sf::Vector2f(20, 20))->SetSize(sf::Vector2f(1060, 860));
-	
-	mf::GUI::AddWidget(image->AddWidget((mf::Image::Create("assets/photo-1542044896530-05d85be9b11a.jpeg")->SetPosition(sf::Vector2f(30, 30))
-	->SetSize(sf::Vector2f(1000, 800))
-	->SetPositionType(mf::ePosition::RELATIVE))));
 
 	mf::Button	*btn = mf::Button::Create(sf::Color::Blue, sf::Color::Cyan);
-	btn->SetPosition(sf::Vector2f(1480, 20));
-	btn->SetClickEvent([isOpen] {
-		CreateSecondMenu(isOpen);
+	btn->SetPosition(sf::Vector2f(1480, 20))
+	->SetTextFont("assets/Bangers-Regular.ttf")
+	->SetText("Quit!")
+	->SetClickEvent([isOpen, isRecreate] {
+		*isRecreate = true;
+		std::cout << "I was reset!" << std::endl;
 	});
-	btn->SetTextFont("assets/Bangers-Regular.ttf");
-	btn->SetText("Quit!");
 	mf::GUI::AddWidget(btn);
-}
-
-void CreateSecondMenu(bool *isOpen)
-{
-	mf::GUI::ClearWidgets();
-	mf::Button *back = mf::Button::Create(sf::Color::Green, sf::Color::Red);
-	back->SetClickEvent([isOpen] {
-		CreateMainMenu(isOpen);
-	});
-	back->SetPosition(sf::Vector2f(500, 400));
-	back->SetTextFont("assets/Bangers-Regular.ttf");
-	back->SetText("No");
-	back->SetTextPosition(sf::Vector2f(35, 5));
-	mf::GUI::AddWidget(back);
-	back = mf::Button::Create(sf::Color::Red, sf::Color::Green);
-	back->SetClickEvent([isOpen] {
-		std::cout << "Window Closed!" << std::endl;
-		*isOpen = false;
-	});
-	back->SetPosition(sf::Vector2f(500, 500));
-	back->SetTextFont("assets/Bangers-Regular.ttf");
-	back->SetTextPosition(sf::Vector2f(35, 5));
-	back->SetText("Yes");
-	mf::GUI::AddWidget(back);
 }
 
 
@@ -51,9 +21,11 @@ int main()
 	sf::RenderWindow	window(sf::VideoMode(1600, 900), "Sandbox", sf::Style::Default);
 	mf::GUI::Init(&window);
 	bool	isOpen = true;
+	bool	isRecreate = false;
 
+	CreateMainMenu(&isOpen, &isRecreate);
 
-	CreateMainMenu(&isOpen);
+	
 
 	int fps = 0;
 	sf::Clock fpsClock;
@@ -71,6 +43,11 @@ int main()
 		{
 			if (event.type == sf::Event::Closed)
 				isOpen = false;
+			if (isRecreate)
+			{
+				CreateMainMenu(&isOpen, &isRecreate);
+				isRecreate = false;
+			}
 			mf::GUI::HandleEvent(event);
 		}
 		window.clear(sf::Color::White);

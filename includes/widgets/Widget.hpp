@@ -16,13 +16,13 @@ namespace mf
 		Widget(/* args */);
 		virtual ~Widget();
 
-		Widget					*mParent = NULL;
-		std::vector<Widget *>	mWidgets;
-
 		ePosition		mPositionType = ePosition::RELATIVE;
 		sf::Vector2f	mPos = sf::Vector2f(0, 0);
 		sf::Vector2f	mRelativePos = sf::Vector2f(0, 0);
 		sf::Vector2f	mSize = sf::Vector2f(100, 100);
+
+		Widget					*mParent = NULL;
+		std::vector<Widget *>	mWidgets = std::vector<Widget *>();
 
 		int				mIndex;
 

@@ -10,7 +10,7 @@ namespace mf
 		class Background
 		{
 		protected:
-			std::unique_ptr<sf::RectangleShape>     mBackground = NULL;
+			sf::RectangleShape     					mBackground;
 			sf::Texture                             mTexture;
 
 			sf::Vector2f                            *mPos = NULL;
@@ -24,7 +24,9 @@ namespace mf
 			void			SetBackground(sf::Texture tTexture);
 			void            SetBackground(sf::Color tColor);
 			void            SetBackground(std::string tPath);
-			sf::Drawable    *GetBackground();
+
+			void			SetOutlineColor(sf::Color tColor);
+			void			SetOutlineThickness(float tThickness);
 
 			void            Draw(sf::RenderWindow *tWindow);
 		};

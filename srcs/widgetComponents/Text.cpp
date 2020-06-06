@@ -42,6 +42,11 @@ namespace mf
 			mRelPos = tPos;
 		}
 
+		void			Text::SetColor(sf::Color tColor)
+		{
+			mText.setFillColor(tColor);
+		}
+
 		void			Text::Draw(sf::RenderWindow *tWindow)
 		{
 			mText.setPosition(*mPos + mRelPos);

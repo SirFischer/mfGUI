@@ -17,50 +17,49 @@ namespace mf
 
 		void            Background::SetBackground(sf::RectangleShape *tBackground)
 		{
-			mBackground.reset(tBackground);
+			if (!tBackground)
+				return ;
+			mBackground = *tBackground;
 		}
 
 		void            Background::SetBackground(sf::Color tColor)
 		{
-			sf::RectangleShape      *rectangle = new sf::RectangleShape(*mSize);
-			rectangle->setFillColor(tColor);
-			rectangle->setPosition(*mPos);
-			SetBackground(rectangle);
+			mBackground.setFillColor(tColor);
+			mBackground.setPosition(*mPos);
 		}
 
 		void			Background::SetBackground(sf::Texture tTexture)
 		{
 			mTexture = tTexture;
 			SetBackground(sf::Color::White);
-			sf::RectangleShape      *rectangle = (sf::RectangleShape *)mBackground.get();
-			rectangle->setTexture(&mTexture);
+			mBackground.setTexture(&mTexture);
 		}
 
 		void            Background::SetBackground(std::string tPath)
 		{
 			mTexture.loadFromFile(tPath);
 			SetBackground(sf::Color::White);
-			sf::RectangleShape      *rectangle = (sf::RectangleShape *)mBackground.get();
-			rectangle->setTexture(&mTexture);
+			mBackground.setTexture(&mTexture);
 		}
 
-		sf::Drawable    *Background::GetBackground()
+		void			Background::SetOutlineColor(sf::Color tColor)
 		{
-			if (!mBackground)
-				return (NULL);
-			if (mBackground->getPosition() != *mPos)
-				mBackground->setPosition(*mPos);
-			if (mBackground->getSize() != *mSize)
-				mBackground->setSize(*mSize);
-			return (mBackground.get());
+			mBackground.setOutlineColor(tColor);
 		}
+
+		void			Background::SetOutlineThickness(float tThickness)
+		{
+			mBackground.setOutlineThickness(tThickness);
+		}
+
 
 		void            Background::Draw(sf::RenderWindow *tWindow)
 		{
-			if (this->GetBackground())
-			{
-				tWindow->draw(*mBackground.get());
-			}
+			if (mBackground.getPosition() != *mPos)
+				mBackground.setPosition(*mPos);
+			if (mBackground.getSize() != *mSize)
+				mBackground.setSize(*mSize);
+			tWindow->draw(mBackground);
 		}
 	} // namespace component 
 } // namespace mf

@@ -37,4 +37,16 @@ void	Image::SetImage(sf::Texture	&tTexture)
 	this->mBackground.SetBackground(tTexture);
 }
 
+Image	*Image::SetOutlineThickness(float tThickness)
+{
+	mBackground.SetOutlineThickness(tThickness);
+	return (this);
+}
+
+Image	*Image::SetOutlineColor(sf::Color tColor)
+{
+	mBackground.SetOutlineColor(tColor);
+	return (this);
+}
+
 } // namespace mf

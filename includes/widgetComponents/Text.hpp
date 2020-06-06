@@ -28,6 +28,7 @@ namespace mf
 			void			SetString(std::string tString);
 			void			SetSize(unsigned int tSize);
 			void			SetPos(sf::Vector2f tPos);
+			void			SetColor(sf::Color tColor);
 
 			void            Draw(sf::RenderWindow *tWindow);
 		};

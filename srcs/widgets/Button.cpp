@@ -13,6 +13,7 @@ Button::Button()
 
 Button::~Button()
 {
+	std::cout << "I am mister button, and i was destroyed!" << std::endl;
 
 }
 
@@ -48,6 +49,7 @@ Button      *Button::Create(sf::Color tIdle, sf::Color tHover)
     Button *btn = new Button();
     btn->mBackground.SetBackground(tIdle);
     btn->SetSize(sf::Vector2f(100, 50));
+	(void)tHover;
     btn->mEventManager.AddEventListener(eEvent::EXITED, [btn, tIdle] {
         btn->mBackground.SetBackground(tIdle);
     });
@@ -57,29 +59,52 @@ Button      *Button::Create(sf::Color tIdle, sf::Color tHover)
     return (btn);
 }
 
-void		Button::SetClickEvent(std::function<void()> tListener)
+Button		*Button::SetClickEvent(std::function<void()> tListener)
 {
 	mEventManager.AddEventListener(eEvent::LEFT_CLICK, tListener);
+	return (this);
 }
 
-void		Button::SetText(std::string tText)
+Button		*Button::SetText(std::string tText)
 {
 	mText.SetString(tText);
+	return (this);
 }
 
-void		Button::SetTextFont(std::string tPath)
+Button		*Button::SetTextFont(std::string tPath)
 {
 	mText.LoadFont(tPath);
+	return (this);
 }
 
-void		Button::SetTextFont(sf::Font tFont)
+Button		*Button::SetTextFont(sf::Font tFont)
 {
 	mText.LoadFont(tFont);
+	return (this);
 }
 
-void		Button::SetTextPosition(sf::Vector2f tPos)
+Button		*Button::SetTextPosition(sf::Vector2f tPos)
 {
 	mText.SetPos(tPos);
+	return (this);
+}
+
+Button		*Button::SetTextColor(sf::Color tColor)
+{
+	mText.SetColor(tColor);
+	return (this);
+}
+
+Button		*Button::SetOutlineThickness(float tThickness)
+{
+	mBackground.SetOutlineThickness(tThickness);
+	return (this);
+}
+
+Button		*Button::SetOutlineColor(sf::Color tColor)
+{
+	mBackground.SetOutlineColor(tColor);
+	return (this);
 }
 
 

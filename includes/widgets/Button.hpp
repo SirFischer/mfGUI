@@ -30,11 +30,25 @@ namespace mf
 		/**
 		 * Setters
 		 **/
-		void				SetClickEvent(std::function<void()> tListener);
-		void				SetText(std::string tText);
-		void				SetTextFont(std::string tPath);
-		void				SetTextFont(sf::Font tFont);
-		void				SetTextPosition(sf::Vector2f tPos);
+		Button				*SetClickEvent(std::function<void()> tListener);
+
+		//Text
+		Button				*SetText(std::string tText);
+		Button				*SetTextFont(std::string tPath);
+		Button				*SetTextFont(sf::Font tFont);
+		Button				*SetTextPosition(sf::Vector2f tPos);
+		Button				*SetTextColor(sf::Color tColor);
+
+		//Background
+		Button				*SetOutlineThickness(float tThickness);
+		Button				*SetOutlineColor(sf::Color tColor);
+
+		/**
+		 * Overides
+		 **/
+		Button				*SetPositionType(ePosition tPosType){Widget::SetPositionType(tPosType); return (this);}
+		Button				*SetPosition(sf::Vector2f tPos){Widget::SetPosition(tPos); return (this);}
+		Button				*SetSize(sf::Vector2f tSize){Widget::SetSize(tSize); return (this);}
         
     };
 } // namespace mf

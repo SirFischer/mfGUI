@@ -21,7 +21,7 @@ Widget      *Widget::Create()
 void        Widget::HandleEvent(sf::Event &tEvent)
 {
     //handle event for current widget
-    for (auto &i : mWidgets)
+    for (auto i : mWidgets)
         i->HandleEvent(tEvent);
 }
 
@@ -51,6 +51,7 @@ void        Widget::ClearWidgets()
         mWidgets.back()->ClearWidgets();
         delete mWidgets.back();
         mWidgets.pop_back();
+		
     }
 }
 
