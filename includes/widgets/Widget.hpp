@@ -42,6 +42,8 @@ namespace mf
 		 **/
 		Widget			*SetPositionType(ePosition tPosType);
 		Widget			*SetPosition(sf::Vector2f tPos);
+		Widget			*SetPosition(float tX, float tY);
+		Widget			*SetSize(float tX, float tY);
 		Widget			*SetSize(sf::Vector2f tSize);
 
 		/**

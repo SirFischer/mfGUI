@@ -69,6 +69,18 @@ Widget			*Widget::SetPosition(sf::Vector2f tPos)
     return (this);
 }
 
+Widget			*Widget::SetPosition(float tX, float tY)
+{
+    this->SetPosition(sf::Vector2f(tX, tY));
+    return (this);
+}
+
+Widget			*Widget::SetSize(float tX, float tY)
+{
+    this->SetSize(sf::Vector2f(tX, tY));
+    return (this);
+}
+
 Widget			*Widget::SetSize(sf::Vector2f tSize)
 {
     mSize = tSize;

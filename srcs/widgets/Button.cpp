@@ -13,7 +13,6 @@ Button::Button()
 
 Button::~Button()
 {
-	std::cout << "I am mister button, and i was destroyed!" << std::endl;
 
 }
 

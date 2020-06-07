@@ -6,10 +6,10 @@ void CreateMainMenu(bool *isOpen)
 
 	mf::Button	*btn = mf::Button::Create(sf::Color::Blue, sf::Color::Cyan);
 	btn->SetPosition(1300, 50)
-	->SetSize(250, 50)
+	->SetSize(100, 50)
 	->SetTextFont("assets/Bangers-Regular.ttf")
 	->SetTextColor(sf::Color::Black)
-	->SetText("This is a test to check the line cutting feature!\n I think it works fine, let's test this shit with a slightly longer text shall we?!")
+	->SetText("Quit!")
 	->SetClickEvent([isOpen] {
 		*isOpen = false;
 	});

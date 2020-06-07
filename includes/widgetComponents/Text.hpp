@@ -1,5 +1,6 @@
 #pragma once
 
+#include <iostream>
 #include <SFML/Graphics.hpp>
 #include <memory>
 
@@ -17,6 +18,10 @@ namespace mf
 
 			sf::Font			mFont;
 			sf::Text			mText;
+
+			std::string			mString;
+
+			void				FormatText();
 			
 		public:
 			Text(sf::Vector2f *tPos,sf::Vector2f *tSize);
@@ -25,10 +30,14 @@ namespace mf
 			void			LoadFont(std::string tPath);
 			void			LoadFont(sf::Font tFont);
 
-			void			SetString(std::string tString);
 			void			SetSize(unsigned int tSize);
 			void			SetPos(sf::Vector2f tPos);
 			void			SetColor(sf::Color tColor);
+
+			void			SetString(std::string tString);
+			void			AddString(std::string tString);
+			void			DeleteString(int tNum);
+			void			ResetString();
 
 			void            Draw(sf::RenderWindow *tWindow);
 		};
