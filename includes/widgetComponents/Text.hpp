@@ -21,7 +21,7 @@ namespace mf
 
 			std::string			mString;
 
-			void				FormatText();
+			
 			
 		public:
 			Text(sf::Vector2f *tPos,sf::Vector2f *tSize);
@@ -34,6 +34,7 @@ namespace mf
 			void			SetPos(sf::Vector2f tPos);
 			void			SetColor(sf::Color tColor);
 
+			void			FormatText();
 			void			SetString(std::string tString);
 			void			AddString(std::string tString);
 			void			DeleteString(int tNum);

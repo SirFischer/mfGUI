@@ -3,6 +3,7 @@
 #include "widgets/Widget.hpp"
 #include "widgets/Image.hpp"
 #include "widgets/Button.hpp"
+#include "widgets/Text.hpp"
 
 namespace mf
 {
