@@ -26,6 +26,7 @@ void CreateMainMenu(bool *isOpen)
 	->SetOutlineColor(sf::Color::Black)
 	->SetOutlineThickness(1.5f)
 	->SetTextColor(sf::Color::Black));
+	
 }
 
 int main()
