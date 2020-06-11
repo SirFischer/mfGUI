@@ -22,7 +22,7 @@ void CreateMainMenu(bool *isOpen)
 
 	mf::GUI::AddWidget(mf::Text::Create("assets/Bangers-Regular.ttf", "This is a test text widget to test the text wrapping algorithm...")
 	->SetPosition(300, 300)
-	->SetSize(400, 300)
+	->SetSize(200, 300)
 	->SetOutlineColor(sf::Color::Black)
 	->SetOutlineThickness(1.5f)
 	->SetTextColor(sf::Color::Black));

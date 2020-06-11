@@ -65,8 +65,21 @@ namespace mf
 					continue;
 				}
 				if (start + maxCharPerLine < res.size())
-					res.insert(start + maxCharPerLine, "-\n");
-				start += maxCharPerLine + 2;
+				{
+					stopPos = res.rfind(' ', start + maxCharPerLine);
+					if (stopPos != std::string::npos && stopPos > 0 && stopPos > start)
+					{
+						res.insert(stopPos + 1, "\n");
+						start += 1;
+					}
+					else
+					{
+						res.insert(start + maxCharPerLine, "-\n");
+						start += 2;
+					}
+				}
+					
+				start += maxCharPerLine;
 			}
 			mText.setString(res);
 		}
