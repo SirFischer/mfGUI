@@ -38,7 +38,7 @@ namespace mf
 			std::string		FormatText(std::string tString);
 			void			SetString(std::string tString);
 			void			AddString(std::string tString);
-			void			DeleteString(int tNum);
+			void			DeleteString(size_t tNum);
 			void			ResetString();
 
 			void            Draw(sf::RenderWindow *tWindow);

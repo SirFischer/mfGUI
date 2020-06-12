@@ -29,6 +29,7 @@ namespace mf
 		 **/
 		Text			*SetText(std::string tText);
 		Text			*AddText(std::string tText) {mText.AddString(tText); return (this);}
+		Text			*DeleteText(size_t tNum) {mText.DeleteString(tNum); return (this);}
 		Text			*SetTextFont(std::string tPath);
 		Text			*SetTextFont(sf::Font tFont);
 		Text			*SetTextPosition(sf::Vector2f tPos);

@@ -36,7 +36,7 @@ void CreateMainMenu(bool *isOpen)
 	->SetTextColor(sf::Color::Black)
 	->SetText("Add lol!")
 	->SetClickEvent([textWidget] {
-		textWidget->AddText("lol ");
+		textWidget->AddText("This is a new string ");
 	});
 	mf::GUI::AddWidget(btn2);
 

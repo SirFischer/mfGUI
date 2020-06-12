@@ -106,9 +106,10 @@ namespace mf
 			mText.setString(lineStart);
 		}
 
-		void			Text::DeleteString(int tNum)
+		void			Text::DeleteString(size_t tNum)
 		{
-			(void)tNum;
+			mString.erase(mString.size() - tNum, tNum);
+			ReformatString();
 		}
 
 		void			Text::ResetString()
