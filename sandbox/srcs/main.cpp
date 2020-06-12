@@ -20,13 +20,26 @@ void CreateMainMenu(bool *isOpen)
 	->SetOutlineColor(sf::Color::Black)
 	->SetOutlineThickness(3.f));
 
-	mf::GUI::AddWidget(mf::Text::Create("assets/Bangers-Regular.ttf", "This is a test text widget to test the text wrapping algorithm...")
+	mf::Text	*textWidget = 
+	mf::Text::Create("assets/Bangers-Regular.ttf", "This is a test text widget to test the text wrapping algorithm...")
 	->SetPosition(300, 300)
-	->SetSize(200, 300)
+	->SetSize(400, 300)
 	->SetOutlineColor(sf::Color::Black)
 	->SetOutlineThickness(1.5f)
-	->SetTextColor(sf::Color::Black));
-	
+	->SetTextColor(sf::Color::Black);
+	mf::GUI::AddWidget(textWidget);
+
+	mf::Button	*btn2 = mf::Button::Create(sf::Color::Blue, sf::Color::Cyan);
+	btn2->SetPosition(1000, 50)
+	->SetSize(100, 50)
+	->SetTextFont("assets/Bangers-Regular.ttf")
+	->SetTextColor(sf::Color::Black)
+	->SetText("Add lol!")
+	->SetClickEvent([textWidget] {
+		textWidget->AddText("lol ");
+	});
+	mf::GUI::AddWidget(btn2);
+
 }
 
 int main()

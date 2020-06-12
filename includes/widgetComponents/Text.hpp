@@ -34,7 +34,8 @@ namespace mf
 			void			SetPos(sf::Vector2f tPos);
 			void			SetColor(sf::Color tColor);
 
-			void			FormatText();
+			void			ReformatString();
+			std::string		FormatText(std::string tString);
 			void			SetString(std::string tString);
 			void			AddString(std::string tString);
 			void			DeleteString(int tNum);

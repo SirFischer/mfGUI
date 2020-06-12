@@ -48,9 +48,14 @@ namespace mf
 			tWindow->draw(mText);
 		}
 
-		void			Text::FormatText()
+		void			Text::ReformatString()
 		{
-			std::string		res = mString;
+			mText.setString(FormatText(mString));
+		}
+
+		std::string			Text::FormatText(std::string tString)
+		{
+			std::string		res = tString;
 			unsigned int	start = 0;
 			unsigned int	maxCharPerLine = (mSize->x / (mText.getCharacterSize())) * 2.5;
 
@@ -81,18 +86,24 @@ namespace mf
 					
 				start += maxCharPerLine;
 			}
-			mText.setString(res);
+			return (res);
 		}
 		
 		void			Text::SetString(std::string tString)
 		{
 			mString = tString;
-			FormatText();
+			mText.setString(FormatText(tString));
 		}
 
 		void			Text::AddString(std::string tString)
 		{
-			(void)tString;
+			mString += tString;
+			std::string	lineStart = mText.getString().toAnsiString();
+			size_t	lineStartPos = lineStart.rfind('\n');
+			std::string newString = lineStart.substr(lineStartPos) + tString;
+			newString = FormatText(newString);
+			lineStart.replace(lineStartPos, lineStart.size() - lineStartPos, newString);
+			mText.setString(lineStart);
 		}
 
 		void			Text::DeleteString(int tNum)
