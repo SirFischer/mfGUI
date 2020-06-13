@@ -100,6 +100,8 @@ namespace mf
 			mString += tString;
 			std::string	lineStart = mText.getString().toAnsiString();
 			size_t	lineStartPos = lineStart.rfind('\n');
+			if (lineStartPos == std::string::npos)
+				lineStartPos = 0;
 			std::string newString = lineStart.substr(lineStartPos) + tString;
 			newString = FormatText(newString);
 			lineStart.replace(lineStartPos, lineStart.size() - lineStartPos, newString);
@@ -108,8 +110,18 @@ namespace mf
 
 		void			Text::DeleteString(size_t tNum)
 		{
-			mString.erase(mString.size() - tNum, tNum);
-			ReformatString();
+			if (tNum <= mString.size())
+			{
+				mString.erase(mString.size() - tNum, tNum);
+				ReformatString();
+			}
+			else
+			{
+				mString = "";
+				mText.setString("");
+			}
+				
+			
 		}
 
 		void			Text::ResetString()
