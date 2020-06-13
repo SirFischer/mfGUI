@@ -14,6 +14,7 @@ void CreateMainMenu(bool *isOpen)
 		*isOpen = false;
 	});
 	mf::GUI::AddWidget(btn);
+	
 	mf::GUI::AddWidget(mf::Image::Create("assets/photo-1542044896530-05d85be9b11a.jpeg")
 	->SetSize(700.f, 500.f)
 	->SetPosition(100.f, 50.f)
@@ -39,6 +40,17 @@ void CreateMainMenu(bool *isOpen)
 		textWidget->AddText("This is a new string ");
 	});
 	mf::GUI::AddWidget(btn2);
+
+	mf::Button	*btn3 = mf::Button::Create(sf::Color::Blue, sf::Color::Cyan);
+	btn3->SetPosition(800, 50)
+	->SetSize(100, 50)
+	->SetTextFont("assets/Bangers-Regular.ttf")
+	->SetTextColor(sf::Color::Black)
+	->SetText("Delete lol!")
+	->SetClickEvent([textWidget] {
+		textWidget->DeleteText(1);
+	});
+	mf::GUI::AddWidget(btn3);
 
 }
 

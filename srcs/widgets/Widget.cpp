@@ -41,7 +41,11 @@ Widget			*Widget::AddWidget(Widget *tWidget)
 
 void			Widget::RemoveWidget(Widget *tWidget)
 {
-    (void)tWidget;
+	std::vector<mf::Widget *>::iterator it;
+    if ((it = std::find(mWidgets.begin(), mWidgets.end(), tWidget)) != mWidgets.end())
+	{
+		mWidgets.erase(it);
+	}
 }
 
 void        Widget::ClearWidgets()
