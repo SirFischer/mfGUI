@@ -27,7 +27,8 @@ void CreateMainMenu(bool *isOpen)
 	->SetSize(400, 300)
 	->SetOutlineColor(sf::Color::Black)
 	->SetOutlineThickness(1.5f)
-	->SetTextColor(sf::Color::Black);
+	->SetTextColor(sf::Color::Black)
+	->EnableEdit();
 	mf::GUI::AddWidget(textWidget);
 
 	mf::Button	*btn2 = mf::Button::Create(sf::Color::Blue, sf::Color::Cyan);

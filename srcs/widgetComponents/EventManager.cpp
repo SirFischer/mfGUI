@@ -37,7 +37,10 @@ namespace mf
 						mEvent = eEvent::LEFT_CLICK;
 					if (tEvent.mouseButton.button == sf::Mouse::Right)
 						mEvent = eEvent::RIGHT_CLICK;
+					mFocus = true;
 				}
+				else
+					mFocus = false;
 			break;
 
 			case sf::Event::MouseButtonReleased:
@@ -60,7 +63,11 @@ namespace mf
 				mKeyListeners[(uint32_t)mEvent]();
 				mPreviousEvent = mEvent;
 			}
-				
+
+			if (tEvent.type == sf::Event::TextEntered)
+				mCharInput = tEvent.text.unicode;
+			else
+				mCharInput = 0;
 		}
 
 		void EventManager::AddEventListener(eEvent tEvent ,std::function<void()> tListener)

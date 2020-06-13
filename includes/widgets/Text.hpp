@@ -7,22 +7,30 @@ namespace mf
 	class Text : public Widget
 	{
 	private:
-		Text(/* args */);
+
+		Text();
 		~Text();
 
 		/**
 		 * Components
 		 **/
 		component::Background   mBackground;
+		component::EventManager	mEventManager;
         component::Text         mText;
 
+		bool					mIsEditable = false;
+
 	public:
+		void			HandleEvent(sf::Event &tEvent);
 		void			Render(sf::RenderWindow	*tWindow);
 
 		/**
 		 * Create
 		 **/
 		static Text		*Create(std::string tFontPath, std::string tString);
+
+		Text			*EnableEdit();
+		Text			*DisableEdit();
 
 		/**
 		 * Setters

@@ -12,10 +12,13 @@ namespace mf
 		{
 		private:
 			eEvent              mEvent = eEvent::OUTSIDE;
+			bool				mFocus = false;
 			eEvent              mPreviousEvent = eEvent::OUTSIDE;
 
 			sf::Vector2f        *mPos;
 			sf::Vector2f        *mSize;
+
+			char				mCharInput = 0;
 
 			std::map<uint32_t, std::function<void()>>   mKeyListeners;
 			std::function<void()> mOnLeftClickListener;
@@ -34,6 +37,8 @@ namespace mf
 			void    AddEventListener(eEvent tEvent ,std::function<void()> tListener);
 			void    TriggerEvent(eEvent tEvent);
 
+			bool	GetFocus() {return (mFocus);}
+			char	GetCharInput() {return (mCharInput);}
 		};
 	} // namespace component
 	

@@ -1,10 +1,11 @@
-#include "Text.hpp"
+#include "widgets/Text.hpp"
 
 namespace mf
 {
 
 Text::Text()
 :mBackground(&mPos, &mSize)
+,mEventManager(&mPos, &mSize)
 ,mText(&mPos, &mSize)
 {
 
@@ -13,6 +14,25 @@ Text::Text()
 Text::~Text()
 {
 
+}
+
+void		Text::HandleEvent(sf::Event &tEvent)
+{
+	if (mIsEditable)
+	{
+		mEventManager.Update(tEvent);
+		if (mEventManager.GetFocus())
+		{
+			char tmp = mEventManager.GetCharInput();
+			if (isalpha(tmp) || tmp == ' ')
+				mText.AddString(std::string("") + tmp);
+			if (tmp == 8)
+				mText.DeleteString(1);
+		}
+			
+	}
+		
+	Widget::HandleEvent(tEvent);
 }
 
 void		Text::Render(sf::RenderWindow *tWindow)
@@ -30,6 +50,18 @@ Text      *Text::Create(std::string tFontPath, std::string tString)
 	txt->SetTextFont(tFontPath);
 	txt->SetText(tString);
     return (txt);
+}
+
+Text			*Text::EnableEdit()
+{
+	mIsEditable = true;
+	return (this);
+}
+
+Text			*Text::DisableEdit()
+{
+	mIsEditable = false;
+	return (this);
 }
 
 Text		*Text::SetText(std::string tText)
