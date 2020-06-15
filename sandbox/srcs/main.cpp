@@ -26,32 +26,10 @@ void CreateMainMenu(bool *isOpen)
 	->SetPosition(300, 300)
 	->SetSize(400, 300)
 	->SetOutlineColor(sf::Color::Black)
-	->SetOutlineThickness(1.5f)
+	->SetOutlineThickness(1.0f)
 	->SetTextColor(sf::Color::Black)
 	->EnableEdit();
 	mf::GUI::AddWidget(textWidget);
-
-	mf::Button	*btn2 = mf::Button::Create(sf::Color::Blue, sf::Color::Cyan);
-	btn2->SetPosition(1000, 50)
-	->SetSize(100, 50)
-	->SetTextFont("assets/Bangers-Regular.ttf")
-	->SetTextColor(sf::Color::Black)
-	->SetText("Add lol!")
-	->SetClickEvent([textWidget] {
-		textWidget->AddText("This is a new string ");
-	});
-	mf::GUI::AddWidget(btn2);
-
-	mf::Button	*btn3 = mf::Button::Create(sf::Color::Blue, sf::Color::Cyan);
-	btn3->SetPosition(800, 50)
-	->SetSize(100, 50)
-	->SetTextFont("assets/Bangers-Regular.ttf")
-	->SetTextColor(sf::Color::Black)
-	->SetText("Delete lol!")
-	->SetClickEvent([textWidget] {
-		textWidget->DeleteText(1);
-	});
-	mf::GUI::AddWidget(btn3);
 
 }
 

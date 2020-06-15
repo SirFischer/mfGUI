@@ -38,9 +38,16 @@ namespace mf
 					if (tEvent.mouseButton.button == sf::Mouse::Right)
 						mEvent = eEvent::RIGHT_CLICK;
 					mFocus = true;
+					if (mKeyListeners[(uint32_t)eEvent::FOCUS])
+						mKeyListeners[(uint32_t)eEvent::FOCUS]();
 				}
 				else
+				{
 					mFocus = false;
+					if (mKeyListeners[(uint32_t)eEvent::LOST_FOCUS])
+						mKeyListeners[(uint32_t)eEvent::LOST_FOCUS]();
+				}
+					
 			break;
 
 			case sf::Event::MouseButtonReleased:

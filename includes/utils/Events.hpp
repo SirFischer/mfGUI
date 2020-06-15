@@ -11,6 +11,8 @@ namespace mf
         LEFT_CLICK,
         RIGHT_CLICK,
         LEFT_CLICK_RELEASE,
-        RIGHT_CLICK_RELEASE
+        RIGHT_CLICK_RELEASE,
+		FOCUS,
+		LOST_FOCUS
     };
 } // namespace mf

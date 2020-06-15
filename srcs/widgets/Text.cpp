@@ -55,6 +55,13 @@ Text      *Text::Create(std::string tFontPath, std::string tString)
 Text			*Text::EnableEdit()
 {
 	mIsEditable = true;
+	Text* tmp = this;
+	mEventManager.AddEventListener(eEvent::FOCUS, [tmp] {
+		tmp->SetOutlineThickness(5);
+	});
+	mEventManager.AddEventListener(eEvent::LOST_FOCUS, [tmp] {
+		tmp->SetOutlineThickness(1);
+	});
 	return (this);
 }
 

@@ -20,14 +20,7 @@ namespace mf
 
 			char				mCharInput = 0;
 
-			std::map<uint32_t, std::function<void()>>   mKeyListeners;
-			std::function<void()> mOnLeftClickListener;
-			std::function<void()> mOnRightClickListener;
-			std::function<void()> mOnEnterListener;
-			std::function<void()> mOnHoverListener;
-			std::function<void()> mOnExitListener;
-
-			
+			std::map<uint32_t, std::function<void()>>   mKeyListeners;			
 
 		public:
 			EventManager(sf::Vector2f *tPos, sf::Vector2f *tSize);
