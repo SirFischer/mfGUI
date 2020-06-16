@@ -57,9 +57,7 @@ namespace mf
 		{
 			std::string		res = tString;
 			unsigned int	start = 0;
-			unsigned int	maxCharPerLine = (mSize->x / ((float)mText.getCharacterSize())) * 2.5;
-
-			std::cout << mText.getLetterSpacing() << std::endl;
+			unsigned int	maxCharPerLine = (mSize->x / ((float)mText.getCharacterSize())) * 2.f;
 
 			while (start < res.size())
 			{

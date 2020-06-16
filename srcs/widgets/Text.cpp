@@ -28,6 +28,8 @@ void		Text::HandleEvent(sf::Event &tEvent)
 				mText.AddString(std::string("") + tmp);
 			if (tmp == 8)
 				mText.DeleteString(1);
+			if (tmp == 13)
+				mText.AddString("\n");
 		}
 			
 	}
