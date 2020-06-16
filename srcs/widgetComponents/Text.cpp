@@ -82,8 +82,7 @@ namespace mf
 						res.insert(start + maxCharPerLine, "-\n");
 						start += 2;
 					}
-				}
-					
+				}	
 				start += maxCharPerLine;
 			}
 			return (res);

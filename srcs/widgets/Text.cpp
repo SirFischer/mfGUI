@@ -24,7 +24,7 @@ void		Text::HandleEvent(sf::Event &tEvent)
 		if (mEventManager.GetFocus())
 		{
 			char tmp = mEventManager.GetCharInput();
-			if (isalpha(tmp) || tmp == ' ')
+			if (isalpha(tmp) || isdigit(tmp) || isblank(tmp))
 				mText.AddString(std::string("") + tmp);
 			if (tmp == 8)
 				mText.DeleteString(1);
