@@ -14,6 +14,8 @@ namespace mf
 			sf::Vector2f		*mPos = NULL;
 			sf::Vector2f		*mSize = NULL;
 
+			sf::Vector2f		mLastSize = sf::Vector2f(0, 0);
+
 			sf::Vector2f		mRelPos = sf::Vector2f(0.f, 0.f);
 
 			sf::Font			mFont;
@@ -40,6 +42,8 @@ namespace mf
 			void			AddString(std::string tString);
 			void			DeleteString(size_t tNum);
 			void			ResetString();
+
+			std::string		GetString() {return (mString);}
 
 			void            Draw(sf::RenderWindow *tWindow);
 		};

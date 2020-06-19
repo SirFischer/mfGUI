@@ -44,6 +44,11 @@ namespace mf
 
 		void			Text::Draw(sf::RenderWindow *tWindow)
 		{
+			if (*mSize != mLastSize)
+			{
+				mLastSize = *mSize;
+				ReformatString();
+			}
 			mText.setPosition(*mPos + mRelPos);
 			tWindow->draw(mText);
 		}

@@ -49,10 +49,18 @@ namespace mf
 		/**
 		 * Overides
 		 **/
-		Text			*SetPositionType(ePosition tPosType){Widget::SetPositionType(tPosType); return (this);}
 		Text			*SetPosition(sf::Vector2f tPos){Widget::SetPosition(tPos); return (this);}
 		Text			*SetPosition(float tX, float tY){Widget::SetPosition(tX, tY); return (this);}
-		Text			*SetSize(sf::Vector2f tSize){Widget::SetSize(tSize); mText.ReformatString(); return (this);}
-		Text			*SetSize(float tX, float tY){Widget::SetSize(tX, tY); mText.ReformatString(); return (this);}
+		Text			*SetSize(sf::Vector2f tSize){Widget::SetSize(tSize); return (this);}
+		Text			*SetSize(float tX, float tY){Widget::SetSize(tX, tY); return (this);}
+		Text			*SetSizePercentage(bool tPercentage) {Widget::SetSizePercentage(tPercentage); return (this);}
+		Text			*SetPositionPercentage(bool tPercentage) { Widget::SetPositionPercentage(tPercentage); return (this);}
+
+
+		/**
+		 * Getters
+		 **/
+		std::string		GetString() { return (mText.GetString());}
+
 	};
 } // namespace mf

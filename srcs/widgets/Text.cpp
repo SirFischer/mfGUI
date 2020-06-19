@@ -44,6 +44,7 @@ void		Text::Render(sf::RenderWindow *tWindow)
 	Widget::Render(tWindow);
 }
 
+
 Text      *Text::Create(std::string tFontPath, std::string tString)
 {
     Text *txt = new Text();
