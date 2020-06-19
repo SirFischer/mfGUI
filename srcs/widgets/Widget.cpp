@@ -113,9 +113,7 @@ Widget			*Widget::SetSize(sf::Vector2f tSize)
 Widget			*Widget::SetSizePercentage(bool tPercentage)
 {
 	mSizePercentage = tPercentage;
-	std::cout << mRelativeSize.x << std::endl;
 	this->SetSize(mRelativeSize);
-	std::cout << mRelativeSize.x << std::endl;
 	return (this);
 }
     
