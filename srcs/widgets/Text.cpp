@@ -33,7 +33,6 @@ void		Text::HandleEvent(sf::Event &tEvent)
 		}
 			
 	}
-		
 	Widget::HandleEvent(tEvent);
 }
 

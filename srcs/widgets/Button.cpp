@@ -5,7 +5,6 @@ namespace mf
 
 Button::Button()
 :mBackground(&mPos, &mSize)
-,mEventManager(&mPos, &mSize)
 ,mText(&mPos, &mSize)
 {
 
@@ -14,12 +13,6 @@ Button::Button()
 Button::~Button()
 {
 
-}
-
-void		Button::HandleEvent(sf::Event &tEvent)
-{
-	mEventManager.Update(tEvent);
-	Widget::HandleEvent(tEvent);
 }
 
 void		Button::Render(sf::RenderWindow *tWindow)

@@ -60,6 +60,13 @@ namespace mf
 				}
 			break;
 
+			case sf::Event::Resized:
+				mEvent = eEvent::RESIZE;
+				if (mKeyListeners[(uint32_t)eEvent::RESIZE])
+						mKeyListeners[(uint32_t)eEvent::RESIZE]();
+				std::cout << mPos->x << " - " << mPos->y << std::endl;
+			break;
+
 			default:
 				mEvent = (inside) ? eEvent::INSIDE : eEvent::OUTSIDE;
 				break;

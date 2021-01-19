@@ -10,12 +10,16 @@ namespace mf
 		mWindow = tWindow;
 		mBaseWidget = Widget::Create();
 		mBaseWidget->SetSize(sf::Vector2f(tWindow->getSize()));
-
 	}
 
 	void		GUI::HandleEvent(sf::Event	&tEvent)
 	{
 		mBaseWidget->HandleEvent(tEvent);
+		if (tEvent.type == sf::Event::Resized)
+		{
+			mBaseWidget->SetSize(sf::Vector2f(mWindow->getSize()));
+		}
+			
 	}
 
 	void		GUI::Render()

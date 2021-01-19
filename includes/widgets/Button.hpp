@@ -14,11 +14,9 @@ namespace mf
 		 * Components
 		 **/
 		component::Background  	mBackground;
-		component::EventManager	mEventManager;
 		component::Text			mText;
 
     public:
-		void				HandleEvent(sf::Event &tEvent);
 		void				Render(sf::RenderWindow *tWindow);
 
         /**

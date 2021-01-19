@@ -16,22 +16,25 @@ namespace mf
 		virtual ~Widget();
 
 		//Absolute position
-		sf::Vector2f	mPos = sf::Vector2f(0, 0);
+		sf::Vector2f					mPos = sf::Vector2f(0, 0);
 		//Position relative to parent
-		sf::Vector2f	mRelativePos = sf::Vector2f(0, 0);
+		sf::Vector2f					mRelativePos = sf::Vector2f(0, 0);
 
 		//Absolue size
-		sf::Vector2f	mSize = sf::Vector2f(100, 100);
+		sf::Vector2f					mSize = sf::Vector2f(100, 100);
 		//Size Relative to parent
-		sf::Vector2f	mRelativeSize = sf::Vector2f(0, 0);
+		sf::Vector2f					mRelativeSize = sf::Vector2f(0, 0);
 
-		bool			mSizePercentage = false;
-		bool			mPositionPercentage = false;
+		bool							mSizePercentage = false;
+		bool							mPositionPercentage = false;
 
-		Widget					*mParent = NULL;
-		std::vector<Widget *>	mWidgets = std::vector<Widget *>();
+		Widget							*mParent = NULL;
+		std::vector<Widget *>			mWidgets = std::vector<Widget *>();
 
-		int				mIndex;
+		int								mIndex = 0;
+
+		//Components
+		component::EventManager			mEventManager;
 
 		virtual void	Render(sf::RenderWindow *tWindow);
 		virtual void	HandleEvent(sf::Event &tEvent);

@@ -1,6 +1,6 @@
 #include "../../includes/mfGUI.hpp"
 
-void CreateMainMenu(bool *isOpen)
+void CreateMainMenu(bool *isOpen, bool *isFullscreen)
 {
 	mf::GUI::ClearWidgets();
 
@@ -13,6 +13,18 @@ void CreateMainMenu(bool *isOpen)
 	->SetPositionPercentage(true)
 	->SetClickEvent([isOpen] {
 		*isOpen = false;
+	});
+	mf::GUI::AddWidget(btn);
+
+	btn = mf::Button::Create(sf::Color::Blue, sf::Color::Cyan);
+	btn->SetPosition(80, 50)
+	->SetSize(100, 50)
+	->SetTextFont("assets/Bangers-Regular.ttf")
+	->SetTextColor(sf::Color::Black)
+	->SetText("FullScreen")
+	->SetPositionPercentage(true)
+	->SetClickEvent([isFullscreen] {
+		*isFullscreen = true;
 	});
 	mf::GUI::AddWidget(btn);
 	
@@ -44,8 +56,10 @@ int main()
 	sf::RenderWindow	window(sf::VideoMode(1600, 900), "Sandbox", sf::Style::Default);
 	mf::GUI::Init(&window);
 	bool	isOpen = true;
+	bool	isFullscreen = false;
+	bool	wasFullscreen = false;
 
-	CreateMainMenu(&isOpen);
+	CreateMainMenu(&isOpen, &isFullscreen);
 
 	int fps = 0;
 	sf::Clock fpsClock;
@@ -64,6 +78,13 @@ int main()
 			if (event.type == sf::Event::Closed)
 				isOpen = false;
 			mf::GUI::HandleEvent(event);
+			if(isFullscreen)
+			{
+				window.close();
+				window.create(sf::VideoMode(1600, 900), "Sandbox", (wasFullscreen) ? sf::Style::Default : sf::Style::Fullscreen);
+				wasFullscreen = !wasFullscreen;
+				isFullscreen = false;
+			}
 		}
 		window.clear(sf::Color::White);
 		mf::GUI::Render();

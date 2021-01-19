@@ -4,8 +4,13 @@ namespace mf
 {
 
 Widget::Widget()
+:mEventManager(&mPos, &mSize)
 {
-
+	//Default resize function
+	mEventManager.AddEventListener(eEvent::RESIZE, [this] {
+		this->SetPosition(mRelativePos);
+		this->SetSize(mRelativeSize);
+	});
 }
 
 Widget::~Widget()
@@ -20,7 +25,7 @@ Widget      *Widget::Create()
 
 void        Widget::HandleEvent(sf::Event &tEvent)
 {
-    //handle event for current widget
+	mEventManager.Update(tEvent);
     for (auto i : mWidgets)
         i->HandleEvent(tEvent);
 }
