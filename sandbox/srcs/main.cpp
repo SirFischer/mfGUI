@@ -1,37 +1,14 @@
 #include "../../includes/mfGUI.hpp"
 
-void CreateMainMenu(bool *isOpen, bool *isFullscreen)
+void CreateMainMenu()
 {
 	mf::GUI::ClearWidgets();
 
-	mf::Button	*btn = mf::Button::Create(sf::Color::Blue, sf::Color::Cyan);
-	btn->SetPosition(80, 10)
-	->SetSize(100, 50)
-	->SetTextFont("assets/Bangers-Regular.ttf")
-	->SetTextColor(sf::Color::Black)
-	->SetText("Quit!")
-	->SetPositionPercentage(true)
-	->SetClickEvent([isOpen] {
-		*isOpen = false;
-	});
-	mf::GUI::AddWidget(btn);
-
-	btn = mf::Button::Create(sf::Color::Blue, sf::Color::Cyan);
-	btn->SetPosition(80, 50)
-	->SetSize(100, 50)
-	->SetTextFont("assets/Bangers-Regular.ttf")
-	->SetTextColor(sf::Color::Black)
-	->SetText("FullScreen")
-	->SetPositionPercentage(true)
-	->SetClickEvent([isFullscreen] {
-		*isFullscreen = true;
-	});
-	mf::GUI::AddWidget(btn);
 	
 	mf::Image *img = mf::Image::Create("assets/photo-1542044896530-05d85be9b11a.jpeg");
 	mf::GUI::AddWidget(img
 	->SetSize(50.f, 50.f)
-	->SetPosition(20.f, 20.f)
+	->SetPosition(5.f, 20.f)
 	->SetOutlineColor(sf::Color::Black)
 	->SetOutlineThickness(3.f)
 	->SetSizePercentage(true)
@@ -48,6 +25,25 @@ void CreateMainMenu(bool *isOpen, bool *isFullscreen)
 	->EnableEdit();
 	img->AddWidget(textWidget);
 
+
+	//LIST TEST
+	mf::List	*listWidget = mf::List::Create();
+	listWidget->SetPosition(60, 20)
+	->SetPositionPercentage(true)
+	->SetSize(35, 50)
+	->SetSizePercentage(true)
+	->SetBackgroundColor(sf::Color::Green)
+	->SetItemDirection(mf::List::eListDirection::HORIZONTAL);
+	mf::GUI::AddWidget(listWidget);
+
+	mf::Button	*btn = mf::Button::Create(sf::Color::Black, sf::Color::White);
+	listWidget->AddWidget(btn);
+
+	mf::Button	*btn2 = mf::Button::Create(sf::Color::Black, sf::Color::White);
+	listWidget->AddWidget(btn2);
+
+	mf::Button	*btn3 = mf::Button::Create(sf::Color::Black, sf::Color::White);
+	listWidget->AddWidget(btn3);
 }
 
 int main()
@@ -55,10 +51,8 @@ int main()
 	sf::RenderWindow	window(sf::VideoMode(1600, 900), "Sandbox", sf::Style::Default);
 	mf::GUI::Init(&window);
 	bool	isOpen = true;
-	bool	isFullscreen = false;
-	bool	wasFullscreen = false;
 
-	CreateMainMenu(&isOpen, &isFullscreen);
+	CreateMainMenu();
 
 	int fps = 0;
 	sf::Clock fpsClock;
@@ -81,13 +75,6 @@ int main()
 				window.setView(sf::View(sf::Vector2f(window.getSize().x / 2, window.getSize().y / 2), sf::Vector2f(window.getSize())));
 			}
 			mf::GUI::HandleEvent(event);
-			if(isFullscreen)
-			{
-				window.close();
-				window.create(sf::VideoMode(1600, 900), "Sandbox", (wasFullscreen) ? sf::Style::Default : sf::Style::Fullscreen);
-				wasFullscreen = !wasFullscreen;
-				isFullscreen = false;
-			}
 		}
 		window.clear(sf::Color::White);
 		mf::GUI::Render();

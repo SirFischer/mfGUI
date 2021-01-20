@@ -4,6 +4,7 @@
 #include "widgets/Image.hpp"
 #include "widgets/Button.hpp"
 #include "widgets/Text.hpp"
+#include "widgets/List.hpp"
 
 namespace mf
 {

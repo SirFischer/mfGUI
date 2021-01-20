@@ -62,6 +62,11 @@ namespace mf
 		/**
 		 * Getters
 		 **/
+		sf::Vector2f	GetPosition(){return (mPos);}
+		sf::Vector2f	GetRelativePosition(){return (mRelativePos);}
+
+		sf::Vector2f	GetSize(){return (mSize);}
+		sf::Vector2f	GetRelativeSize(){return (mRelativeSize);}
 
 	};
 	
