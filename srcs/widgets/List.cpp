@@ -31,9 +31,9 @@ namespace mf
 		for (auto &child : mWidgets)
 		{
 			if (mListDirection == eListDirection::VERTICAL)
-				child->SetPosition(0, ((lastWidget) ? lastWidget->GetRelativePosition().y + lastWidget->GetSize().y : 0) + mItemSpacing);
+				child->SetPosition(mContentPosition.x, ((lastWidget) ? lastWidget->GetRelativePosition().y + lastWidget->GetSize().y : 0) + mItemSpacing + mContentPosition.y);
 			else
-				child->SetPosition(((lastWidget) ? lastWidget->GetRelativePosition().x + lastWidget->GetSize().x : 0) + mItemSpacing, 0);
+				child->SetPosition(((lastWidget) ? lastWidget->GetRelativePosition().x + lastWidget->GetSize().x : 0) + mItemSpacing + mContentPosition.x, mContentPosition.y);
 			lastWidget = child;
 		}
 	}

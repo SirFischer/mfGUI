@@ -87,6 +87,14 @@ Button		*Button::SetTextColor(sf::Color tColor)
 	return (this);
 }
 
+Button		*Button::SetCharacterSize(unsigned int tSize)
+{
+	mText.SetSize(tSize);
+	return (this);
+}
+
+
+
 Button		*Button::SetOutlineThickness(float tThickness)
 {
 	mBackground.SetOutlineThickness(tThickness);

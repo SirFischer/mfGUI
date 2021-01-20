@@ -27,6 +27,7 @@ namespace mf
 		 **/
 		eListDirection	mListDirection = eListDirection::VERTICAL;
 		float			mItemSpacing = 5.f;
+		sf::Vector2f	mContentPosition = sf::Vector2f(0, 0);
 
 		void			UpdateChildren();
 
@@ -49,10 +50,13 @@ namespace mf
 
 		//Background
 		List			*SetBackgroundColor(sf::Color tColor) {mBackground.SetBackground(tColor); return (this);}
+		List			*SetOutlineThickness(float tThickness) {mBackground.SetOutlineThickness(tThickness); return (this);}
+		List			*SetOutlineColor(sf::Color tColor){mBackground.SetOutlineColor(tColor); return (this);}
 
 		//List
 		List			*SetItemSpacing(float tSpacing) {mItemSpacing = tSpacing; return (this);}
 		List			*SetItemDirection(eListDirection tDirection) {mListDirection = tDirection; return (this);}
+		List			*SetContentPosition(sf::Vector2f tPos){mContentPosition = tPos; return (this);}
 
 	};
 }

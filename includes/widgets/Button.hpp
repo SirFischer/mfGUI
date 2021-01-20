@@ -37,6 +37,8 @@ namespace mf
 		Button				*SetTextPosition(sf::Vector2f tPos);
 		Button				*SetTextColor(sf::Color tColor);
 
+		Button				*SetCharacterSize(unsigned int tSize);
+
 		//Background
 		Button				*SetOutlineThickness(float tThickness);
 		Button				*SetOutlineColor(sf::Color tColor);
