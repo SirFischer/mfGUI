@@ -47,7 +47,6 @@ void CreateMainMenu(bool *isOpen, bool *isFullscreen)
 	->SetSizePercentage(true)
 	->EnableEdit();
 	img->AddWidget(textWidget);
-	
 
 }
 
@@ -77,6 +76,10 @@ int main()
 		{
 			if (event.type == sf::Event::Closed)
 				isOpen = false;
+			if (event.type == sf::Event::Resized)
+			{
+				window.setView(sf::View(sf::Vector2f(window.getSize().x / 2, window.getSize().y / 2), sf::Vector2f(window.getSize())));
+			}
 			mf::GUI::HandleEvent(event);
 			if(isFullscreen)
 			{

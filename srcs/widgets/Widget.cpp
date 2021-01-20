@@ -26,14 +26,14 @@ Widget      *Widget::Create()
 void        Widget::HandleEvent(sf::Event &tEvent)
 {
 	mEventManager.Update(tEvent);
-    for (auto i : mWidgets)
-        i->HandleEvent(tEvent);
+    for (auto &i : mWidgets)
+		i->HandleEvent(tEvent);
 }
 
 void		Widget::Render(sf::RenderWindow *tWindow)
 {
     for (auto &i : mWidgets)
-        i->Render(tWindow);
+		i->Render(tWindow);
 }
 
 void		Widget::Init()

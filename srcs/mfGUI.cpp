@@ -19,7 +19,6 @@ namespace mf
 		{
 			mBaseWidget->SetSize(sf::Vector2f(mWindow->getSize()));
 		}
-			
 	}
 
 	void		GUI::Render()
