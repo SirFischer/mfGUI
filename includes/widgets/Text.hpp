@@ -20,6 +20,8 @@ namespace mf
 
 		bool					mIsEditable = false;
 
+		int						mMaxTextLength = -1;
+
 	public:
 		void			HandleEvent(sf::Event &tEvent);
 		void			Render(sf::RenderWindow	*tWindow);
@@ -42,9 +44,14 @@ namespace mf
 		Text			*SetTextFont(sf::Font tFont);
 		Text			*SetTextPosition(sf::Vector2f tPos);
 		Text			*SetTextColor(sf::Color tColor);
+		
+		//Default: -1 for no limit
+		Text			*SetMaxTextLength(int tLength){mMaxTextLength = tLength; return (this);}
 
-		Text			*SetOutlineThickness(float tThickness);
-		Text			*SetOutlineColor(sf::Color tColor);
+		//Background
+		Text			*SetBackgroundColor(sf::Color tColor) {mBackground.SetBackground(tColor); return (this);}
+		Text			*SetOutlineThickness(float tThickness) {mBackground.SetOutlineThickness(tThickness); return (this);}
+		Text			*SetOutlineColor(sf::Color tColor){mBackground.SetOutlineColor(tColor); return (this);}
 
 		/**
 		 * Overides

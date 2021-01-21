@@ -24,12 +24,16 @@ void		Text::HandleEvent(sf::Event &tEvent)
 		if (mEventManager.GetFocus())
 		{
 			char tmp = mEventManager.GetCharInput();
-			if (isblank(tmp) || (tmp >= 33 && tmp <= 126))
-				mText.AddString(std::string("") + tmp);
 			if (tmp == 8)
 				mText.DeleteString(1);
-			if (tmp == 13)
-				mText.AddString("\n");
+			if ((int)mText.GetString().length() < mMaxTextLength || mMaxTextLength == -1)
+			{
+				if (isblank(tmp) || (tmp >= 33 && tmp <= 126))
+					mText.AddString(std::string("") + tmp);
+				if (tmp == 13)
+					mText.AddString("\n");
+			}
+			
 		}
 			
 	}
@@ -100,18 +104,6 @@ Text		*Text::SetTextPosition(sf::Vector2f tPos)
 Text		*Text::SetTextColor(sf::Color tColor)
 {
 	mText.SetColor(tColor);
-	return (this);
-}
-
-Text		*Text::SetOutlineThickness(float tThickness)
-{
-	mBackground.SetOutlineThickness(tThickness);
-	return (this);
-}
-
-Text		*Text::SetOutlineColor(sf::Color tColor)
-{
-	mBackground.SetOutlineColor(tColor);
 	return (this);
 }
 

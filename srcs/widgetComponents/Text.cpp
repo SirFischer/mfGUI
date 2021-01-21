@@ -96,7 +96,7 @@ namespace mf
 		void			Text::SetString(std::string tString)
 		{
 			mString = tString;
-			mText.setString(FormatText(tString));
+			mText.setString(FormatText(mString));
 		}
 
 		void			Text::AddString(std::string tString)

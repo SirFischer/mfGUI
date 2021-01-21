@@ -22,8 +22,6 @@ namespace mf
 			sf::Text			mText;
 
 			std::string			mString;
-
-			
 			
 		public:
 			Text(sf::Vector2f *tPos,sf::Vector2f *tSize);
