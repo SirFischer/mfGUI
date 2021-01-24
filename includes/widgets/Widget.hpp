@@ -52,12 +52,12 @@ namespace mf
 		/**
 		 * Setters
 		 **/
-		Widget			*SetPosition(sf::Vector2f tPos);
-		Widget			*SetPosition(float tX, float tY);
-		Widget			*SetPositionPercentage(bool tPercentage);
-		Widget			*SetSize(float tX, float tY);
-		Widget			*SetSize(sf::Vector2f tSize);
-		Widget			*SetSizePercentage(bool tPercentage);
+		virtual Widget	*SetPosition(sf::Vector2f tPos);
+		virtual Widget	*SetPosition(float tX, float tY);
+		virtual Widget	*SetPositionPercentage(bool tPercentage);
+		virtual Widget	*SetSize(float tX, float tY);
+		virtual Widget	*SetSize(sf::Vector2f tSize);
+		virtual Widget	*SetSizePercentage(bool tPercentage);
 
 		/**
 		 * Getters
