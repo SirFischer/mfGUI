@@ -17,6 +17,7 @@ namespace mf
 
 			sf::Vector2f        *mPos;
 			sf::Vector2f        *mSize;
+			sf::Vector2f		mMousePos;
 
 			char				mCharInput = 0;
 
@@ -26,12 +27,15 @@ namespace mf
 			EventManager(sf::Vector2f *tPos, sf::Vector2f *tSize);
 			~EventManager();
 
-			void	Update(sf::Event &tEvent);
-			void    AddEventListener(eEvent tEvent ,std::function<void()> tListener);
-			void    TriggerEvent(eEvent tEvent);
+			void			Update(sf::Event &tEvent);
+			void			AddEventListener(eEvent tEvent ,std::function<void()> tListener);
+			void			TriggerEvent(eEvent tEvent);
 
-			bool	GetFocus() {return (mFocus);}
-			char	GetCharInput() {return (mCharInput);}
+			eEvent			GetEvent(){return (mEvent);}
+
+			bool			GetFocus() {return (mFocus);}
+			char			GetCharInput() {return (mCharInput);}
+			sf::Vector2f	GetMousePosition(){return (mMousePos);}
 		};
 	} // namespace component
 	

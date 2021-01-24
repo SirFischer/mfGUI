@@ -8,7 +8,7 @@ namespace mf
 		:mPos(tPos)
 		,mSize(tSize)
 		{
-
+			mBackground.setSize(*mSize);
 		}
 		
 		Background::~Background()

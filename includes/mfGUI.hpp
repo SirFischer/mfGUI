@@ -1,6 +1,7 @@
 #pragma once
 
 #include "widgets/Widget.hpp"
+#include "widgets/Slider.hpp"
 #include "widgets/Image.hpp"
 #include "widgets/Button.hpp"
 #include "widgets/Text.hpp"

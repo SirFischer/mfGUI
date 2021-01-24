@@ -63,7 +63,6 @@ namespace mf
 		Text			*SetSizePercentage(bool tPercentage) {Widget::SetSizePercentage(tPercentage); return (this);}
 		Text			*SetPositionPercentage(bool tPercentage) { Widget::SetPositionPercentage(tPercentage); return (this);}
 
-
 		/**
 		 * Getters
 		 **/

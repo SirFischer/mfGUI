@@ -20,7 +20,7 @@ namespace mf
 		//Position relative to parent
 		sf::Vector2f					mRelativePos = sf::Vector2f(0, 0);
 
-		//Absolue size
+		//Absolute size
 		sf::Vector2f					mSize = sf::Vector2f(100, 100);
 		//Size Relative to parent
 		sf::Vector2f					mRelativeSize = sf::Vector2f(0, 0);

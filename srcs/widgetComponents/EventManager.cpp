@@ -28,6 +28,7 @@ namespace mf
 					mEvent = eEvent::EXITED;
 				else if (!inside || mEvent == eEvent::EXITED)
 					mEvent = eEvent::OUTSIDE;
+				mMousePos = sf::Vector2f(tEvent.mouseMove.x, tEvent.mouseMove.y);
 				break;
 
 			case sf::Event::MouseButtonPressed:
@@ -74,13 +75,13 @@ namespace mf
 			if (mPreviousEvent != mEvent && mKeyListeners[(uint32_t)mEvent])
 			{
 				mKeyListeners[(uint32_t)mEvent]();
-				mPreviousEvent = mEvent;
 			}
 
 			if (tEvent.type == sf::Event::TextEntered)
 				mCharInput = tEvent.text.unicode;
 			else
 				mCharInput = 0;
+			mPreviousEvent = mEvent;
 		}
 
 		void EventManager::AddEventListener(eEvent tEvent ,std::function<void()> tListener)
