@@ -1,5 +1,8 @@
 #include "../../includes/mfGUI.hpp"
 
+mf::Text	*text;
+mf::Slider	*slider;
+
 void CreateMainMenu()
 {
 	mf::GUI::ClearWidgets();
@@ -44,6 +47,15 @@ void CreateMainMenu()
 
 	mf::Button	*btn3 = mf::Button::Create(sf::Color::Black, sf::Color::White);
 	listWidget->AddWidget(btn3);
+
+	slider = mf::Slider::Create();
+	slider->SetPosition(70, 80)->SetPositionPercentage(true);
+	mf::GUI::AddWidget(slider);
+
+	text = mf::Text::Create("assets/Bangers-Regular.ttf", std::to_string(slider->GetValue()));
+	text->SetPosition(85, 80)->SetPositionPercentage(true);
+	text->SetTextColor(sf::Color::Black);
+	mf::GUI::AddWidget(text);
 }
 
 int main()
@@ -75,6 +87,7 @@ int main()
 				window.setView(sf::View(sf::Vector2f(window.getSize().x / 2, window.getSize().y / 2), sf::Vector2f(window.getSize())));
 			}
 			mf::GUI::HandleEvent(event);
+			text->SetText(std::to_string(std::clamp(slider->GetValue(), 0.f, 1.f)));
 		}
 		window.clear(sf::Color::White);
 		mf::GUI::Render();
