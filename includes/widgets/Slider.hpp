@@ -41,8 +41,8 @@ namespace mf
 		float					GetValue(){return (mValue);}
 
 		//Transform
-		Slider					*SetPosition(sf::Vector2f tPos){Widget::SetPosition(tPos); return (this);}
-		Slider					*SetPosition(float tX, float tY){Widget::SetPosition(tX, tY); return (this);}
+		Slider					*SetPosition(sf::Vector2f tPos){Widget::SetPosition(tPos); mButton->SetPosition(mButton->GetRelativePosition()); return (this);}
+		Slider					*SetPosition(float tX, float tY){Widget::SetPosition(tX, tY); mButton->SetPosition(mButton->GetRelativePosition()); return (this);}
 		Slider					*SetSize(sf::Vector2f tSize){Widget::SetSize(tSize); return (this);}
 		Slider					*SetSize(float tX, float tY){Widget::SetSize(tX, tY); return (this);}
 		Slider					*SetSizePercentage(bool tPercentage) {Widget::SetSizePercentage(tPercentage); return (this);}

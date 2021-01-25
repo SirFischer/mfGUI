@@ -24,6 +24,7 @@ namespace mf
 		slider->mButton = Button::Create(sf::Color::Red, sf::Color::Green);
 		slider->mButton->SetSize(30, 40);
 		slider->AddWidget(slider->mButton);
+		slider->mButton->SetPosition(0, 0);
 		return (slider);
 	}
 
