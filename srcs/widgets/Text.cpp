@@ -107,5 +107,11 @@ Text		*Text::SetTextColor(sf::Color tColor)
 	return (this);
 }
 
+Text		*Text::SetCharacterSize(unsigned int tSize)
+{
+	mText.SetSize(tSize);
+	return (this);
+}
+
 
 } // namespace mf

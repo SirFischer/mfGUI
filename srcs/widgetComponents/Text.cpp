@@ -30,6 +30,7 @@ namespace mf
 		void			Text::SetSize(unsigned int tSize)
 		{
 			mText.setCharacterSize(tSize);
+			ReformatString();
 		}
 
 		void			Text::SetPos(sf::Vector2f tPos)

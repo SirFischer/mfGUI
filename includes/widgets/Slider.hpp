@@ -53,5 +53,10 @@ namespace mf
 		Slider					*SetOutlineThickness(float tThickness) {mBackground.SetOutlineThickness(tThickness); return (this);}
 		Slider					*SetOutlineColor(sf::Color tColor){mBackground.SetOutlineColor(tColor); return (this);}
 
+		/**
+		 * Getters
+		 **/
+		Button					*GetButton(){return (mButton);}
+
 	};
 }
