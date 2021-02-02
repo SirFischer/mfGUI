@@ -12,6 +12,13 @@ namespace mf
 			HORIZONTAL,
 			VERTICAL
 		};
+
+		enum class eOverflow
+		{
+			NOWRAP,
+			WRAP,
+			INVISIBLE
+		};
 	
 	private:
 		List(/* args */);
@@ -26,6 +33,7 @@ namespace mf
 		 * Type specific vars
 		 **/
 		eListDirection	mListDirection = eListDirection::VERTICAL;
+		eOverflow		mOverflow = eOverflow::NOWRAP;
 		float			mItemSpacing = 5.f;
 		sf::Vector2f	mContentPosition = sf::Vector2f(0, 0);
 
@@ -56,6 +64,7 @@ namespace mf
 		//List
 		List			*SetItemSpacing(float tSpacing) {mItemSpacing = tSpacing; return (this);}
 		List			*SetItemDirection(eListDirection tDirection) {mListDirection = tDirection; return (this);}
+		List			*SetContentOverflow(eOverflow tOverflow) {mOverflow = tOverflow; return (this);}
 		List			*SetContentPosition(sf::Vector2f tPos){mContentPosition = tPos; return (this);}
 
 	};

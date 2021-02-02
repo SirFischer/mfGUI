@@ -36,7 +36,8 @@ void CreateMainMenu()
 	->SetSize(35, 50)
 	->SetSizePercentage(true)
 	->SetBackgroundColor(sf::Color::Green)
-	->SetItemDirection(mf::List::eListDirection::HORIZONTAL);
+	->SetItemDirection(mf::List::eListDirection::VERTICAL)
+	->SetContentOverflow(mf::List::eOverflow::WRAP);
 	mf::GUI::AddWidget(listWidget);
 
 	mf::Button	*btn = mf::Button::Create(sf::Color::Black, sf::Color::White);
@@ -47,6 +48,9 @@ void CreateMainMenu()
 
 	mf::Button	*btn3 = mf::Button::Create(sf::Color::Black, sf::Color::White);
 	listWidget->AddWidget(btn3);
+
+	mf::Button	*btn4 = mf::Button::Create(sf::Color::Black, sf::Color::White);
+	listWidget->AddWidget(btn4);
 
 	slider = mf::Slider::Create();
 	slider->SetPosition(70, 80)->SetPositionPercentage(true);

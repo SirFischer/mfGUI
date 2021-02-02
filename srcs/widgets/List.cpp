@@ -28,12 +28,37 @@ namespace mf
 	void		List::UpdateChildren()
 	{
 		Widget	*lastWidget = NULL;
+		float offset = 0;
 		for (auto &child : mWidgets)
 		{
+			float maxOffset = 0;
+			if ((child->GetSize().x > maxOffset && mListDirection == eListDirection::VERTICAL) ||
+				(child->GetSize().y > maxOffset && mListDirection == eListDirection::HORIZONTAL))
+				maxOffset = (mListDirection == eListDirection::VERTICAL) ? child->GetSize().x : child->GetSize().y;
 			if (mListDirection == eListDirection::VERTICAL)
-				child->SetPosition(mContentPosition.x, ((lastWidget) ? lastWidget->GetRelativePosition().y + lastWidget->GetSize().y : 0) + mItemSpacing + mContentPosition.y);
+			{
+				if (((lastWidget) ? lastWidget->GetPosition().y + lastWidget->GetSize().y : 0) + child->GetSize().y > mSize.y + mPos.y && mOverflow == eOverflow::WRAP)
+				{
+					if (maxOffset != 0 && lastWidget)
+					{
+						offset += maxOffset + mItemSpacing;
+						lastWidget = NULL;
+					}
+					maxOffset = 0;
+				}
+				child->SetPosition(mContentPosition.x + offset, ((lastWidget) ? lastWidget->GetRelativePosition().y + lastWidget->GetSize().y : 0) + mItemSpacing + mContentPosition.y);
+			}
 			else
-				child->SetPosition(((lastWidget) ? lastWidget->GetRelativePosition().x + lastWidget->GetSize().x : 0) + mItemSpacing + mContentPosition.x, mContentPosition.y);
+			{
+				if (((lastWidget) ? lastWidget->GetPosition().x + lastWidget->GetSize().x : 0) + child->GetSize().x > mSize.x + mPos.x  && mOverflow == eOverflow::WRAP)
+				{
+					offset += maxOffset + mItemSpacing;
+					if (maxOffset != 0 && lastWidget)
+						lastWidget = NULL;
+					maxOffset = 0;
+				}
+				child->SetPosition(((lastWidget) ? lastWidget->GetRelativePosition().x + lastWidget->GetSize().x : 0) + mItemSpacing + mContentPosition.x, mContentPosition.y + offset);
+			}
 			lastWidget = child;
 		}
 	}
