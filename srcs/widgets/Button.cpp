@@ -57,6 +57,12 @@ Button		*Button::SetClickEvent(std::function<void()> tListener)
 	return (this);
 }
 
+Button		*Button::AddEventListener(eEvent tEvent, std::function<void()> tListener)
+{
+	mEventManager.AddEventListener(tEvent, tListener);
+	return (this);
+}
+
 Button		*Button::SetText(std::string tText)
 {
 	mText.SetString(tText);

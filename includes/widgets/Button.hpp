@@ -29,6 +29,7 @@ namespace mf
 		 * Setters
 		 **/
 		Button				*SetClickEvent(std::function<void()> tListener);
+		Button				*AddEventListener(eEvent tEvent, std::function<void()> tListener);
 
 		//Text
 		Button				*SetText(std::string tText);

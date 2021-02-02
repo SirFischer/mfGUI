@@ -44,13 +44,18 @@ void CreateMainMenu()
 	listWidget->AddWidget(btn);
 
 	mf::Button	*btn2 = mf::Button::Create(sf::Color::Black, sf::Color::White);
+	btn2->SetSize(120, 50);
 	listWidget->AddWidget(btn2);
 
 	mf::Button	*btn3 = mf::Button::Create(sf::Color::Black, sf::Color::White);
 	listWidget->AddWidget(btn3);
 
 	mf::Button	*btn4 = mf::Button::Create(sf::Color::Black, sf::Color::White);
+	btn4->SetSize(110, 30);
 	listWidget->AddWidget(btn4);
+
+	mf::Button	*btn5 = mf::Button::Create(sf::Color::Black, sf::Color::White);
+	listWidget->AddWidget(btn5);
 
 	slider = mf::Slider::Create();
 	slider->SetPosition(70, 80)->SetPositionPercentage(true);
