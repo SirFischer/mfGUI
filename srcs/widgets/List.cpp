@@ -53,9 +53,11 @@ namespace mf
 			{
 				if (((lastWidget) ? lastWidget->GetPosition().x + lastWidget->GetSize().x + mItemSpacing : 0) + child->GetSize().x > mSize.x + mPos.x  && mOverflow == eOverflow::WRAP)
 				{
-					offset += maxOffset + mItemSpacing;
 					if (maxOffset != 0 && lastWidget)
+					{
+						offset += maxOffset + mItemSpacing;
 						lastWidget = NULL;
+					}
 					maxOffset = 0;
 				}
 				child->SetPosition(((lastWidget) ? lastWidget->GetRelativePosition().x + lastWidget->GetSize().x : 0) + mItemSpacing + mContentPosition.x, mContentPosition.y + offset);
