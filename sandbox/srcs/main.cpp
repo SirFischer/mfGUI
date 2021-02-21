@@ -36,7 +36,7 @@ void CreateMainMenu()
 	->SetSize(35, 50)
 	->SetSizePercentage(true)
 	->SetBackgroundColor(sf::Color::Green)
-	->SetItemDirection(mf::List::eListDirection::VERTICAL)
+	->SetItemDirection(mf::List::eListDirection::HORIZONTAL)
 	->SetContentOverflow(mf::List::eOverflow::WRAP);
 	mf::GUI::AddWidget(listWidget);
 

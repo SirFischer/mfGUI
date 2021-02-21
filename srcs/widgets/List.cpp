@@ -38,7 +38,7 @@ namespace mf
 				maxOffset = (mListDirection == eListDirection::VERTICAL) ? child->GetSize().x : child->GetSize().y;
 			if (mListDirection == eListDirection::VERTICAL)
 			{
-				if (((lastWidget) ? lastWidget->GetPosition().y + lastWidget->GetSize().y  + mItemSpacing : 0) + child->GetSize().y > mSize.y + mPos.y && mOverflow == eOverflow::WRAP)
+				if (((lastWidget) ? lastWidget->GetPosition().y + lastWidget->GetSize().y + mItemSpacing : 0) + child->GetSize().y + mContentPosition.y > mSize.y + mPos.y   && mOverflow == eOverflow::WRAP)
 				{
 					if (maxOffset != 0 && lastWidget)
 					{
@@ -51,7 +51,7 @@ namespace mf
 			}
 			else
 			{
-				if (((lastWidget) ? lastWidget->GetPosition().x + lastWidget->GetSize().x + mItemSpacing : 0) + child->GetSize().x > mSize.x + mPos.x  && mOverflow == eOverflow::WRAP)
+				if (((lastWidget) ? lastWidget->GetPosition().x + lastWidget->GetSize().x + mItemSpacing : 0) + child->GetSize().x + mContentPosition.x > mSize.x + mPos.x && mOverflow == eOverflow::WRAP)
 				{
 					if (maxOffset != 0 && lastWidget)
 					{

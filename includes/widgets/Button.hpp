@@ -31,6 +31,9 @@ namespace mf
 		Button				*SetClickEvent(std::function<void()> tListener);
 		Button				*AddEventListener(eEvent tEvent, std::function<void()> tListener);
 
+		Button				*SetDisabled(bool tDisabled){mDisabled = tDisabled; return (this);}
+
+
 		//Text
 		Button				*SetText(std::string tText);
 		Button				*SetTextFont(std::string tPath);

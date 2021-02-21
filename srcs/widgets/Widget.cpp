@@ -27,13 +27,15 @@ void        Widget::HandleEvent(sf::Event &tEvent)
 {
 	mEventManager.Update(tEvent);
     for (auto &i : mWidgets)
-		i->HandleEvent(tEvent);
+		if (!i->mDisabled)
+			i->HandleEvent(tEvent);
 }
 
 void		Widget::Render(sf::RenderWindow *tWindow)
 {
     for (auto &i : mWidgets)
-		i->Render(tWindow);
+		if (!i->mDisabled)
+			i->Render(tWindow);
 }
 
 void		Widget::Init()

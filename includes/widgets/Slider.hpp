@@ -53,6 +53,8 @@ namespace mf
 		Slider					*SetOutlineThickness(float tThickness) {mBackground.SetOutlineThickness(tThickness); return (this);}
 		Slider					*SetOutlineColor(sf::Color tColor){mBackground.SetOutlineColor(tColor); return (this);}
 
+		Slider					*SetDisabled(bool tDisabled){mDisabled = tDisabled; return (this);}
+
 		/**
 		 * Getters
 		 **/

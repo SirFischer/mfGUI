@@ -47,6 +47,8 @@ namespace mf
 		/**
 		 * Setters
 		 **/
+
+		List			*SetDisabled(bool tDisabled){mDisabled = tDisabled; return (this);}
 		
 		//Transform
 		List			*SetPosition(sf::Vector2f tPos){Widget::SetPosition(tPos); return (this);}

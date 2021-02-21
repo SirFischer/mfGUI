@@ -28,6 +28,8 @@ namespace mf
 		bool							mSizePercentage = false;
 		bool							mPositionPercentage = false;
 
+		bool							mDisabled = false;
+
 		Widget							*mParent = NULL;
 		std::vector<Widget *>			mWidgets = std::vector<Widget *>();
 
@@ -58,6 +60,8 @@ namespace mf
 		virtual Widget	*SetSize(float tX, float tY);
 		virtual Widget	*SetSize(sf::Vector2f tSize);
 		virtual Widget	*SetSizePercentage(bool tPercentage);
+
+		virtual Widget	*SetDisabled(bool tDisabled){mDisabled = tDisabled; return (this);}
 
 		/**
 		 * Getters

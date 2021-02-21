@@ -29,6 +29,9 @@ namespace mf
 		void	SetImage(std::string tPath);
 		void	SetImage(sf::Texture &tTexture);
 
+		Image	*SetDisabled(bool tDisabled){mDisabled = tDisabled; return (this);}
+
+
 		Image	*SetOutlineThickness(float tThickness);
 		Image	*SetOutlineColor(sf::Color tColor);
 

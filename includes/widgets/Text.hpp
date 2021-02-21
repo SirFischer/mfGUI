@@ -45,6 +45,8 @@ namespace mf
 		Text			*SetTextPosition(sf::Vector2f tPos);
 		Text			*SetTextColor(sf::Color tColor);
 		Text			*SetCharacterSize(unsigned int tSize);
+
+		Text			*SetDisabled(bool tDisabled){mDisabled = tDisabled; return (this);}
 		
 		//Default: -1 for no limit
 		Text			*SetMaxTextLength(int tLength){mMaxTextLength = tLength; return (this);}
