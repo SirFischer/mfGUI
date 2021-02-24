@@ -14,11 +14,11 @@ namespace mf
 
 	void		GUI::HandleEvent(sf::Event	&tEvent)
 	{
-		mBaseWidget->HandleEvent(tEvent);
 		if (tEvent.type == sf::Event::Resized)
 		{
-			mBaseWidget->SetSize(sf::Vector2f(mWindow->getSize()));
+			mBaseWidget->SetSize(sf::Vector2f(tEvent.size.width, tEvent.size.height));
 		}
+		mBaseWidget->HandleEvent(tEvent);
 	}
 
 	void		GUI::Render()

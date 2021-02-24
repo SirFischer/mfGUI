@@ -91,9 +91,11 @@ int main()
 		{
 			if (event.type == sf::Event::Closed)
 				isOpen = false;
+			std::cout << event.type << std::endl;
 			if (event.type == sf::Event::Resized)
 			{
-				window.setView(sf::View(sf::Vector2f(window.getSize().x / 2, window.getSize().y / 2), sf::Vector2f(window.getSize())));
+				std::cout << event.size.width << " " << event.size.height << std::endl;
+				window.setView(sf::View(sf::Vector2f(event.size.width / 2, event.size.height / 2), sf::Vector2f(window.getSize())));
 			}
 			mf::GUI::HandleEvent(event);
 			text->SetText(std::to_string(std::clamp(slider->GetValue(), 0.f, 1.f)));
