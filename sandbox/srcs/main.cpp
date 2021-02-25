@@ -94,7 +94,6 @@ int main()
 			std::cout << event.type << std::endl;
 			if (event.type == sf::Event::Resized)
 			{
-				std::cout << event.size.width << " " << event.size.height << std::endl;
 				window.setView(sf::View(sf::Vector2f(event.size.width / 2, event.size.height / 2), sf::Vector2f(window.getSize())));
 			}
 			mf::GUI::HandleEvent(event);
