@@ -6,6 +6,7 @@
 #include "widgets/Button.hpp"
 #include "widgets/Text.hpp"
 #include "widgets/List.hpp"
+#include "widgets/Container.hpp"
 
 namespace mf
 {

@@ -1,5 +1,7 @@
 #pragma once
 
+#include <boost/range/adaptor/reversed.hpp>
+
 #include <SFML/Graphics.hpp>
 #include "utils/Events.hpp"
 
@@ -29,6 +31,7 @@ namespace mf
 		bool							mPositionPercentage = false;
 
 		bool							mDisabled = false;
+		bool							mClickThrough = false;
 
 		Widget							*mParent = NULL;
 		std::vector<Widget *>			mWidgets = std::vector<Widget *>();
@@ -42,6 +45,9 @@ namespace mf
 		virtual void	HandleEvent(sf::Event &tEvent);
 
 		virtual void	Init();
+		
+		virtual void	SortWidgets();
+
 
 	public:
 		friend class	GUI;
@@ -60,6 +66,7 @@ namespace mf
 		virtual Widget	*SetSize(float tX, float tY);
 		virtual Widget	*SetSize(sf::Vector2f tSize);
 		virtual Widget	*SetSizePercentage(bool tPercentage);
+		virtual Widget	*SetIndex(int tIndex){mIndex = tIndex; return (this);}
 
 		virtual Widget	*SetDisabled(bool tDisabled){mDisabled = tDisabled; return (this);}
 
@@ -71,6 +78,13 @@ namespace mf
 
 		sf::Vector2f	GetSize(){return (mSize);}
 		sf::Vector2f	GetRelativeSize(){return (mRelativeSize);}
+
+		int				GetIndex(){return (mIndex);}
+
+		mf::eEvent		GetEvent(){return (mEventManager.GetEvent());}
+
+		bool			IsDisabled(){return (mDisabled);}
+		bool			IsClickThrough(){return (mClickThrough);}
 
 	};
 	

@@ -20,15 +20,22 @@ Widget::~Widget()
 
 Widget      *Widget::Create()
 {
-    return (new Widget());
+	mf::Widget	*widget = new Widget();
+    return (widget);
 }
 
 void        Widget::HandleEvent(sf::Event &tEvent)
 {
 	mEventManager.Update(tEvent);
-    for (auto &i : mWidgets)
+	for (auto &i : boost::adaptors::reverse(mWidgets))
+	{
+		eEvent event = i->GetEvent();
 		if (!i->mDisabled)
 			i->HandleEvent(tEvent);
+		if ((!i->IsClickThrough() && (event != eEvent::OUTSIDE && event != eEvent::EXITED)))
+			break;
+	}
+		
 }
 
 void		Widget::Render(sf::RenderWindow *tWindow)
@@ -44,6 +51,14 @@ void		Widget::Init()
 	this->SetSize(mRelativeSize);
 }
 
+void		Widget::SortWidgets()
+{
+	std::sort(mWidgets.begin(), mWidgets.end(), [](mf::Widget *first, mf::Widget *second){
+		return (first->GetIndex() < second->GetIndex());
+	});
+}
+
+
 
 Widget			*Widget::AddWidget(Widget *tWidget)
 {
@@ -51,6 +66,7 @@ Widget			*Widget::AddWidget(Widget *tWidget)
     tWidget->SetPosition(tWidget->mRelativePos);
     mWidgets.push_back(tWidget);
 	tWidget->Init();
+	SortWidgets();
     return (this);
 }
 
