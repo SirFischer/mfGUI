@@ -43,6 +43,7 @@ namespace mf
 
 		virtual void	Render(sf::RenderWindow *tWindow);
 		virtual void	HandleEvent(sf::Event &tEvent);
+		virtual void	Resize();
 
 		virtual void	Init();
 		

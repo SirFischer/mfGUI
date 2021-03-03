@@ -33,13 +33,20 @@ void        Widget::HandleEvent(sf::Event &tEvent)
 		eEvent event = i->GetEvent();
 		if (!i->mDisabled && isClickThrough)
 			i->HandleEvent(tEvent);
-		else if (!isClickThrough)
-			i->mEventManager.TriggerEvent(mf::eEvent::RESIZE);
-		if ((!i->IsClickThrough() && (event != eEvent::OUTSIDE && event != eEvent::EXITED)))
+		else
+			i->Resize();
+		if (!i->mDisabled && ((!i->IsClickThrough() && (event != eEvent::OUTSIDE && event != eEvent::EXITED))))
 			isClickThrough = false;
 	}
-		
 }
+
+void		Widget::Resize()
+{
+	mEventManager.TriggerEvent(mf::eEvent::RESIZE);
+	for (auto &i : mWidgets)
+		i->Resize();
+}
+
 
 void		Widget::Render(sf::RenderWindow *tWindow)
 {
