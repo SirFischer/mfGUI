@@ -69,6 +69,7 @@ namespace mf
 		virtual Widget	*SetIndex(int tIndex){mIndex = tIndex; return (this);}
 
 		virtual Widget	*SetDisabled(bool tDisabled){mDisabled = tDisabled; return (this);}
+		virtual Widget	*SetClickThrough(bool tClickThrough){mClickThrough = tClickThrough; return (this);}
 
 		/**
 		 * Getters

@@ -27,13 +27,16 @@ Widget      *Widget::Create()
 void        Widget::HandleEvent(sf::Event &tEvent)
 {
 	mEventManager.Update(tEvent);
+	bool	isClickThrough = true;
 	for (auto &i : boost::adaptors::reverse(mWidgets))
 	{
 		eEvent event = i->GetEvent();
-		if (!i->mDisabled)
+		if (!i->mDisabled && isClickThrough)
 			i->HandleEvent(tEvent);
+		else if (!isClickThrough)
+			i->mEventManager.TriggerEvent(mf::eEvent::RESIZE);
 		if ((!i->IsClickThrough() && (event != eEvent::OUTSIDE && event != eEvent::EXITED)))
-			break;
+			isClickThrough = false;
 	}
 		
 }
