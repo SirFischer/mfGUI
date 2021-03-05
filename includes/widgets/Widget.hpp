@@ -89,6 +89,8 @@ namespace mf
 
 		mf::eEvent		GetEvent(){return (mEventManager.GetEvent());}
 
+		bool			IsFocus(){return (mEventManager.GetFocus());}
+
 		bool			IsDisabled(){return (mDisabled);}
 		bool			IsClickThrough(){return (mClickThrough);}
 
