@@ -8,7 +8,7 @@ namespace mf
 	{
 	private:
 		Container(/* args */);
-		~Container();
+		
 
 		/**
 		 * Components
@@ -16,6 +16,7 @@ namespace mf
 		component::Background mBackground;
 
 	public:
+		~Container();
 		void				Render(sf::RenderWindow	*tWindow);
 
 		/**

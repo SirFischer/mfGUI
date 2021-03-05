@@ -1,17 +1,13 @@
 #pragma once
 
 #include "Widget.hpp"
+#include "utils/Direction.hpp"
 
 namespace mf
 {
 	class List : public Widget
 	{
 	public:
-		enum class eListDirection
-		{
-			HORIZONTAL,
-			VERTICAL
-		};
 
 		enum class eOverflow
 		{
@@ -22,7 +18,7 @@ namespace mf
 	
 	private:
 		List(/* args */);
-		~List();
+		
 
 		/**
 		 * Components
@@ -32,7 +28,7 @@ namespace mf
 		/**
 		 * Type specific vars
 		 **/
-		eListDirection	mListDirection = eListDirection::VERTICAL;
+		eDirection		mListDirection = eDirection::VERTICAL;
 		eOverflow		mOverflow = eOverflow::NOWRAP;
 		float			mItemSpacing = 5.f;
 		sf::Vector2f	mContentPosition = sf::Vector2f(0, 0);
@@ -40,6 +36,7 @@ namespace mf
 		void			UpdateChildren();
 
 	public:
+		~List();
 		static List		*Create();
 
 		void			Render(sf::RenderWindow	*tWindow);
@@ -65,7 +62,7 @@ namespace mf
 
 		//List
 		List			*SetItemSpacing(float tSpacing) {mItemSpacing = tSpacing; return (this);}
-		List			*SetItemDirection(eListDirection tDirection) {mListDirection = tDirection; return (this);}
+		List			*SetItemDirection(eDirection tDirection) {mListDirection = tDirection; return (this);}
 		List			*SetContentOverflow(eOverflow tOverflow) {mOverflow = tOverflow; return (this);}
 		List			*SetContentPosition(sf::Vector2f tPos){mContentPosition = tPos; return (this);}
 

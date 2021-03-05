@@ -15,7 +15,6 @@ namespace mf
 	{
 	protected:
 		Widget(/* args */);
-		virtual ~Widget();
 
 		//Absolute position
 		sf::Vector2f					mPos = sf::Vector2f(0, 0);
@@ -26,6 +25,7 @@ namespace mf
 		sf::Vector2f					mSize = sf::Vector2f(100, 100);
 		//Size Relative to parent
 		sf::Vector2f					mRelativeSize = sf::Vector2f(0, 0);
+		sf::Vector2f					mContentSize = sf::Vector2f(0, 0);
 
 		bool							mSizePercentage = false;
 		bool							mPositionPercentage = false;
@@ -51,6 +51,7 @@ namespace mf
 
 
 	public:
+		virtual ~Widget();
 		friend class	GUI;
 
 		static Widget 	*Create();

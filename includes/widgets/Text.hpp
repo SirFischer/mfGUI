@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Widget.hpp"
+#include "widgetComponents/ScrollBar.hpp"
 
 namespace mf
 {
@@ -9,13 +10,13 @@ namespace mf
 	private:
 
 		Text();
-		~Text();
 
 		/**
 		 * Components
 		 **/
 		component::Background   mBackground;
 		component::EventManager	mEventManager;
+		component::ScrollBar	mScrollBar;
         component::Text         mText;
 
 		bool					mIsEditable = false;
@@ -23,6 +24,7 @@ namespace mf
 		int						mMaxTextLength = -1;
 
 	public:
+		~Text();
 		void			HandleEvent(sf::Event &tEvent);
 		void			Render(sf::RenderWindow	*tWindow);
 

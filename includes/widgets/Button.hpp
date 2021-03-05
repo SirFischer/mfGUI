@@ -8,7 +8,6 @@ namespace mf
     {
     private:
         Button(/* args */);
-        ~Button();
 
         /**
 		 * Components
@@ -17,6 +16,7 @@ namespace mf
 		component::Text			mText;
 
     public:
+		~Button();
 		void				Render(sf::RenderWindow *tWindow);
 
         /**

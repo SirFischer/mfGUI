@@ -8,7 +8,7 @@ namespace mf
 	{
 	private:
 		Image(/* args */);
-		~Image();
+		
 
 		/**
 		 * Components
@@ -16,6 +16,7 @@ namespace mf
 		component::Background mBackground;
 
 	public:
+		~Image();
 		void	Render(sf::RenderWindow	*tWindow);
 
 		/**

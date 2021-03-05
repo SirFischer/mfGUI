@@ -33,10 +33,10 @@ namespace mf
 		for (auto &child : mWidgets)
 		{
 			
-			if ((child->GetSize().x > maxOffset && mListDirection == eListDirection::VERTICAL) ||
-				(child->GetSize().y > maxOffset && mListDirection == eListDirection::HORIZONTAL))
-				maxOffset = (mListDirection == eListDirection::VERTICAL) ? child->GetSize().x : child->GetSize().y;
-			if (mListDirection == eListDirection::VERTICAL)
+			if ((child->GetSize().x > maxOffset && mListDirection == eDirection::VERTICAL) ||
+				(child->GetSize().y > maxOffset && mListDirection == eDirection::HORIZONTAL))
+				maxOffset = (mListDirection == eDirection::VERTICAL) ? child->GetSize().x : child->GetSize().y;
+			if (mListDirection == eDirection::VERTICAL)
 			{
 				if (((lastWidget) ? lastWidget->GetPosition().y + lastWidget->GetSize().y + mItemSpacing : 0) + child->GetSize().y + mContentPosition.y > mSize.y + mPos.y   && mOverflow == eOverflow::WRAP)
 				{

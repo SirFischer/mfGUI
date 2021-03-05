@@ -2,6 +2,7 @@
 
 #include "Widget.hpp"
 #include "Button.hpp"
+#include "utils/Direction.hpp"
 
 namespace mf
 {
@@ -9,7 +10,6 @@ namespace mf
 	{
 	private:
 		Slider(/* args */);
-		~Slider();
 
 		Button					*mButton;
 		float					mValue = 0.f;
@@ -18,6 +18,7 @@ namespace mf
 		 * Components
 		 **/
 		component::Background  	mBackground;
+		eDirection				mDirection = eDirection::HORIZONTAL;
 
 		/**
 		 * HIDDEN MEMBERS
@@ -27,6 +28,7 @@ namespace mf
 		using					Widget::ClearWidgets;
 
 	public:
+		~Slider();
 		static Slider			*Create();
 
 		void					Render(sf::RenderWindow	*tWindow);
@@ -39,6 +41,8 @@ namespace mf
 		//Slider
 		Slider					*SetValue(float tValue);
 		float					GetValue(){return (mValue);}
+
+		Slider					*SetDirection(eDirection tDirection);
 
 		//Transform
 		Slider					*SetPosition(sf::Vector2f tPos){Widget::SetPosition(tPos); mButton->SetPosition(mButton->GetRelativePosition()); return (this);}
