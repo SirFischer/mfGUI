@@ -113,5 +113,15 @@ Button		*Button::SetOutlineColor(sf::Color tColor)
 	return (this);
 }
 
+Button		*Button::SetBackground(sf::Color tColor)
+{
+	mBackground.SetBackground(tColor);
+	this->mEventManager.AddEventListener(eEvent::EXITED, [this, tColor] {
+        this->mBackground.SetBackground(tColor);
+    });
+	return (this);
+}
+
+
 
 } // namespace mf
