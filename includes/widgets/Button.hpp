@@ -47,6 +47,7 @@ namespace mf
 		Button				*SetOutlineThickness(float tThickness);
 		Button				*SetOutlineColor(sf::Color tColor);
 		Button				*SetBackground(sf::Color tColor);
+		Button				*SetHoverBackground(sf::Color tColor);
 
 		/**
 		 * Overides

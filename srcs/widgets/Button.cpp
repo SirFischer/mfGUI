@@ -122,6 +122,15 @@ Button		*Button::SetBackground(sf::Color tColor)
 	return (this);
 }
 
+Button		*Button::SetHoverBackground(sf::Color tColor)
+{
+	mBackground.SetBackground(tColor);
+	this->mEventManager.AddEventListener(eEvent::ENTERED, [this, tColor] {
+        this->mBackground.SetBackground(tColor);
+    });
+	return (this);
+}
+
 
 
 } // namespace mf
