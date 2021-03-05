@@ -72,6 +72,7 @@ namespace mf
 		 * Getters
 		 **/
 		std::string		GetString() { return (mText.GetString());}
+		mf::Slider		*GetScrollBar(){return (mScrollBar.GetSlider());}
 
 	};
 } // namespace mf

@@ -6,7 +6,7 @@ namespace mf
 Text::Text()
 :mBackground(&mPos, &mSize)
 ,mEventManager(&mPos, &mSize)
-,mScrollBar(&mPos, &mSize)
+,mScrollBar(&mPos, &mSize, &mContentSize, &mContentPosition)
 ,mText(&mPos, &mSize)
 {
 
@@ -34,17 +34,27 @@ void		Text::HandleEvent(sf::Event &tEvent)
 				if (tmp == 13)
 					mText.AddString("\n");
 			}
-			
 		}
-			
 	}
+	mContentSize = sf::Vector2f(mSize.x, mText.GetVerticalHeight());
+	mScrollBar.HandleEvent(tEvent);
 	Widget::HandleEvent(tEvent);
 }
 
 void		Text::Render(sf::RenderWindow *tWindow)
 {
+	mView.setViewport(sf::FloatRect(mPos.x / (float)tWindow->getSize().x,
+									mPos.y / (float)tWindow->getSize().y,
+									mSize.x / (float)tWindow->getSize().x,
+									mSize.y / (float)tWindow->getSize().y));
+	mView.reset(sf::FloatRect(sf::Vector2f(mPos.x, mPos.y + mContentPosition.y), mSize));
+	
 	mBackground.Draw(tWindow);
+	sf::View		tmp = tWindow->getView();
+	tWindow->setView(mView);
 	mText.Draw(tWindow);
+	tWindow->setView(tmp);
+	mScrollBar.Draw(tWindow);
 	Widget::Render(tWindow);
 }
 

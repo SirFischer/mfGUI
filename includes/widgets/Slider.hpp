@@ -40,7 +40,7 @@ namespace mf
 
 		//Slider
 		Slider					*SetValue(float tValue);
-		float					GetValue(){return (mValue);}
+		float					GetValue(){return (std::clamp(mValue, 0.f, 1.f));}
 
 		Slider					*SetDirection(eDirection tDirection);
 

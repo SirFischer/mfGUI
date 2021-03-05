@@ -26,6 +26,9 @@ namespace mf
 		//Size Relative to parent
 		sf::Vector2f					mRelativeSize = sf::Vector2f(0, 0);
 		sf::Vector2f					mContentSize = sf::Vector2f(0, 0);
+		sf::Vector2f					mContentPosition = sf::Vector2f(0, 0);
+
+		sf::View						mView;
 
 		bool							mSizePercentage = false;
 		bool							mPositionPercentage = false;

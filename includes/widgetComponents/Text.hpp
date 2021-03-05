@@ -42,6 +42,7 @@ namespace mf
 			void			ResetString();
 
 			std::string		GetString() {return (mString);}
+			float			GetVerticalHeight() {return (mText.getGlobalBounds().height);}
 
 			void            Draw(sf::RenderWindow *tWindow);
 		};
