@@ -65,6 +65,7 @@ namespace mf
 		/**
 		 * Setters
 		 **/
+
 		virtual Widget	*SetPosition(sf::Vector2f tPos);
 		virtual Widget	*SetPosition(float tX, float tY);
 		virtual Widget	*SetPositionPercentage(bool tPercentage);

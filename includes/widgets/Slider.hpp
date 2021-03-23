@@ -27,6 +27,8 @@ namespace mf
 		using					Widget::RemoveWidget;
 		using					Widget::ClearWidgets;
 
+		void					LoadClickFunction();
+
 	public:
 		~Slider();
 		static Slider			*Create();

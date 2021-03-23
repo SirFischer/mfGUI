@@ -5,8 +5,19 @@ namespace mf
 	Slider::Slider(/* args */)
 	:mBackground(&mPos, &mSize)
 	{
+		LoadClickFunction();
+	}
+
+	Slider::~Slider()
+	{
+	}
+
+
+	void		Slider::LoadClickFunction()
+	{
 		component::EventManager	*manager = &mEventManager;
 		eDirection *direction = &mDirection;
+
 		mEventManager.AddEventListener(eEvent::LEFT_CLICK, [this, manager, direction] {
 			float	relpos;
 			if (*direction == eDirection::HORIZONTAL)
@@ -15,10 +26,6 @@ namespace mf
 				relpos = (manager->GetMousePosition().y - this->GetPosition().y) / (this->GetSize().y  - mButton->GetSize().y) - ((mButton->GetSize().y / 2.f) / this->GetSize().y);
 			this->SetValue(relpos);
 		});
-	}
-
-	Slider::~Slider()
-	{
 	}
 
 	Slider      *Slider::Create()
@@ -60,13 +67,14 @@ namespace mf
 		{
 			newpos = tValue * (mSize.x - mButton->GetSize().x);
 			newpos = std::clamp(newpos, 0.f, mSize.x - mButton->GetSize().x);
+			mButton->SetPosition(newpos, 0);
 		}
 		else
 		{
 			newpos = tValue * (mSize.y - mButton->GetSize().y);
 			newpos = std::clamp(newpos, 0.f, mSize.y - mButton->GetSize().y);
+			mButton->SetPosition(0, newpos);
 		}
-		mButton->SetPosition(0, newpos);
 		return (this);
 	};
 
