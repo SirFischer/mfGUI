@@ -58,9 +58,10 @@ void CreateMainMenu()
 	listWidget->AddWidget(btn5);
 
 	slider = mf::Slider::Create();
+	
 	slider->SetPosition(70, 60)->SetPositionPercentage(true);
-	slider->SetSize(30, 200);
 	slider->SetDirection(mf::eDirection::VERTICAL);
+	slider->SetSize(30, 200);
 	mf::GUI::AddWidget(slider);
 
 	text = mf::Text::Create("assets/Bangers-Regular.ttf", std::to_string(slider->GetValue()));
