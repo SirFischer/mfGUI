@@ -39,6 +39,7 @@ namespace mf
 		Widget							*mParent = NULL;
 		std::vector<Widget *>			mWidgets = std::vector<Widget *>();
 
+		// Z index
 		int								mIndex = 0;
 
 		//Components

@@ -4,6 +4,7 @@ namespace mf
 {
 	List::List(/* args */)
 	:mBackground(&mPos, &mSize)
+	,mScrollBar(&mPos, &mSize, &mContentSize, &mContentPosition)
 	{
 		
 	}
@@ -18,11 +19,28 @@ namespace mf
 		return (list);
 	}
 
+	void		List::HandleEvent(sf::Event &tEvent)
+	{
+		mScrollBar.HandleEvent(tEvent);
+		Widget::HandleEvent(tEvent);
+	}
+
 	void		List::Render(sf::RenderWindow *tWindow)
 	{
+		mView.setViewport(sf::FloatRect(mPos.x / (float)tWindow->getSize().x,
+									mPos.y / (float)tWindow->getSize().y,
+									mSize.x / (float)tWindow->getSize().x,
+									mSize.y / (float)tWindow->getSize().y));
+		mView.reset(sf::FloatRect(sf::Vector2f(mPos.x, mPos.y + mContentPosition.y), mSize));
 		UpdateChildren();
+		UpdateContentData();
 		mBackground.Draw(tWindow);
+		sf::View		tmp = tWindow->getView();
+		
+		mScrollBar.Draw(tWindow);
+		tWindow->setView(mView);
 		Widget::Render(tWindow);
+		tWindow->setView(tmp);
 	}
 
 	void		List::UpdateChildren()
@@ -32,10 +50,10 @@ namespace mf
 		float maxOffset = 0;
 		for (auto &child : mWidgets)
 		{
-			
 			if ((child->GetSize().x > maxOffset && mListDirection == eDirection::VERTICAL) ||
 				(child->GetSize().y > maxOffset && mListDirection == eDirection::HORIZONTAL))
 				maxOffset = (mListDirection == eDirection::VERTICAL) ? child->GetSize().x : child->GetSize().y;
+
 			if (mListDirection == eDirection::VERTICAL)
 			{
 				if (((lastWidget) ? lastWidget->GetPosition().y + lastWidget->GetSize().y + mItemSpacing : 0) + child->GetSize().y + mContentPosition.y > mSize.y + mPos.y   && mOverflow == eOverflow::WRAP)
@@ -65,5 +83,22 @@ namespace mf
 			lastWidget = child;
 		}
 	}
+
+	void			List::UpdateContentData()
+	{
+		sf::Vector2f	size = sf::Vector2f(0, 0);
+		for (auto &child : mWidgets)
+		{
+			size.x += child->GetSize().x;
+			size.y += child->GetSize().y;
+			if (mContentPosition.x > child->GetPosition().x)
+				mContentPosition.x = child->GetPosition().x;
+			if (mContentPosition.y > child->GetPosition().y)
+				mContentPosition.y = child->GetPosition().y;
+		}
+		mContentSize.x = size.x + (mWidgets.size() * mItemSpacing);
+		mContentSize.y = size.y + (mWidgets.size() * mItemSpacing);
+	}
+
 
 }

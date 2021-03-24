@@ -15,7 +15,6 @@ namespace mf
 		 * Components
 		 **/
 		component::Background   mBackground;
-		component::EventManager	mEventManager;
 		component::ScrollBar	mScrollBar;
         component::Text         mText;
 

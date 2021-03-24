@@ -5,7 +5,6 @@ namespace mf
 
 Select::Select()
 :mBackground(&mPos, &mSize)
-,mEventManager(&mPos, &mSize)
 ,mText(&mPos, &mSize)
 {
 	mList = List::Create();

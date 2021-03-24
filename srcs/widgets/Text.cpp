@@ -5,7 +5,6 @@ namespace mf
 
 Text::Text()
 :mBackground(&mPos, &mSize)
-,mEventManager(&mPos, &mSize)
 ,mScrollBar(&mPos, &mSize, &mContentSize, &mContentPosition)
 ,mText(&mPos, &mSize)
 {

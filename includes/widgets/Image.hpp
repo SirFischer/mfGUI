@@ -22,19 +22,19 @@ namespace mf
 		/**
 		 * Create
 		 **/
-		static Image *Create(std::string tPath);
+		static Image	*Create(std::string tPath);
 
 		/**
 		 * Setters
 		 **/
-		void	SetImage(std::string tPath);
-		void	SetImage(sf::Texture &tTexture);
+		void			SetImage(std::string tPath);
+		void			SetImage(sf::Texture &tTexture);
 
-		Image	*SetDisabled(bool tDisabled){mDisabled = tDisabled; return (this);}
+		Image			*SetDisabled(bool tDisabled){mDisabled = tDisabled; return (this);}
 
 
-		Image	*SetOutlineThickness(float tThickness);
-		Image	*SetOutlineColor(sf::Color tColor);
+		Image			*SetOutlineThickness(float tThickness);
+		Image			*SetOutlineColor(sf::Color tColor);
 
 		/**
 		 * Overides

@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Widget.hpp"
+#include "widgetComponents/ScrollBar.hpp"
 #include "utils/Direction.hpp"
 
 namespace mf
@@ -24,6 +25,7 @@ namespace mf
 		 * Components
 		 **/
 		component::Background  	mBackground;
+		component::ScrollBar	mScrollBar;
 
 		/**
 		 * Type specific vars
@@ -34,11 +36,13 @@ namespace mf
 		sf::Vector2f	mContentPosition = sf::Vector2f(0, 0);
 
 		void			UpdateChildren();
+		void			UpdateContentData();
 
 	public:
 		~List();
 		static List		*Create();
 
+		void			HandleEvent(sf::Event &tEvent);
 		void			Render(sf::RenderWindow	*tWindow);
 
 		/**

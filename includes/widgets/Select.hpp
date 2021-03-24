@@ -15,7 +15,6 @@ namespace mf
 		 * Components
 		 **/
 		component::Background  	mBackground;
-		component::EventManager	mEventManager;
 		component::Text			mText;
 
 		List					*mList;
@@ -54,6 +53,5 @@ namespace mf
 		Select				*SetSize(float tX, float tY){Widget::SetSize(tX, tY); return (this);}
 		Select				*SetSizePercentage(bool tPercentage) { Widget::SetSizePercentage(tPercentage); return (this);}
 		Select				*SetPositionPercentage(bool tPercentage) { Widget::SetPositionPercentage(tPercentage); return (this);}
-        
     };
 } // namespace mf
