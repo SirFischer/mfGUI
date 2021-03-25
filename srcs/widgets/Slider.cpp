@@ -3,7 +3,7 @@
 namespace mf
 {
 	Slider::Slider(/* args */)
-	:mBackground(&mPos, &mSize)
+	:mBackground(&mTransform.mPosition, &mTransform.mSize)
 	{
 		LoadClickFunction();
 	}
@@ -65,14 +65,14 @@ namespace mf
 		float newpos;
 		if (mDirection == eDirection::HORIZONTAL)
 		{
-			newpos = tValue * (mSize.x - mButton->GetSize().x);
-			newpos = std::clamp(newpos, 0.f, mSize.x - mButton->GetSize().x);
+			newpos = tValue * (mTransform.mSize.x - mButton->GetSize().x);
+			newpos = std::clamp(newpos, 0.f, mTransform.mSize.x - mButton->GetSize().x);
 			mButton->SetPosition(newpos, 0);
 		}
 		else
 		{
-			newpos = tValue * (mSize.y - mButton->GetSize().y);
-			newpos = std::clamp(newpos, 0.f, mSize.y - mButton->GetSize().y);
+			newpos = tValue * (mTransform.mSize.y - mButton->GetSize().y);
+			newpos = std::clamp(newpos, 0.f, mTransform.mSize.y - mButton->GetSize().y);
 			mButton->SetPosition(0, newpos);
 		}
 		return (this);

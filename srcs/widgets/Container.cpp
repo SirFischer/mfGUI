@@ -4,7 +4,7 @@ namespace mf
 {
 
 Container::Container()
-:mBackground(&mPos, &mSize)
+:mBackground(&mTransform.mPosition, &mTransform.mSize)
 {
 
 }

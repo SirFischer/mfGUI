@@ -4,7 +4,7 @@ namespace mf
 {
 
 Image::Image()
-:mBackground(&mPos, &mSize)
+:mBackground(&mTransform.mPosition, &mTransform.mSize)
 {
 
 }

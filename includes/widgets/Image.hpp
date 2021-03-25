@@ -43,7 +43,7 @@ namespace mf
 		Image			*SetPosition(float tX, float tY){Widget::SetPosition(tX, tY); return (this);}
 		Image			*SetSize(sf::Vector2f tSize){Widget::SetSize(tSize); return (this);}
 		Image			*SetSize(float tX, float tY){Widget::SetSize(tX, tY); return (this);}
-		Image			*SetSizePercentage(bool tPercentage) { Widget::SetSizePercentage(tPercentage); return (this);}
-		Image			*SetPositionPercentage(bool tPercentage) { Widget::SetPositionPercentage(tPercentage); return (this);}
+		Image			*SetSizePercentage(bool tPercentageX, bool tPercentageY) { Widget::SetSizePercentage(tPercentageX, tPercentageY); return (this);}
+		Image			*SetPositionPercentage(bool tPercentageX, bool tPercentageY) { Widget::SetPositionPercentage(tPercentageX, tPercentageY); return (this);}
 	};
 } // namespace mf

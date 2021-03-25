@@ -4,8 +4,8 @@ namespace mf
 {
 
 Button::Button()
-:mBackground(&mPos, &mSize)
-,mText(&mPos, &mSize)
+:mBackground(&mTransform.mPosition, &mTransform.mSize)
+,mText(&mTransform.mPosition, &mTransform.mSize)
 {
 
 }

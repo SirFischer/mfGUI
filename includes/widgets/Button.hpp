@@ -56,8 +56,8 @@ namespace mf
 		Button				*SetPosition(float tX, float tY){Widget::SetPosition(tX, tY); return (this);}
 		Button				*SetSize(sf::Vector2f tSize){Widget::SetSize(tSize); return (this);}
 		Button				*SetSize(float tX, float tY){Widget::SetSize(tX, tY); return (this);}
-		Button				*SetSizePercentage(bool tPercentage) { Widget::SetSizePercentage(tPercentage); return (this);}
-		Button				*SetPositionPercentage(bool tPercentage) { Widget::SetPositionPercentage(tPercentage); return (this);}
+		Button				*SetSizePercentage(bool tPercentageX, bool tPercentageY) { Widget::SetSizePercentage(tPercentageX, tPercentageY); return (this);}
+		Button				*SetPositionPercentage(bool tPercentageX, bool tPercentageY) { Widget::SetPositionPercentage(tPercentageX, tPercentageY); return (this);}
         
     };
 } // namespace mf

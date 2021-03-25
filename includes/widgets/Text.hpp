@@ -64,8 +64,8 @@ namespace mf
 		Text			*SetPosition(float tX, float tY){Widget::SetPosition(tX, tY); return (this);}
 		Text			*SetSize(sf::Vector2f tSize){Widget::SetSize(tSize); return (this);}
 		Text			*SetSize(float tX, float tY){Widget::SetSize(tX, tY); return (this);}
-		Text			*SetSizePercentage(bool tPercentage) {Widget::SetSizePercentage(tPercentage); return (this);}
-		Text			*SetPositionPercentage(bool tPercentage) { Widget::SetPositionPercentage(tPercentage); return (this);}
+		Text			*SetSizePercentage(bool tPercentageX, bool tPercentageY) { Widget::SetSizePercentage(tPercentageX, tPercentageY); return (this);}
+		Text			*SetPositionPercentage(bool tPercentageX, bool tPercentageY) { Widget::SetPositionPercentage(tPercentageX, tPercentageY); return (this);}
 
 		/**
 		 * Getters

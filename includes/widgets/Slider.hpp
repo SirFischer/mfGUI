@@ -51,8 +51,8 @@ namespace mf
 		Slider					*SetPosition(float tX, float tY){Widget::SetPosition(tX, tY); mButton->SetPosition(mButton->GetRelativePosition()); return (this);}
 		Slider					*SetSize(sf::Vector2f tSize){Widget::SetSize(tSize); return (this);}
 		Slider					*SetSize(float tX, float tY){Widget::SetSize(tX, tY); return (this);}
-		Slider					*SetSizePercentage(bool tPercentage) {Widget::SetSizePercentage(tPercentage); return (this);}
-		Slider					*SetPositionPercentage(bool tPercentage) { Widget::SetPositionPercentage(tPercentage); return (this);}
+		Slider					*SetSizePercentage(bool tPercentageX, bool tPercentageY) { Widget::SetSizePercentage(tPercentageX, tPercentageY); return (this);}
+		Slider					*SetPositionPercentage(bool tPercentageX, bool tPercentageY) { Widget::SetPositionPercentage(tPercentageX, tPercentageY); return (this);}
 
 		//Background
 		Slider					*SetBackgroundColor(sf::Color tColor) {mBackground.SetBackground(tColor); return (this);}

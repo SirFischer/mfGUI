@@ -3,8 +3,8 @@
 namespace mf
 {
 	List::List(/* args */)
-	:mBackground(&mPos, &mSize)
-	,mScrollBar(&mPos, &mSize, &mContentSize, &mContentPosition)
+	:mBackground(&mTransform.mPosition, &mTransform.mSize)
+	,mScrollBar(&mTransform.mPosition, &mTransform.mSize, &mContentSize, &mContentPosition)
 	{
 		
 	}
@@ -27,16 +27,15 @@ namespace mf
 
 	void		List::Render(sf::RenderWindow *tWindow)
 	{
-		mView.setViewport(sf::FloatRect(mPos.x / (float)tWindow->getSize().x,
-									mPos.y / (float)tWindow->getSize().y,
-									mSize.x / (float)tWindow->getSize().x,
-									mSize.y / (float)tWindow->getSize().y));
-		mView.reset(sf::FloatRect(sf::Vector2f(mPos.x, mPos.y + mContentPosition.y), mSize));
 		UpdateChildren();
 		UpdateContentData();
+		mView.setViewport(sf::FloatRect(mTransform.mPosition.x / (float)tWindow->getSize().x,
+									mTransform.mPosition.y / (float)tWindow->getSize().y,
+									mTransform.mSize.x / (float)tWindow->getSize().x,
+									mTransform.mSize.y / (float)tWindow->getSize().y));
+		mView.reset(sf::FloatRect(sf::Vector2f(mTransform.mPosition.x, mTransform.mPosition.y + mContentPosition.y), mTransform.mSize));
 		mBackground.Draw(tWindow);
-		sf::View		tmp = tWindow->getView();
-		
+		sf::View tmp = tWindow->getView();
 		mScrollBar.Draw(tWindow);
 		tWindow->setView(mView);
 		Widget::Render(tWindow);
@@ -56,7 +55,7 @@ namespace mf
 
 			if (mListDirection == eDirection::VERTICAL)
 			{
-				if (((lastWidget) ? lastWidget->GetPosition().y + lastWidget->GetSize().y + mItemSpacing : 0) + child->GetSize().y + mContentPosition.y > mSize.y + mPos.y   && mOverflow == eOverflow::WRAP)
+				if (((lastWidget) ? lastWidget->GetPosition().y + lastWidget->GetSize().y + mItemSpacing : 0) + child->GetSize().y > mTransform.mSize.y + mTransform.mPosition.y   && mOverflow == eOverflow::WRAP)
 				{
 					if (maxOffset != 0 && lastWidget)
 					{
@@ -65,11 +64,11 @@ namespace mf
 					}
 					maxOffset = 0;
 				}
-				child->SetPosition(mContentPosition.x + offset, ((lastWidget) ? lastWidget->GetRelativePosition().y + lastWidget->GetSize().y : 0) + mItemSpacing + mContentPosition.y);
+				child->SetPosition(offset, ((lastWidget) ? lastWidget->GetRelativePosition().y + lastWidget->GetSize().y : 0) + mItemSpacing);
 			}
 			else
 			{
-				if (((lastWidget) ? lastWidget->GetPosition().x + lastWidget->GetSize().x + mItemSpacing : 0) + child->GetSize().x + mContentPosition.x > mSize.x + mPos.x && mOverflow == eOverflow::WRAP)
+				if (((lastWidget) ? lastWidget->GetPosition().x + lastWidget->GetSize().x + mItemSpacing : 0) + child->GetSize().x > mTransform.mSize.x + mTransform.mPosition.x && mOverflow == eOverflow::WRAP)
 				{
 					if (maxOffset != 0 && lastWidget)
 					{
@@ -78,7 +77,7 @@ namespace mf
 					}
 					maxOffset = 0;
 				}
-				child->SetPosition(((lastWidget) ? lastWidget->GetRelativePosition().x + lastWidget->GetSize().x : 0) + mItemSpacing + mContentPosition.x, mContentPosition.y + offset);
+				child->SetPosition(((lastWidget) ? lastWidget->GetRelativePosition().x + lastWidget->GetSize().x : 0) + mItemSpacing, offset);
 			}
 			lastWidget = child;
 		}
@@ -89,6 +88,7 @@ namespace mf
 		sf::Vector2f	size = sf::Vector2f(0, 0);
 		for (auto &child : mWidgets)
 		{
+			
 			size.x += child->GetSize().x;
 			size.y += child->GetSize().y;
 			if (mContentPosition.x > child->GetPosition().x)

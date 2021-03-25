@@ -4,12 +4,12 @@ namespace mf
 {
 
 Widget::Widget()
-:mEventManager(&mPos, &mSize)
+:mEventManager(&mTransform.mPosition, &mTransform.mSize)
 {
 	//Default resize function
 	mEventManager.AddEventListener(eEvent::RESIZE, [this] {
-		this->SetPosition(mRelativePos);
-		this->SetSize(mRelativeSize);
+		this->SetPosition(mTransform.mRelativePosition);
+		this->SetSize(mTransform.mRelativeSize);
 	});
 }
 
@@ -57,8 +57,8 @@ void		Widget::Render(sf::RenderWindow *tWindow)
 
 void		Widget::Init()
 {
-	this->SetPosition(mRelativePos);
-	this->SetSize(mRelativeSize);
+	this->SetPosition(mTransform.mRelativePosition);
+	this->SetSize(mTransform.mRelativeSize);
 }
 
 void		Widget::SortWidgets()
@@ -73,7 +73,7 @@ void		Widget::SortWidgets()
 Widget			*Widget::AddWidget(Widget *tWidget)
 {
     tWidget->mParent = this;
-    tWidget->SetPosition(tWidget->mRelativePos);
+    tWidget->SetPosition(tWidget->mTransform.mRelativePosition);
     mWidgets.push_back(tWidget);
 	tWidget->Init();
 	SortWidgets();
@@ -97,19 +97,22 @@ void        Widget::ClearWidgets()
         mWidgets.back()->ClearWidgets();
         delete mWidgets.back();
         mWidgets.pop_back();
-		
     }
 }
 
 Widget			*Widget::SetPosition(sf::Vector2f tPos)
 {
-	if (mPositionPercentage && mParent)
-		mPos = sf::Vector2f(mParent->mSize.x * (tPos.x / 100.f), mParent->mSize.y * (tPos.y / 100.f));
-	else
-		mPos = tPos;
+	//TODO: MAKE POSITION PERCENTAGE FOR X AND Y
+	mTransform.mPosition = tPos;
+	mTransform.mRelativePosition = tPos;
+	if (mTransform.mPositionPercentageX && mParent)
+		mTransform.mPosition.x =mParent->mTransform.mSize.x * (tPos.x / 100.f);
+	if (mTransform.mPositionPercentageY && mParent)
+		mTransform.mPosition.y = mParent->mTransform.mSize.y * (tPos.y / 100.f);
 	if (mParent)
-    	mPos += mParent->mPos;
-    mRelativePos = tPos;
+	{
+		mTransform.mPosition += mParent->mTransform.mPosition;
+	}
     return (this);
 }
 
@@ -119,10 +122,11 @@ Widget			*Widget::SetPosition(float tX, float tY)
     return (this);
 }
 
-Widget			*Widget::SetPositionPercentage(bool tPercentage)
+Widget			*Widget::SetPositionPercentage(bool tPercentageX, bool tPercentageY)
 {
-	mPositionPercentage = tPercentage;
-	this->SetPosition(mPos);
+	mTransform.mPositionPercentageX = tPercentageX;
+	mTransform.mPositionPercentageY = tPercentageY;
+	this->SetPosition(mTransform.mPosition);
 	return (this);
 }
 
@@ -135,18 +139,21 @@ Widget			*Widget::SetSize(float tX, float tY)
 
 Widget			*Widget::SetSize(sf::Vector2f tSize)
 {
-	if (mSizePercentage && mParent)
-		mSize = sf::Vector2f(mParent->mSize.x * (tSize.x / 100.f), mParent->mSize.y * (tSize.y / 100.f));
-	else
-    	mSize = tSize;
-	mRelativeSize = tSize;
+	//TODO: MAKE SZIE PERCENTAGE FOR X AND Y
+	mTransform.mSize = tSize;
+	mTransform.mRelativeSize = tSize;
+	if (mTransform.mSizePercentageX && mParent)
+		mTransform.mSize.x = mParent->mTransform.mSize.x * (tSize.x / 100.f);
+	if (mTransform.mSizePercentageY && mParent)
+		mTransform.mSize.y = mParent->mTransform.mSize.y * (tSize.y / 100.f);
     return (this);
 }
 
-Widget			*Widget::SetSizePercentage(bool tPercentage)
+Widget			*Widget::SetSizePercentage(bool tPercentageX, bool tPercentageY)
 {
-	mSizePercentage = tPercentage;
-	this->SetSize(mRelativeSize);
+	mTransform.mSizePercentageX = tPercentageX;
+	mTransform.mSizePercentageY = tPercentageY;
+	this->SetSize(mTransform.mRelativeSize);
 	return (this);
 }
     

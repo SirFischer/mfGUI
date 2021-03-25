@@ -4,9 +4,9 @@ namespace mf
 {
 
 Text::Text()
-:mBackground(&mPos, &mSize)
-,mScrollBar(&mPos, &mSize, &mContentSize, &mContentPosition)
-,mText(&mPos, &mSize)
+:mBackground(&mTransform.mPosition, &mTransform.mSize)
+,mScrollBar(&mTransform.mPosition, &mTransform.mSize, &mContentSize, &mContentPosition)
+,mText(&mTransform.mPosition, &mTransform.mSize)
 {
 
 }
@@ -35,18 +35,18 @@ void		Text::HandleEvent(sf::Event &tEvent)
 			}
 		}
 	}
-	mContentSize = sf::Vector2f(mSize.x, mText.GetVerticalHeight());
+	mContentSize = sf::Vector2f(mTransform.mSize.x, mText.GetVerticalHeight());
 	mScrollBar.HandleEvent(tEvent);
 	Widget::HandleEvent(tEvent);
 }
 
 void		Text::Render(sf::RenderWindow *tWindow)
 {
-	mView.setViewport(sf::FloatRect(mPos.x / (float)tWindow->getSize().x,
-									mPos.y / (float)tWindow->getSize().y,
-									mSize.x / (float)tWindow->getSize().x,
-									mSize.y / (float)tWindow->getSize().y));
-	mView.reset(sf::FloatRect(sf::Vector2f(mPos.x, mPos.y + mContentPosition.y), mSize));
+	mView.setViewport(sf::FloatRect(mTransform.mPosition.x / (float)tWindow->getSize().x,
+									mTransform.mPosition.y / (float)tWindow->getSize().y,
+									mTransform.mSize.x / (float)tWindow->getSize().x,
+									mTransform.mSize.y / (float)tWindow->getSize().y));
+	mView.reset(sf::FloatRect(sf::Vector2f(mTransform.mPosition.x, mTransform.mPosition.y + mContentPosition.y), mTransform.mSize));
 	
 	mBackground.Draw(tWindow);
 	sf::View		tmp = tWindow->getView();

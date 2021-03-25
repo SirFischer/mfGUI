@@ -8,6 +8,7 @@
 #include "widgetComponents/Background.hpp"
 #include "widgetComponents/EventManager.hpp"
 #include "widgetComponents/Text.hpp"
+#include "widgetComponents/Transform.hpp"
 
 namespace mf
 {
@@ -16,22 +17,15 @@ namespace mf
 	protected:
 		Widget(/* args */);
 
-		//Absolute position
-		sf::Vector2f					mPos = sf::Vector2f(0, 0);
-		//Position relative to parent
-		sf::Vector2f					mRelativePos = sf::Vector2f(0, 0);
+		//Components
+		component::EventManager			mEventManager;
+		component::Transform			mTransform;
 
-		//Absolute size
-		sf::Vector2f					mSize = sf::Vector2f(100, 100);
-		//Size Relative to parent
-		sf::Vector2f					mRelativeSize = sf::Vector2f(0, 0);
+		//tmp
 		sf::Vector2f					mContentSize = sf::Vector2f(0, 0);
 		sf::Vector2f					mContentPosition = sf::Vector2f(0, 0);
 
 		sf::View						mView;
-
-		bool							mSizePercentage = false;
-		bool							mPositionPercentage = false;
 
 		bool							mDisabled = false;
 		bool							mClickThrough = false;
@@ -39,20 +33,16 @@ namespace mf
 		Widget							*mParent = NULL;
 		std::vector<Widget *>			mWidgets = std::vector<Widget *>();
 
-		// Z index
-		int								mIndex = 0;
-
-		//Components
-		component::EventManager			mEventManager;
-
+		/**
+		 * INTERNAL FUNCTIONS
+		 **/
 		virtual void	Render(sf::RenderWindow *tWindow);
 		virtual void	HandleEvent(sf::Event &tEvent);
 		virtual void	Resize();
 
 		virtual void	Init();
-		
-		virtual void	SortWidgets();
 
+		virtual void	SortWidgets();
 
 	public:
 		virtual ~Widget();
@@ -69,11 +59,11 @@ namespace mf
 
 		virtual Widget	*SetPosition(sf::Vector2f tPos);
 		virtual Widget	*SetPosition(float tX, float tY);
-		virtual Widget	*SetPositionPercentage(bool tPercentage);
+		virtual Widget	*SetPositionPercentage(bool tPercentageX, bool tPercentageY);
 		virtual Widget	*SetSize(float tX, float tY);
 		virtual Widget	*SetSize(sf::Vector2f tSize);
-		virtual Widget	*SetSizePercentage(bool tPercentage);
-		virtual Widget	*SetIndex(int tIndex){mIndex = tIndex; return (this);}
+		virtual Widget	*SetSizePercentage(bool tPercentageX, bool tPercentageY);
+		virtual Widget	*SetIndex(int tIndex){mTransform.mIndex = tIndex; return (this);}
 
 		virtual Widget	*SetDisabled(bool tDisabled){mDisabled = tDisabled; return (this);}
 		virtual Widget	*SetClickThrough(bool tClickThrough){mClickThrough = tClickThrough; return (this);}
@@ -81,13 +71,13 @@ namespace mf
 		/**
 		 * Getters
 		 **/
-		sf::Vector2f	GetPosition(){return (mPos);}
-		sf::Vector2f	GetRelativePosition(){return (mRelativePos);}
+		sf::Vector2f	GetPosition(){return (mTransform.mPosition);}
+		sf::Vector2f	GetRelativePosition(){return (mTransform.mRelativePosition);}
 
-		sf::Vector2f	GetSize(){return (mSize);}
-		sf::Vector2f	GetRelativeSize(){return (mRelativeSize);}
+		sf::Vector2f	GetSize(){return (mTransform.mSize);}
+		sf::Vector2f	GetRelativeSize(){return (mTransform.mRelativeSize);}
 
-		int				GetIndex(){return (mIndex);}
+		int				GetIndex(){return (mTransform.mIndex);}
 
 		mf::eEvent		GetEvent(){return (mEventManager.GetEvent());}
 

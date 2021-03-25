@@ -56,8 +56,8 @@ namespace mf
 		List			*SetPosition(float tX, float tY){Widget::SetPosition(tX, tY); return (this);}
 		List			*SetSize(sf::Vector2f tSize){Widget::SetSize(tSize); return (this);}
 		List			*SetSize(float tX, float tY){Widget::SetSize(tX, tY); return (this);}
-		List			*SetSizePercentage(bool tPercentage) {Widget::SetSizePercentage(tPercentage); return (this);}
-		List			*SetPositionPercentage(bool tPercentage) { Widget::SetPositionPercentage(tPercentage); return (this);}
+		List			*SetSizePercentage(bool tPercentageX, bool tPercentageY) { Widget::SetSizePercentage(tPercentageX, tPercentageY); return (this);}
+		List			*SetPositionPercentage(bool tPercentageX, bool tPercentageY) { Widget::SetPositionPercentage(tPercentageX, tPercentageY); return (this);}
 
 		//Background
 		List			*SetBackgroundColor(sf::Color tColor) {mBackground.SetBackground(tColor); return (this);}

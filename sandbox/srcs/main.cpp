@@ -10,12 +10,12 @@ void CreateMainMenu()
 	
 	mf::Image *img = mf::Image::Create("assets/photo-1542044896530-05d85be9b11a.jpeg");
 	mf::GUI::AddWidget(img
-	->SetSize(50.f, 50.f)
+	->SetSize(50.f, 500.f)
 	->SetPosition(5.f, 20.f)
 	->SetOutlineColor(sf::Color::Black)
 	->SetOutlineThickness(3.f)
-	->SetSizePercentage(true)
-	->SetPositionPercentage(true));
+	->SetSizePercentage(true, false)
+	->SetPositionPercentage(true, false));
 
 	mf::Text	*textWidget = 
 	mf::Text::Create("assets/Bangers-Regular.ttf", "This is a test text widget to test the text wrapping algorithm...")
@@ -24,7 +24,7 @@ void CreateMainMenu()
 	->SetOutlineColor(sf::Color::Black)
 	->SetOutlineThickness(1.0f)
 	->SetTextColor(sf::Color::Black)
-	->SetSizePercentage(true)
+	->SetSizePercentage(true, true)
 	->EnableEdit();
 	img->AddWidget(textWidget);
 
@@ -32,9 +32,9 @@ void CreateMainMenu()
 	//LIST TEST
 	mf::List	*listWidget = mf::List::Create();
 	listWidget->SetPosition(60, 20)
-	->SetPositionPercentage(true)
+	->SetPositionPercentage(true, true)
 	->SetSize(35, 50)
-	->SetSizePercentage(true)
+	->SetSizePercentage(true, true)
 	->SetBackgroundColor(sf::Color::Green)
 	->SetItemDirection(mf::eDirection::VERTICAL)
 	->SetContentOverflow(mf::List::eOverflow::NOWRAP);
@@ -59,13 +59,13 @@ void CreateMainMenu()
 
 	slider = mf::Slider::Create();
 	
-	slider->SetPosition(70, 60)->SetPositionPercentage(true);
+	slider->SetPosition(70, 60)->SetPositionPercentage(true, true);
 	slider->SetDirection(mf::eDirection::VERTICAL);
 	slider->SetSize(30, 200);
 	mf::GUI::AddWidget(slider);
 
 	text = mf::Text::Create("assets/Bangers-Regular.ttf", std::to_string(slider->GetValue()));
-	text->SetPosition(85, 80)->SetPositionPercentage(true);
+	text->SetPosition(85, 80)->SetPositionPercentage(true, true);
 	text->SetTextColor(sf::Color::Black);
 	mf::GUI::AddWidget(text);
 }
