@@ -33,7 +33,7 @@ namespace mf
 		eDirection		mListDirection = eDirection::VERTICAL;
 		eOverflow		mOverflow = eOverflow::NOWRAP;
 		float			mItemSpacing = 5.f;
-		sf::Vector2f	mContentPosition = sf::Vector2f(0, 0);
+		sf::Vector2f	mContentOffset = sf::Vector2f(0, 0);
 
 		void			UpdateChildren();
 		void			UpdateContentData();
@@ -68,7 +68,7 @@ namespace mf
 		List			*SetItemSpacing(float tSpacing) {mItemSpacing = tSpacing; return (this);}
 		List			*SetItemDirection(eDirection tDirection) {mListDirection = tDirection; return (this);}
 		List			*SetContentOverflow(eOverflow tOverflow) {mOverflow = tOverflow; return (this);}
-		List			*SetContentPosition(sf::Vector2f tPos){mContentPosition = tPos; return (this);}
+		List			*SetContentOffset(sf::Vector2f tPos){mContentOffset = tPos; return (this);}
 
 	};
 }

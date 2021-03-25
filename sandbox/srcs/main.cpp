@@ -37,7 +37,8 @@ void CreateMainMenu()
 	->SetSizePercentage(true, true)
 	->SetBackgroundColor(sf::Color::Green)
 	->SetItemDirection(mf::eDirection::VERTICAL)
-	->SetContentOverflow(mf::List::eOverflow::NOWRAP);
+	->SetContentOverflow(mf::List::eOverflow::NOWRAP)
+	->SetContentOffset(sf::Vector2f(20, 10));
 	mf::GUI::AddWidget(listWidget);
 
 	mf::Button	*btn = mf::Button::Create(sf::Color::Black, sf::Color::White);
