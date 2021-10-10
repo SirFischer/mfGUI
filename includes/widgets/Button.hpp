@@ -39,6 +39,7 @@ namespace mf
 		Button				*SetTextFont(std::string tPath);
 		Button				*SetTextFont(sf::Font tFont);
 		Button				*SetTextPosition(sf::Vector2f tPos);
+		Button				*SetTextPosition(float tX, float tY);
 		Button				*SetTextColor(sf::Color tColor);
 
 		Button				*SetCharacterSize(unsigned int tSize);

@@ -87,6 +87,13 @@ Button		*Button::SetTextPosition(sf::Vector2f tPos)
 	return (this);
 }
 
+Button		*Button::SetTextPosition(float tX, float tY)
+{
+	mText.SetPos(sf::Vector2f(tX, tY));
+	return (this);
+}
+
+
 Button		*Button::SetTextColor(sf::Color tColor)
 {
 	mText.SetColor(tColor);
