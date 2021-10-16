@@ -43,7 +43,7 @@ $(NAME): $(OBJS)
 ifeq ($(UNAME), Linux)
 install_dep:
 	@echo "$(_BLUE)Fetching dependencies...$(_END)"
-	@sudo apt-get install libsfml-dev libglm-dev libglm-doc libnoise-dev freeglut3-dev libglew-dev libboost-all-dev
+	@sudo apt-get install libsfml-dev libboost-all-dev
 endif
 
 test:	all
