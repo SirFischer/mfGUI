@@ -22,7 +22,7 @@ endif
 
 CFLAGS			:=	-Wall -Werror -Wextra -std=c++17
 
-CLIBS			+= -lsfml-graphics -lsfml-window -lsfml-system -lGL -lGLU -lglut -lGLEW -lnoise -lstdc++fs
+CLIBS			+= -lsfml-graphics -lsfml-window -lsfml-system
 
 BLACK_LIST_SRCS :=	
 
