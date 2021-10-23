@@ -67,6 +67,7 @@ namespace mf
 
 		virtual Widget	*SetDisabled(bool tDisabled){mDisabled = tDisabled; return (this);}
 		virtual Widget	*SetClickThrough(bool tClickThrough){mClickThrough = tClickThrough; return (this);}
+		virtual Widget	*SetFocus(bool tFocus){mEventManager.SetFocus(tFocus); return (this);}
 
 		/**
 		 * Getters
