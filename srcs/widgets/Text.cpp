@@ -73,7 +73,7 @@ Text			*Text::EnableEdit()
 	mIsEditable = true;
 	Text* tmp = this;
 	mEventManager.AddEventListener(eEvent::FOCUS, [tmp] {
-		tmp->SetOutlineThickness(5);
+		tmp->SetOutlineThickness(2);
 	});
 	mEventManager.AddEventListener(eEvent::LOST_FOCUS, [tmp] {
 		tmp->SetOutlineThickness(1);
