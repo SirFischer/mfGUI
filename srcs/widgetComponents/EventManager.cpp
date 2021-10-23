@@ -94,6 +94,14 @@ namespace mf
 			if (mKeyListeners[(uint32_t)tEvent])
 				mKeyListeners[(uint32_t)tEvent]();
 		}
+
+		void	EventManager::SetFocus(bool tFocus)
+		{
+			mFocus = tFocus;
+			if (mKeyListeners[(uint32_t)eEvent::FOCUS])
+				mKeyListeners[(uint32_t)eEvent::FOCUS]();
+		}
+
 	} // namespace component
 	
 	
