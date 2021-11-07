@@ -52,6 +52,7 @@ namespace mf
 		Widget			*AddWidget(Widget *tWidget);
 		void			RemoveWidget(Widget *tWidget);
 		void			ClearWidgets();
+		void			ClearWidgets(bool tDelete);
 
 		/**
 		 * Setters

@@ -100,6 +100,17 @@ void        Widget::ClearWidgets()
     }
 }
 
+void		Widget::ClearWidgets(bool tDelete)
+{
+	while (mWidgets.size())
+	{
+		mWidgets.back()->ClearWidgets(tDelete);
+		if (tDelete)
+			delete mWidgets.back();
+		mWidgets.pop_back();
+	}
+}
+
 Widget			*Widget::SetPosition(sf::Vector2f tPos)
 {
 	//TODO: MAKE POSITION PERCENTAGE FOR X AND Y
