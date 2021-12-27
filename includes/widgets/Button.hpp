@@ -22,8 +22,7 @@ namespace mf
         /**
 		 * Create
 		 **/
-        static Button      *Create(std::string tPathIdle, std::string tPathHover);
-        static Button      *Create(sf::Color tIdle, sf::Color tHover);
+        static Button      *Create();
 
 		/**
 		 * Setters

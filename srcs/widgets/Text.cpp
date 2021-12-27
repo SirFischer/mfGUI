@@ -58,13 +58,11 @@ void		Text::Render(sf::RenderWindow *tWindow)
 }
 
 
-Text      *Text::Create(std::string tFontPath, std::string tString)
+Text      *Text::Create()
 {
     Text *txt = new Text();
     txt->mBackground.SetBackground(sf::Color::White);
     txt->SetSize(sf::Vector2f(200, 100));
-	txt->SetTextFont(tFontPath);
-	txt->SetText(tString);
     return (txt);
 }
 

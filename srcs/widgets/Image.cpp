@@ -20,21 +20,22 @@ void		Image::Render(sf::RenderWindow *tWindow)
 	Widget::Render(tWindow);
 }
 
-Image      *Image::Create(std::string tPath)
+Image      *Image::Create()
 {
     Image   *img = new Image();
-    img->mBackground.SetBackground(tPath);
     return (img);
 }
 
-void	Image::SetImage(std::string tPath)
+Image	*Image::SetImage(std::string tPath)
 {
 	this->mBackground.SetBackground(tPath);
+	return (this);
 }
 
-void	Image::SetImage(sf::Texture	&tTexture)
+Image	*Image::SetImage(sf::Texture	&tTexture)
 {
 	this->mBackground.SetBackground(tTexture);
+	return (this);
 }
 
 Image	*Image::SetOutlineThickness(float tThickness)

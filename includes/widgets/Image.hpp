@@ -22,13 +22,13 @@ namespace mf
 		/**
 		 * Create
 		 **/
-		static Image	*Create(std::string tPath);
+		static Image	*Create();
 
 		/**
 		 * Setters
 		 **/
-		void			SetImage(std::string tPath);
-		void			SetImage(sf::Texture &tTexture);
+		Image			*SetImage(std::string tPath);
+		Image			*SetImage(sf::Texture &tTexture);
 
 		Image			*SetDisabled(bool tDisabled){mDisabled = tDisabled; return (this);}
 

@@ -30,7 +30,7 @@ namespace mf
 		/**
 		 * Create
 		 **/
-		static Text		*Create(std::string tFontPath, std::string tString);
+		static Text		*Create();
 
 		Text			*EnableEdit();
 		Text			*DisableEdit();
