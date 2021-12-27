@@ -129,6 +129,15 @@ Button		*Button::SetBackground(sf::Color tColor)
 	return (this);
 }
 
+Button		*Button::SetBackground(sf::Texture *tTexture)
+{
+	mBackground.SetBackground(*tTexture);
+	this->mEventManager.AddEventListener(eEvent::EXITED, [this, tTexture] {
+        this->mBackground.SetBackground(*tTexture);
+    });
+	return (this);
+}
+
 Button		*Button::SetHoverBackground(sf::Color tColor)
 {
 	mBackground.SetBackground(tColor);
