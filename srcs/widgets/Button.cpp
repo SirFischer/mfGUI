@@ -98,32 +98,18 @@ Button		*Button::SetOutlineColor(sf::Color tColor)
 	return (this);
 }
 
-Button		*Button::SetBackground(sf::Color tColor)
+Button		*Button::SetBackground(const sf::Color &tColor)
 {
 	mBackground.SetBackground(tColor);
-	this->mEventManager.AddEventListener(eEvent::EXITED, [this, tColor] {
-        this->mBackground.SetBackground(tColor);
-    });
 	return (this);
 }
 
-Button		*Button::SetBackground(sf::Texture *tTexture)
+Button		*Button::SetBackground(const sf::Texture &tTexture)
 {
-	mBackground.SetBackground(*tTexture);
-	this->mEventManager.AddEventListener(eEvent::EXITED, [this, tTexture] {
-        this->mBackground.SetBackground(*tTexture);
-    });
+	mBackground.SetBackground(tTexture);
 	return (this);
 }
 
-Button		*Button::SetHoverBackground(sf::Color tColor)
-{
-	mBackground.SetBackground(tColor);
-	this->mEventManager.AddEventListener(eEvent::ENTERED, [this, tColor] {
-        this->mBackground.SetBackground(tColor);
-    });
-	return (this);
-}
 
 
 
