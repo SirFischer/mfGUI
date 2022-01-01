@@ -60,5 +60,9 @@ namespace mf
 		Button				*SetSizePercentage(bool tPercentageX, bool tPercentageY) { Widget::SetSizePercentage(tPercentageX, tPercentageY); return (this);}
 		Button				*SetPositionPercentage(bool tPercentageX, bool tPercentageY) { Widget::SetPositionPercentage(tPercentageX, tPercentageY); return (this);}
 
+		/**
+		 * Getters
+		 */
+		sf::Vector2f		GetTextPosition(){return (mText.GetPosition());}
     };
 } // namespace mf
