@@ -40,6 +40,25 @@ void        Widget::HandleEvent(sf::Event &tEvent)
 	}
 }
 
+void		Widget::UpdatePosition()
+{
+	SetPosition(mTransform.mRelativePosition);
+	for (auto &child : mWidgets)
+	{
+		child->UpdatePosition();
+	}
+}
+
+void		Widget::UpdateSize()
+{
+	SetSize(mTransform.mRelativeSize);
+	for (auto &child : mWidgets)
+	{
+		child->UpdateSize();
+	}
+}
+
+
 void		Widget::Resize()
 {
 	mEventManager.TriggerEvent(mf::eEvent::RESIZE);

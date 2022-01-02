@@ -8,28 +8,23 @@ void CreateMainMenu()
 	mf::GUI::ClearWidgets();
 
 	
-	mf::Image *img = mf::Image::Create();
-	mf::GUI::AddWidget(img
+	mf::Container *container = mf::Container::Create();
+	mf::GUI::AddWidget(container
 	->SetSize(50.f, 500.f)
 	->SetPosition(5.f, 20.f)
 	->SetOutlineColor(sf::Color::Black)
 	->SetOutlineThickness(3.f)
 	->SetSizePercentage(true, false)
 	->SetPositionPercentage(true, false)
-	->SetImage("assets/photo-1542044896530-05d85be9b11a.jpeg"));
-
-	mf::Text	*textWidget = 
-	mf::Text::Create()
-	->SetPosition(30, 30)
-	->SetSize(80, 80)
-	->SetOutlineColor(sf::Color::Black)
-	->SetOutlineThickness(1.0f)
-	->SetTextColor(sf::Color::Black)
-	->SetSizePercentage(true, true)
+	->AddWidget(mf::Button::Create()
 	->SetTextFont("assets/Bangers-Regular.ttf")
-	->SetText("This is a test text widget to test the text wrapping algorithm...")
-	->EnableEdit();
-	img->AddWidget(textWidget);
+	->SetBackground(sf::Color::Black)
+	->SetText("test"))
+	->AddWidget(mf::Button::Create()
+	->SetTextFont("assets/Bangers-Regular.ttf")
+	->SetPosition(150, 0)
+	->SetBackground(sf::Color::Black)
+	->SetText("test")));
 
 
 	//LIST TEST

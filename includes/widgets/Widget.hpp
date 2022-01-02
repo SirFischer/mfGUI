@@ -44,6 +44,9 @@ namespace mf
 
 		virtual void	SortWidgets();
 
+		virtual void	UpdatePosition();
+		virtual void	UpdateSize();
+
 	public:
 		virtual ~Widget();
 		friend class	GUI;
