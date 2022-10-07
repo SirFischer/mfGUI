@@ -443,7 +443,7 @@ SFML_IS_TOP_LEVEL:STATIC=OFF
 SFML_OPENGL_ES:BOOL=0
 
 //Install directory for SFML's pkg-config .pc files
-SFML_PKGCONFIG_INSTALL_PREFIX:PATH=/usr/local//pkgconfig
+SFML_PKGCONFIG_INSTALL_PREFIX:PATH=/usr/local/pkgconfig
 
 //Value Computed by CMake
 SFML_SOURCE_DIR:STATIC=/home/mfischer/Marek/Personal/C++/mfGUI/_deps/sfml-src

@@ -56,13 +56,13 @@ void CreateMainMenu()
 	mf::Button	*btn5 = mf::Button::Create();
 	listWidget->AddWidget(btn5);
 
-	mf::Button	*btn6 = mf::Button::Create(sf::Color::Black, sf::Color::White);
+	mf::Button	*btn6 = mf::Button::Create();
 	listWidget->AddWidget(btn6);
 
-	mf::Button	*btn7 = mf::Button::Create(sf::Color::Black, sf::Color::White);
+	mf::Button	*btn7 = mf::Button::Create();
 	listWidget->AddWidget(btn7);
 
-	mf::Button	*btn8 = mf::Button::Create(sf::Color::Black, sf::Color::White);
+	mf::Button	*btn8 = mf::Button::Create();
 	listWidget->AddWidget(btn8);
 
 	slider = mf::Slider::Create();
