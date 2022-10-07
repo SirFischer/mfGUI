@@ -8,25 +8,23 @@ void CreateMainMenu()
 	mf::GUI::ClearWidgets();
 
 	
-	mf::Image *img = mf::Image::Create("assets/photo-1542044896530-05d85be9b11a.jpeg");
-	mf::GUI::AddWidget(img
+	mf::Container *container = mf::Container::Create();
+	mf::GUI::AddWidget(container
 	->SetSize(50.f, 500.f)
 	->SetPosition(5.f, 20.f)
 	->SetOutlineColor(sf::Color::Black)
 	->SetOutlineThickness(3.f)
 	->SetSizePercentage(true, false)
-	->SetPositionPercentage(true, false));
-
-	mf::Text	*textWidget = 
-	mf::Text::Create("assets/Bangers-Regular.ttf", "This is a test text widget to test the text wrapping algorithm...")
-	->SetPosition(30, 30)
-	->SetSize(80, 80)
-	->SetOutlineColor(sf::Color::Black)
-	->SetOutlineThickness(1.0f)
-	->SetTextColor(sf::Color::Black)
-	->SetSizePercentage(true, true)
-	->EnableEdit();
-	img->AddWidget(textWidget);
+	->SetPositionPercentage(true, false)
+	->AddWidget(mf::Button::Create()
+	->SetTextFont("assets/Bangers-Regular.ttf")
+	->SetBackground(sf::Color::Black)
+	->SetText("test"))
+	->AddWidget(mf::Button::Create()
+	->SetTextFont("assets/Bangers-Regular.ttf")
+	->SetPosition(150, 0)
+	->SetBackground(sf::Color::Black)
+	->SetText("test")));
 
 
 	//LIST TEST
@@ -41,21 +39,21 @@ void CreateMainMenu()
 	->SetContentOffset(sf::Vector2f(20, 10));
 	mf::GUI::AddWidget(listWidget);
 
-	mf::Button	*btn = mf::Button::Create(sf::Color::Black, sf::Color::White);
+	mf::Button	*btn = mf::Button::Create();
 	listWidget->AddWidget(btn);
 
-	mf::Button	*btn2 = mf::Button::Create(sf::Color::Black, sf::Color::White);
+	mf::Button	*btn2 = mf::Button::Create();
 	btn2->SetSize(120, 50);
 	listWidget->AddWidget(btn2);
 
-	mf::Button	*btn3 = mf::Button::Create(sf::Color::Black, sf::Color::White);
+	mf::Button	*btn3 = mf::Button::Create();
 	listWidget->AddWidget(btn3);
 
-	mf::Button	*btn4 = mf::Button::Create(sf::Color::Black, sf::Color::White);
+	mf::Button	*btn4 = mf::Button::Create();
 	btn4->SetSize(110, 30);
 	listWidget->AddWidget(btn4);
 
-	mf::Button	*btn5 = mf::Button::Create(sf::Color::Black, sf::Color::White);
+	mf::Button	*btn5 = mf::Button::Create();
 	listWidget->AddWidget(btn5);
 
 	mf::Button	*btn6 = mf::Button::Create(sf::Color::Black, sf::Color::White);
@@ -74,8 +72,9 @@ void CreateMainMenu()
 	slider->SetSize(30, 200);
 	mf::GUI::AddWidget(slider);
 
-	text = mf::Text::Create("assets/Bangers-Regular.ttf", std::to_string(slider->GetValue()));
+	text = mf::Text::Create();
 	text->SetPosition(85, 80)->SetPositionPercentage(true, true);
+	text->SetTextFont("assets/Bangers-Regular.ttf")->SetText(std::to_string(slider->GetValue()));
 	text->SetTextColor(sf::Color::Black);
 	mf::GUI::AddWidget(text);
 }

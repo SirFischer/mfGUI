@@ -22,7 +22,7 @@ namespace mf
 
 			char				mCharInput = 0;
 
-			std::map<uint32_t, std::function<void()>>   mKeyListeners;			
+			std::map<uint32_t, std::function<void()>>   mKeyListeners;
 
 		public:
 			EventManager(sf::Vector2f *tPos, sf::Vector2f *tSize);
@@ -37,6 +37,8 @@ namespace mf
 			bool			GetFocus() {return (mFocus);}
 			char			GetCharInput() {return (mCharInput);}
 			sf::Vector2f	GetMousePosition(){return (mMousePos);}
+
+			void			SetFocus(bool tFocus);
 		};
 	} // namespace component
 	

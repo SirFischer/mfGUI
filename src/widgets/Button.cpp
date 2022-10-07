@@ -22,32 +22,10 @@ void		Button::Render(sf::RenderWindow *tWindow)
 	Widget::Render(tWindow);
 }
 
-Button      *Button::Create(std::string tPathIdle, std::string tPathHover)
+Button      *Button::Create()
 {
     Button *btn = new Button();
-    btn->mBackground.SetBackground(tPathIdle);
     btn->SetSize(sf::Vector2f(100, 50));
-    btn->mEventManager.AddEventListener(eEvent::EXITED, [btn, tPathIdle] {
-        btn->mBackground.SetBackground(tPathIdle);
-    });
-    btn->mEventManager.AddEventListener(eEvent::ENTERED, [btn, tPathHover] {
-        btn->mBackground.SetBackground(tPathHover);
-    });
-    return (btn);
-}
-
-Button      *Button::Create(sf::Color tIdle, sf::Color tHover)
-{
-    Button *btn = new Button();
-    btn->mBackground.SetBackground(tIdle);
-    btn->SetSize(sf::Vector2f(100, 50));
-	(void)tHover;
-    btn->mEventManager.AddEventListener(eEvent::EXITED, [btn, tIdle] {
-        btn->mBackground.SetBackground(tIdle);
-    });
-    btn->mEventManager.AddEventListener(eEvent::ENTERED, [btn, tHover] {
-        btn->mBackground.SetBackground(tHover);
-    });
     return (btn);
 }
 
@@ -87,6 +65,13 @@ Button		*Button::SetTextPosition(sf::Vector2f tPos)
 	return (this);
 }
 
+Button		*Button::SetTextPosition(float tX, float tY)
+{
+	mText.SetPos(sf::Vector2f(tX, tY));
+	return (this);
+}
+
+
 Button		*Button::SetTextColor(sf::Color tColor)
 {
 	mText.SetColor(tColor);
@@ -113,23 +98,18 @@ Button		*Button::SetOutlineColor(sf::Color tColor)
 	return (this);
 }
 
-Button		*Button::SetBackground(sf::Color tColor)
+Button		*Button::SetBackground(const sf::Color &tColor)
 {
 	mBackground.SetBackground(tColor);
-	this->mEventManager.AddEventListener(eEvent::EXITED, [this, tColor] {
-        this->mBackground.SetBackground(tColor);
-    });
 	return (this);
 }
 
-Button		*Button::SetHoverBackground(sf::Color tColor)
+Button		*Button::SetBackground(const sf::Texture &tTexture)
 {
-	mBackground.SetBackground(tColor);
-	this->mEventManager.AddEventListener(eEvent::ENTERED, [this, tColor] {
-        this->mBackground.SetBackground(tColor);
-    });
+	mBackground.SetBackground(tTexture);
 	return (this);
 }
+
 
 
 

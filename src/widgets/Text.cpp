@@ -58,13 +58,11 @@ void		Text::Render(sf::RenderWindow *tWindow)
 }
 
 
-Text      *Text::Create(std::string tFontPath, std::string tString)
+Text      *Text::Create()
 {
     Text *txt = new Text();
     txt->mBackground.SetBackground(sf::Color::White);
     txt->SetSize(sf::Vector2f(200, 100));
-	txt->SetTextFont(tFontPath);
-	txt->SetText(tString);
     return (txt);
 }
 
@@ -73,7 +71,7 @@ Text			*Text::EnableEdit()
 	mIsEditable = true;
 	Text* tmp = this;
 	mEventManager.AddEventListener(eEvent::FOCUS, [tmp] {
-		tmp->SetOutlineThickness(5);
+		tmp->SetOutlineThickness(2);
 	});
 	mEventManager.AddEventListener(eEvent::LOST_FOCUS, [tmp] {
 		tmp->SetOutlineThickness(1);

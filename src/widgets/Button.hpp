@@ -22,8 +22,7 @@ namespace mf
         /**
 		 * Create
 		 **/
-        static Button      *Create(std::string tPathIdle, std::string tPathHover);
-        static Button      *Create(sf::Color tIdle, sf::Color tHover);
+        static Button      *Create();
 
 		/**
 		 * Setters
@@ -39,6 +38,7 @@ namespace mf
 		Button				*SetTextFont(std::string tPath);
 		Button				*SetTextFont(sf::Font tFont);
 		Button				*SetTextPosition(sf::Vector2f tPos);
+		Button				*SetTextPosition(float tX, float tY);
 		Button				*SetTextColor(sf::Color tColor);
 
 		Button				*SetCharacterSize(unsigned int tSize);
@@ -46,7 +46,8 @@ namespace mf
 		//Background
 		Button				*SetOutlineThickness(float tThickness);
 		Button				*SetOutlineColor(sf::Color tColor);
-		Button				*SetBackground(sf::Color tColor);
+		Button				*SetBackground(const sf::Color &tColor);
+		Button				*SetBackground(const sf::Texture &tTexture);
 		Button				*SetHoverBackground(sf::Color tColor);
 
 		/**
@@ -58,6 +59,10 @@ namespace mf
 		Button				*SetSize(float tX, float tY){Widget::SetSize(tX, tY); return (this);}
 		Button				*SetSizePercentage(bool tPercentageX, bool tPercentageY) { Widget::SetSizePercentage(tPercentageX, tPercentageY); return (this);}
 		Button				*SetPositionPercentage(bool tPercentageX, bool tPercentageY) { Widget::SetPositionPercentage(tPercentageX, tPercentageY); return (this);}
-        
+
+		/**
+		 * Getters
+		 */
+		sf::Vector2f		GetTextPosition(){return (mText.GetPosition());}
     };
 } // namespace mf

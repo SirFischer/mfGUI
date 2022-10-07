@@ -33,8 +33,8 @@ namespace mf
 		Slider   *slider = new Slider();
 		slider->SetSize(200, 40);
 		slider->SetOutlineColor(sf::Color::Black)->SetOutlineThickness(1.f);
-		slider->mButton = Button::Create(sf::Color::Red, sf::Color::Green);
-		slider->mButton->SetSize(30, 40);
+		slider->mButton = Button::Create();
+		slider->mButton->SetSize(30, 40)->SetBackground(sf::Color::Red);
 		slider->AddWidget(slider->mButton);
 		slider->mButton->SetPosition(0, 0);
 		return (slider);

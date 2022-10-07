@@ -44,6 +44,9 @@ namespace mf
 
 		virtual void	SortWidgets();
 
+		virtual void	UpdatePosition();
+		virtual void	UpdateSize();
+
 	public:
 		virtual ~Widget();
 		friend class	GUI;
@@ -52,6 +55,7 @@ namespace mf
 		Widget			*AddWidget(Widget *tWidget);
 		void			RemoveWidget(Widget *tWidget);
 		void			ClearWidgets();
+		void			ClearWidgets(bool tDelete);
 
 		/**
 		 * Setters
@@ -67,6 +71,7 @@ namespace mf
 
 		virtual Widget	*SetDisabled(bool tDisabled){mDisabled = tDisabled; return (this);}
 		virtual Widget	*SetClickThrough(bool tClickThrough){mClickThrough = tClickThrough; return (this);}
+		virtual Widget	*SetFocus(bool tFocus){mEventManager.SetFocus(tFocus); return (this);}
 
 		/**
 		 * Getters

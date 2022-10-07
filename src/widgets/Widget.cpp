@@ -40,6 +40,25 @@ void        Widget::HandleEvent(sf::Event &tEvent)
 	}
 }
 
+void		Widget::UpdatePosition()
+{
+	SetPosition(mTransform.mRelativePosition);
+	for (auto &child : mWidgets)
+	{
+		child->UpdatePosition();
+	}
+}
+
+void		Widget::UpdateSize()
+{
+	SetSize(mTransform.mRelativeSize);
+	for (auto &child : mWidgets)
+	{
+		child->UpdateSize();
+	}
+}
+
+
 void		Widget::Resize()
 {
 	mEventManager.TriggerEvent(mf::eEvent::RESIZE);
@@ -98,6 +117,17 @@ void        Widget::ClearWidgets()
         delete mWidgets.back();
         mWidgets.pop_back();
     }
+}
+
+void		Widget::ClearWidgets(bool tDelete)
+{
+	while (mWidgets.size())
+	{
+		mWidgets.back()->ClearWidgets(tDelete);
+		if (tDelete)
+			delete mWidgets.back();
+		mWidgets.pop_back();
+	}
 }
 
 Widget			*Widget::SetPosition(sf::Vector2f tPos)

@@ -82,6 +82,8 @@ namespace mf
 				child->SetPosition(((lastWidget) ? lastWidget->GetRelativePosition().x + lastWidget->GetSize().x : 0) + mItemSpacing, offset);
 			}
 			lastWidget = child;
+			UpdatePosition();
+			UpdateSize();
 		}
 	}
 
