@@ -29,6 +29,11 @@ FetchContent_MakeAvailable(SFML)
 
 target_link_libraries(${PROJECT_NAME} PRIVATE sfml-graphics)
 
+if (WIN32 AND BUILD_SHARED_LIBS)
+    add_custom_command(TARGET CMakeSFMLProject POST_BUILD
+        COMMAND ${CMAKE_COMMAND} -E copy $<TARGET_RUNTIME_DLLS:CMakeSFMLProject> $<TARGET_FILE_DIR:CMakeSFMLProject> COMMAND_EXPAND_LISTS)
+endif()
+
 target_include_directories(${PROJECT_NAME}
     PRIVATE
         ${CMAKE_CURRENT_SOURCE_DIR}/src
