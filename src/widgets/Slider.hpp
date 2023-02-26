@@ -2,7 +2,7 @@
 
 #include "Widget.hpp"
 #include "Button.hpp"
-#include "utils/Direction.hpp"
+#include "../utils/Direction.hpp"
 
 namespace mf
 {

@@ -1,8 +1,9 @@
 #pragma once
 #include <functional>
 #include <SFML/Graphics.hpp>
-#include "utils/Events.hpp"
 #include <iostream>
+
+#include "../utils/Events.hpp"
 
 namespace mf
 {

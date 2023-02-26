@@ -1,8 +1,8 @@
 #pragma once
 
 #include "Widget.hpp"
-#include "widgetComponents/ScrollBar.hpp"
-#include "utils/Direction.hpp"
+#include "../widgetComponents/ScrollBar.hpp"
+#include "../utils/Direction.hpp"
 
 namespace mf
 {

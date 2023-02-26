@@ -1,7 +1,7 @@
 #pragma once
 
 #include "Widget.hpp"
-#include "widgetComponents/ScrollBar.hpp"
+#include "../widgetComponents/ScrollBar.hpp"
 
 namespace mf
 {

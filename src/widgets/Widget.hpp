@@ -3,12 +3,12 @@
 #include <boost/range/adaptor/reversed.hpp>
 
 #include <SFML/Graphics.hpp>
-#include "utils/Events.hpp"
+#include "../utils/Events.hpp"
 
-#include "widgetComponents/Background.hpp"
-#include "widgetComponents/EventManager.hpp"
-#include "widgetComponents/Text.hpp"
-#include "widgetComponents/Transform.hpp"
+#include "../widgetComponents/Background.hpp"
+#include "../widgetComponents/EventManager.hpp"
+#include "../widgetComponents/Text.hpp"
+#include "../widgetComponents/Transform.hpp"
 
 namespace mf
 {

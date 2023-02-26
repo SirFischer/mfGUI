@@ -16,6 +16,7 @@ namespace mf
 	List      *List::Create()
 	{
 		List   *list = new List();
+		list->mScrollBar.GetSlider()->SetValue(1);
 		return (list);
 	}
 
@@ -47,6 +48,7 @@ namespace mf
 		Widget	*lastWidget = NULL;
 		float offset = 0;
 		float maxOffset = 0;
+		mScrollBar.GetSlider()->SetValue(mScrollBar.GetSlider()->GetValue());
 		for (auto &child : mWidgets)
 		{
 			if ((child->GetSize().x > maxOffset && mListDirection == eDirection::VERTICAL) ||
@@ -90,7 +92,6 @@ namespace mf
 		sf::Vector2f	size = sf::Vector2f(0, 0);
 		for (auto &child : mWidgets)
 		{
-			
 			size.x += child->GetSize().x;
 			size.y += child->GetSize().y;
 			if (mContentPosition.x > child->GetPosition().x)
@@ -101,6 +102,4 @@ namespace mf
 		mContentSize.x = size.x + (mWidgets.size() * mItemSpacing);
 		mContentSize.y = size.y + (mWidgets.size() * mItemSpacing);
 	}
-
-
 }
