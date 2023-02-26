@@ -22,6 +22,11 @@ void		Button::Render(sf::RenderWindow *tWindow)
 	Widget::Render(tWindow);
 }
 
+void 	  Button::HandleEvent(sf::Event &tEvent)
+{
+	Widget::HandleEvent(tEvent);
+}
+
 Button      *Button::Create()
 {
     Button *btn = new Button();
