@@ -18,7 +18,6 @@ namespace mf
     public:
 		~Button();
 		void				Render(sf::RenderWindow *tWindow);
-		void				HandleEvent(sf::Event &tEvent);
 
         /**
 		 * Create
