@@ -9,10 +9,9 @@ set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
 
 set(CMAKE_CXX_STANDARD 17)
 
+set(CMAKE_BUILD_TYPE Debug)
 
 add_library(${PROJECT_NAME} STATIC)
-
-set_target_properties(${PROJECT_NAME} PROPERTIES LINKER_LANGUAGE CXX)
 
 
 ##FILES##
@@ -21,13 +20,9 @@ file(GLOB_RECURSE sources src/*.cpp src/*.hpp include/*.hpp)
 
 target_sources(${PROJECT_NAME} PRIVATE ${sources})
 
-include(FetchContent)
-FetchContent_Declare(SFML
-    GIT_REPOSITORY https://github.com/SFML/SFML.git
-    GIT_TAG 2.6.x)
-FetchContent_MakeAvailable(SFML)
-
+find_package(SFML REQUIRED COMPONENTS graphics)
 target_link_libraries(${PROJECT_NAME} PRIVATE sfml-graphics)
+
 
 if (WIN32 AND BUILD_SHARED_LIBS)
     add_custom_command(TARGET CMakeSFMLProject POST_BUILD

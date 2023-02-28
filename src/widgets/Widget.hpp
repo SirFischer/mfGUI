@@ -36,21 +36,19 @@ namespace mf
 		/**
 		 * INTERNAL FUNCTIONS
 		 **/
-		virtual void	Render(sf::RenderWindow *tWindow);
-		virtual void	HandleEvent(sf::Event &tEvent);
 		virtual void	Resize();
-
 		virtual void	Init();
-
 		virtual void	SortWidgets();
-
 		virtual void	UpdatePosition();
 		virtual void	UpdateSize();
 
 	public:
-		virtual ~Widget();
 		friend class	GUI;
 
+		virtual ~Widget();
+
+		virtual void	Render(sf::RenderWindow *tWindow);
+		virtual void	HandleEvent(sf::Event &tEvent);
 		static Widget 	*Create();
 		Widget			*AddWidget(Widget *tWidget);
 		void			RemoveWidget(Widget *tWidget);
@@ -68,7 +66,6 @@ namespace mf
 		virtual Widget	*SetSize(sf::Vector2f tSize);
 		virtual Widget	*SetSizePercentage(bool tPercentageX, bool tPercentageY);
 		virtual Widget	*SetIndex(int tIndex){mTransform.mIndex = tIndex; return (this);}
-
 		virtual Widget	*SetDisabled(bool tDisabled){mDisabled = tDisabled; return (this);}
 		virtual Widget	*SetClickThrough(bool tClickThrough){mClickThrough = tClickThrough; return (this);}
 		virtual Widget	*SetFocus(bool tFocus){mEventManager.SetFocus(tFocus); return (this);}
@@ -78,16 +75,12 @@ namespace mf
 		 **/
 		sf::Vector2f	GetPosition(){return (mTransform.mPosition);}
 		sf::Vector2f	GetRelativePosition(){return (mTransform.mRelativePosition);}
-
 		sf::Vector2f	GetSize(){return (mTransform.mSize);}
 		sf::Vector2f	GetRelativeSize(){return (mTransform.mRelativeSize);}
-
 		int				GetIndex(){return (mTransform.mIndex);}
-
 		mf::eEvent		GetEvent(){return (mEventManager.GetEvent());}
 
 		bool			IsFocus(){return (mEventManager.GetFocus());}
-
 		bool			IsDisabled(){return (mDisabled);}
 		bool			IsClickThrough(){return (mClickThrough);}
 

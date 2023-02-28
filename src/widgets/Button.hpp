@@ -49,7 +49,6 @@ namespace mf
 		Button				*SetOutlineColor(sf::Color tColor);
 		Button				*SetBackground(const sf::Color &tColor);
 		Button				*SetBackground(const sf::Texture &tTexture);
-		Button				*SetHoverBackground(sf::Color tColor);
 
 		/**
 		 * Overides
