@@ -1,4 +1,5 @@
 #include "Text.hpp"
+#include "../../assets/fonts/bangers_regular.h"
 
 namespace mf
 {
@@ -8,7 +9,9 @@ namespace mf
 		:mPos(tPos)
 		,mSize(tSize)
 		{
-
+			//default font
+			mFont.loadFromMemory(Bangers_Regular_ttf, Bangers_Regular_ttf_len);
+			mText.setFont(mFont);
 		}
 		
 		Text::~Text()
@@ -42,6 +45,8 @@ namespace mf
 		{
 			mText.setFillColor(tColor);
 		}
+
+
 
 		void			Text::Draw(sf::RenderWindow *tWindow)
 		{

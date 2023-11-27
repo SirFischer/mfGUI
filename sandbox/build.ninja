@@ -40,6 +40,12 @@ include CMakeFiles/rules.ninja
 # Logical path to working directory; prefix for absolute paths.
 
 cmake_ninja_workdir = /home/mfischer/Marek/Personal/C++/mfGUI/sandbox/
+
+#############################################
+# Utility command for UpdateLibrary
+
+build UpdateLibrary: phony CMakeFiles/UpdateLibrary update_library
+
 # =============================================================================
 # Object build statements for EXECUTABLE target Sandbox
 
@@ -47,7 +53,7 @@ cmake_ninja_workdir = /home/mfischer/Marek/Personal/C++/mfGUI/sandbox/
 #############################################
 # Order-only phony target for Sandbox
 
-build cmake_object_order_depends_target_Sandbox: phony || CMakeFiles/Sandbox.dir
+build cmake_object_order_depends_target_Sandbox: phony || UpdateLibrary
 
 build CMakeFiles/Sandbox.dir/src/main.cpp.o: CXX_COMPILER__Sandbox_Debug /home/mfischer/Marek/Personal/C++/mfGUI/sandbox/src/main.cpp || cmake_object_order_depends_target_Sandbox
   DEP_FILE = CMakeFiles/Sandbox.dir/src/main.cpp.o.d
@@ -64,7 +70,7 @@ build CMakeFiles/Sandbox.dir/src/main.cpp.o: CXX_COMPILER__Sandbox_Debug /home/m
 #############################################
 # Link the executable Sandbox
 
-build Sandbox: CXX_EXECUTABLE_LINKER__Sandbox_Debug CMakeFiles/Sandbox.dir/src/main.cpp.o | ../lib/libMFGUId.a
+build Sandbox: CXX_EXECUTABLE_LINKER__Sandbox_Debug CMakeFiles/Sandbox.dir/src/main.cpp.o | ../lib/libMFGUId.a || UpdateLibrary
   FLAGS = -g
   LINK_LIBRARIES = -lsfml-graphics  -lsfml-window  ../lib/libMFGUId.a  -lsfml-system  -lpthread  -lrt  -ldl
   OBJECT_DIR = CMakeFiles/Sandbox.dir
@@ -120,6 +126,21 @@ build CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
   restat = 1
 
 build rebuild_cache: phony CMakeFiles/rebuild_cache.util
+
+
+#############################################
+# Phony custom command for CMakeFiles/UpdateLibrary
+
+build CMakeFiles/UpdateLibrary | ${cmake_ninja_workdir}CMakeFiles/UpdateLibrary: phony update_library
+
+
+#############################################
+# Custom command for update_library
+
+build update_library | ${cmake_ninja_workdir}update_library: CUSTOM_COMMAND
+  COMMAND = cd /home/mfischer/Marek/Personal/C++/mfGUI/sandbox && cd .. && ninja
+  DESC = Updating library using Ninja
+  restat = 1
 
 # =============================================================================
 # Target aliases.

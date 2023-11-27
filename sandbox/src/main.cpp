@@ -2,8 +2,6 @@
 
 mf::Container *CreateMainMenu()
 {
-	mf::GUI::ClearWidgets();
-
 	mf::Container *container = mf::Container::Create();
 	container
 	->SetSize(500.f, 500.f)
@@ -13,11 +11,9 @@ mf::Container *CreateMainMenu()
 	->SetSizePercentage(false, false)
 	->SetPositionPercentage(true, false)
 	->AddWidget(mf::Button::Create()
-	->SetTextFont("assets/Bangers-Regular.ttf")
 	->SetBackground(sf::Color::Black)
 	->SetText("test"))
 	->AddWidget(mf::Button::Create()
-	->SetTextFont("assets/Bangers-Regular.ttf")
 	->SetPosition(150, 0)
 	->SetBackground(sf::Color::Red)
 	->SetText("test"));
@@ -33,6 +29,16 @@ int main()
 
 	auto container = CreateMainMenu();
 
+	auto fpsCounter =
+	mf::Button::Create()
+	->SetTextColor(sf::Color::Black)
+	->SetPosition(90, 0)
+	->SetSize(200, 30)
+	->SetText("0 FPS")
+	->SetPositionPercentage(true, false);
+
+	mf::GUI::AddWidget(fpsCounter);
+
 	int fps = 0;
 	sf::Clock fpsClock;
 	while (isOpen)
@@ -40,7 +46,8 @@ int main()
 		fps++;
 		if (fpsClock.getElapsedTime().asSeconds() > 1.0)
 		{
-			std::cout << "FPS: " << fps << std::endl;
+			fpsCounter->SetText(std::to_string(fps) + " FPS");
+			std::cout << std::to_string(fps) + " FPS" << "\n";
 			fps = 0;
 			fpsClock.restart();
 		}
