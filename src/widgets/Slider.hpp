@@ -28,6 +28,7 @@ namespace mf
 		using					Widget::ClearWidgets;
 
 		void					LoadClickFunction();
+		void					SetButtonHeight();
 
 	public:
 		~Slider();
@@ -49,8 +50,8 @@ namespace mf
 		//Transform
 		Slider					*SetPosition(sf::Vector2f tPos){Widget::SetPosition(tPos); mButton->SetPosition(mButton->GetRelativePosition()); return (this);}
 		Slider					*SetPosition(float tX, float tY){Widget::SetPosition(tX, tY); mButton->SetPosition(mButton->GetRelativePosition()); return (this);}
-		Slider					*SetSize(sf::Vector2f tSize){Widget::SetSize(tSize); return (this);}
-		Slider					*SetSize(float tX, float tY){Widget::SetSize(tX, tY); return (this);}
+		Slider					*SetSize(sf::Vector2f tSize) override;
+		Slider					*SetSize(float tX, float tY) override;
 		Slider					*SetSizePercentage(bool tPercentageX, bool tPercentageY) { Widget::SetSizePercentage(tPercentageX, tPercentageY); return (this);}
 		Slider					*SetPositionPercentage(bool tPercentageX, bool tPercentageY) { Widget::SetPositionPercentage(tPercentageX, tPercentageY); return (this);}
 

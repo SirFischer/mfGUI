@@ -22,14 +22,18 @@ namespace mf
 
 			char				mCharInput = 0;
 
-			std::map<uint32_t, std::function<void()>>   mKeyListeners;
+			std::map<uint32_t, std::vector<std::function<void()>>>   mKeyListeners;
+
+			void			RunEventListeners(eEvent tEvent);
 
 		public:
 			EventManager(sf::Vector2f *tPos, sf::Vector2f *tSize);
 			~EventManager();
 
 			void			Update(sf::Event &tEvent);
-			void			AddEventListener(eEvent tEvent ,std::function<void()> tListener);
+			void			AddEventListener(eEvent tEvent, std::function<void()> tListener);
+			void			RemoveEventListener(eEvent tEvent, std::function<void()> tListener);
+			void			RemoveAllEventListener(eEvent tEvent);
 			void			TriggerEvent(eEvent tEvent);
 
 			eEvent			GetEvent(){return (mEvent);}

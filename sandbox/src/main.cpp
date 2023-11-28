@@ -4,19 +4,43 @@ mf::Container *CreateMainMenu()
 {
 	mf::Container *container = mf::Container::Create();
 	container
-	->SetSize(500.f, 500.f)
-	->SetPosition(5.f, 20.f)
+	->SetSize(80.f, 80.f)
+	->SetSizePercentage(true, true)
 	->SetOutlineColor(sf::Color::Blue)
-	->SetOutlineThickness(3.f)
-	->SetSizePercentage(false, false)
-	->SetPositionPercentage(true, false)
-	->AddWidget(mf::Button::Create()
-	->SetBackground(sf::Color::Black)
-	->SetText("test"))
-	->AddWidget(mf::Button::Create()
-	->SetPosition(150, 0)
-	->SetBackground(sf::Color::Red)
-	->SetText("test"));
+	->SetBackground(sf::Color(230, 230, 240))
+	->SetOutlineThickness(1.f)
+	->SetPosition(5.f, 20.f)
+	->SetPositionPercentage(true, false);
+
+	mf::Button *button;
+	container->AddWidget((button = mf::Button::Create())
+	->SetPosition(5, 5)
+	->SetBackground(sf::Color::White)
+	->SetOutlineColor(sf::Color::Red)
+	->SetOutlineThickness(1.f)
+	->AddEventListener(mf::eEvent::ENTERED, [button](){
+		std::cout << "entered" << "\n";
+		button->SetBackground(sf::Color::Green);
+	})
+	->AddEventListener(mf::eEvent::EXITED, [button](){
+		std::cout << "exited" << "\n";
+		button->SetBackground(sf::Color::White);
+	})
+	->SetText("test")
+	->SetClickEvent([](){std::cout << "test" << "\n";}));
+
+	mf::Image *image;
+	container->AddWidget((image = mf::Image::Create())
+	->SetPosition(5, 60)
+	->SetSize(200, 200)
+	->SetImage("assets/photo-1542044896530-05d85be9b11a.jpeg"));
+
+	mf::Slider *slider;
+	container->AddWidget((slider = mf::Slider::Create())
+	->SetPosition(5, 270)
+	->SetSize(200, 30)
+	->SetOutlineColor(sf::Color::Red));
+
 	return (container);
 }
 
@@ -28,10 +52,10 @@ int main()
 	bool	isOpen = true;
 
 	auto container = CreateMainMenu();
+	mf::GUI::AddWidget(container);
 
 	auto fpsCounter =
 	mf::Button::Create()
-	->SetTextColor(sf::Color::Black)
 	->SetPosition(90, 0)
 	->SetSize(200, 30)
 	->SetText("0 FPS")
@@ -47,7 +71,6 @@ int main()
 		if (fpsClock.getElapsedTime().asSeconds() > 1.0)
 		{
 			fpsCounter->SetText(std::to_string(fps) + " FPS");
-			std::cout << std::to_string(fps) + " FPS" << "\n";
 			fps = 0;
 			fpsClock.restart();
 		}
@@ -60,12 +83,10 @@ int main()
 			{
 				window.setView(sf::View(sf::Vector2f(event.size.width / 2, event.size.height / 2), sf::Vector2f(window.getSize())));
 			}
-			container->HandleEvent(event);
 			mf::GUI::HandleEvent(event);
 		}
 		window.clear(sf::Color::White);
 		mf::GUI::Render();
-		container->Render(&window);
 		window.display();
 	}
 	window.close();

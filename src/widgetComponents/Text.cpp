@@ -9,9 +9,10 @@ namespace mf
 		:mPos(tPos)
 		,mSize(tSize)
 		{
-			//default font
+			//default values
 			mFont.loadFromMemory(Bangers_Regular_ttf, Bangers_Regular_ttf_len);
 			mText.setFont(mFont);
+			mText.setFillColor(sf::Color::Black);
 		}
 		
 		Text::~Text()

@@ -17,7 +17,7 @@ namespace mf
 
     public:
 		~Button();
-		void				Render(sf::RenderWindow *tWindow);
+		void				Render(sf::RenderWindow *tWindow) override;
 
         /**
 		 * Create

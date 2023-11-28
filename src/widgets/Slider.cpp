@@ -28,14 +28,22 @@ namespace mf
 		});
 	}
 
+	void		Slider::SetButtonHeight()
+	{
+		if (mDirection == eDirection::HORIZONTAL)
+			mButton->SetSize(mButton->GetSize().x, mTransform.mSize.y);
+		else
+			mButton->SetSize(mTransform.mSize.x, mButton->GetSize().y);
+	}
+
 	Slider      *Slider::Create()
 	{
 		Slider   *slider = new Slider();
+		slider->mButton = Button::Create();
+		slider->AddWidget(slider->mButton);
 		slider->SetSize(200, 40);
 		slider->SetOutlineColor(sf::Color::Black)->SetOutlineThickness(1.f);
-		slider->mButton = Button::Create();
 		slider->mButton->SetSize(30, 40)->SetBackground(sf::Color::Red);
-		slider->AddWidget(slider->mButton);
 		slider->mButton->SetPosition(0, 0);
 		return (slider);
 	}
@@ -81,8 +89,22 @@ namespace mf
 	Slider		*Slider::SetDirection(eDirection tDirection)
 	{
 		mDirection = tDirection;
+		SetButtonHeight();
 		return (this);
 	}
 
+	Slider		*Slider::SetSize(sf::Vector2f tSize)
+	{
+		Widget::SetSize(tSize);
+		SetButtonHeight();
+		return (this);
+	}
+
+	Slider		*Slider::SetSize(float tX, float tY)
+	{
+		Widget::SetSize(tX, tY);
+		SetButtonHeight();
+		return (this);
+	}
 
 }

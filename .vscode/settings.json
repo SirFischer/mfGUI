@@ -54,5 +54,6 @@
 		"iomanip": "cpp",
 		"numbers": "cpp",
 		"cinttypes": "cpp"
-	}
+	},
+	"cmake.configureOnOpen": true
 }

@@ -13,6 +13,18 @@ namespace mf
 		{
 		}
 
+		void EventManager::RunEventListeners(eEvent tEvent)
+		{
+			if (mKeyListeners.find((uint32_t)tEvent) != mKeyListeners.end())
+			{
+				for (auto &listener : mKeyListeners[(uint32_t)tEvent])
+				{
+					listener();
+				}
+			}
+		}
+
+
 		void EventManager::Update(sf::Event &tEvent)
 		{
 			sf::Vector2i pos = sf::Vector2i(tEvent.mouseMove.x, tEvent.mouseMove.y);
@@ -39,14 +51,12 @@ namespace mf
 					if (tEvent.mouseButton.button == sf::Mouse::Right)
 						mEvent = eEvent::RIGHT_CLICK;
 					mFocus = true;
-					if (mKeyListeners[(uint32_t)eEvent::FOCUS])
-						mKeyListeners[(uint32_t)eEvent::FOCUS]();
+					RunEventListeners(eEvent::FOCUS);
 				}
 				else
 				{
 					mFocus = false;
-					if (mKeyListeners[(uint32_t)eEvent::LOST_FOCUS])
-						mKeyListeners[(uint32_t)eEvent::LOST_FOCUS]();
+					RunEventListeners(eEvent::LOST_FOCUS);
 				}
 					
 			break;
@@ -63,8 +73,7 @@ namespace mf
 
 			case sf::Event::Resized:
 				mEvent = eEvent::RESIZE;
-				if (mKeyListeners[(uint32_t)eEvent::RESIZE])
-						mKeyListeners[(uint32_t)eEvent::RESIZE]();
+				RunEventListeners(eEvent::RESIZE);
 			break;
 
 			default:
@@ -72,9 +81,9 @@ namespace mf
 				break;
 			}
 
-			if (mPreviousEvent != mEvent && mKeyListeners[(uint32_t)mEvent])
+			if (mPreviousEvent != mEvent)
 			{
-				mKeyListeners[(uint32_t)mEvent]();
+				RunEventListeners(mEvent);
 			}
 
 			if (tEvent.type == sf::Event::TextEntered)
@@ -86,22 +95,36 @@ namespace mf
 
 		void EventManager::AddEventListener(eEvent tEvent ,std::function<void()> tListener)
 		{
-			mKeyListeners[(uint32_t)tEvent] = tListener;
+			if (mKeyListeners.find((uint32_t)tEvent) == mKeyListeners.end())
+				mKeyListeners[(uint32_t)tEvent] = std::vector<std::function<void()>>();
+			mKeyListeners[(uint32_t)tEvent].push_back(tListener);
 		}
+
+		void EventManager::RemoveEventListener(eEvent tEvent, std::function<void()> tListener)
+		{
+			(void)tEvent;
+			(void)tListener;
+			throw std::runtime_error("Not implemented");
+		}
+
+		void EventManager::RemoveAllEventListener(eEvent tEvent)
+		{
+			mKeyListeners[(uint32_t)tEvent].clear();
+		}
+
 
 		void    EventManager::TriggerEvent(eEvent tEvent)
 		{
-			if (mKeyListeners[(uint32_t)tEvent])
-				mKeyListeners[(uint32_t)tEvent]();
+			RunEventListeners(tEvent);
 		}
 
 		void	EventManager::SetFocus(bool tFocus)
 		{
 			mFocus = tFocus;
-			if (tFocus && mKeyListeners[(uint32_t)eEvent::FOCUS])
-				mKeyListeners[(uint32_t)eEvent::FOCUS]();
-			if (!tFocus && mKeyListeners[(uint32_t)eEvent::LOST_FOCUS])
-				mKeyListeners[(uint32_t)eEvent::LOST_FOCUS]();
+			if (tFocus)
+				RunEventListeners(eEvent::FOCUS);
+			else
+				RunEventListeners(eEvent::LOST_FOCUS);
 		}
 
 	} // namespace component
