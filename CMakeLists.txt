@@ -23,6 +23,10 @@ target_sources(${PROJECT_NAME} PRIVATE ${sources})
 find_package(SFML REQUIRED COMPONENTS graphics)
 target_link_libraries(${PROJECT_NAME} PRIVATE sfml-graphics)
 
+find_package(Boost REQUIRED)
+include_directories(${Boost_INCLUDE_DIRS})
+target_link_libraries(${PROJECT_NAME} PRIVATE ${Boost_LIBRARIES})
+
 
 if (WIN32 AND BUILD_SHARED_LIBS)
     add_custom_command(TARGET CMakeSFMLProject POST_BUILD
