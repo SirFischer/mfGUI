@@ -39,7 +39,7 @@ include CMakeFiles/rules.ninja
 #############################################
 # Logical path to working directory; prefix for absolute paths.
 
-cmake_ninja_workdir = /home/mfischer/Marek/Personal/C++/mfGUI/
+cmake_ninja_workdir = /home/mfischer/Marek/Work/DeepVertic/Games/Extermination/Yuna/mfGUI/
 # =============================================================================
 # Object build statements for STATIC_LIBRARY target MFGUI
 
@@ -49,87 +49,87 @@ cmake_ninja_workdir = /home/mfischer/Marek/Personal/C++/mfGUI/
 
 build cmake_object_order_depends_target_MFGUI: phony || CMakeFiles/MFGUI.dir
 
-build CMakeFiles/MFGUI.dir/src/mfGUI.cpp.o: CXX_COMPILER__MFGUI_unscanned_Debug /home/mfischer/Marek/Personal/C++/mfGUI/src/mfGUI.cpp || cmake_object_order_depends_target_MFGUI
+build CMakeFiles/MFGUI.dir/src/mfGUI.cpp.o: CXX_COMPILER__MFGUI_unscanned_Debug /home/mfischer/Marek/Work/DeepVertic/Games/Extermination/Yuna/mfGUI/src/mfGUI.cpp || cmake_object_order_depends_target_MFGUI
   DEP_FILE = CMakeFiles/MFGUI.dir/src/mfGUI.cpp.o.d
   FLAGS = -g -std=gnu++17
-  INCLUDES = -I/home/mfischer/Marek/Personal/C++/mfGUI/src -I/home/mfischer/Marek/Personal/C++/mfGUI/include
+  INCLUDES = -I/home/mfischer/Marek/Work/DeepVertic/Games/Extermination/Yuna/mfGUI/src -I/home/mfischer/Marek/Work/DeepVertic/Games/Extermination/Yuna/mfGUI/include
   OBJECT_DIR = CMakeFiles/MFGUI.dir
   OBJECT_FILE_DIR = CMakeFiles/MFGUI.dir/src
 
-build CMakeFiles/MFGUI.dir/src/widgetComponents/Background.cpp.o: CXX_COMPILER__MFGUI_unscanned_Debug /home/mfischer/Marek/Personal/C++/mfGUI/src/widgetComponents/Background.cpp || cmake_object_order_depends_target_MFGUI
+build CMakeFiles/MFGUI.dir/src/widgetComponents/Background.cpp.o: CXX_COMPILER__MFGUI_unscanned_Debug /home/mfischer/Marek/Work/DeepVertic/Games/Extermination/Yuna/mfGUI/src/widgetComponents/Background.cpp || cmake_object_order_depends_target_MFGUI
   DEP_FILE = CMakeFiles/MFGUI.dir/src/widgetComponents/Background.cpp.o.d
   FLAGS = -g -std=gnu++17
-  INCLUDES = -I/home/mfischer/Marek/Personal/C++/mfGUI/src -I/home/mfischer/Marek/Personal/C++/mfGUI/include
+  INCLUDES = -I/home/mfischer/Marek/Work/DeepVertic/Games/Extermination/Yuna/mfGUI/src -I/home/mfischer/Marek/Work/DeepVertic/Games/Extermination/Yuna/mfGUI/include
   OBJECT_DIR = CMakeFiles/MFGUI.dir
   OBJECT_FILE_DIR = CMakeFiles/MFGUI.dir/src/widgetComponents
 
-build CMakeFiles/MFGUI.dir/src/widgetComponents/EventManager.cpp.o: CXX_COMPILER__MFGUI_unscanned_Debug /home/mfischer/Marek/Personal/C++/mfGUI/src/widgetComponents/EventManager.cpp || cmake_object_order_depends_target_MFGUI
+build CMakeFiles/MFGUI.dir/src/widgetComponents/EventManager.cpp.o: CXX_COMPILER__MFGUI_unscanned_Debug /home/mfischer/Marek/Work/DeepVertic/Games/Extermination/Yuna/mfGUI/src/widgetComponents/EventManager.cpp || cmake_object_order_depends_target_MFGUI
   DEP_FILE = CMakeFiles/MFGUI.dir/src/widgetComponents/EventManager.cpp.o.d
   FLAGS = -g -std=gnu++17
-  INCLUDES = -I/home/mfischer/Marek/Personal/C++/mfGUI/src -I/home/mfischer/Marek/Personal/C++/mfGUI/include
+  INCLUDES = -I/home/mfischer/Marek/Work/DeepVertic/Games/Extermination/Yuna/mfGUI/src -I/home/mfischer/Marek/Work/DeepVertic/Games/Extermination/Yuna/mfGUI/include
   OBJECT_DIR = CMakeFiles/MFGUI.dir
   OBJECT_FILE_DIR = CMakeFiles/MFGUI.dir/src/widgetComponents
 
-build CMakeFiles/MFGUI.dir/src/widgetComponents/ScrollBar.cpp.o: CXX_COMPILER__MFGUI_unscanned_Debug /home/mfischer/Marek/Personal/C++/mfGUI/src/widgetComponents/ScrollBar.cpp || cmake_object_order_depends_target_MFGUI
+build CMakeFiles/MFGUI.dir/src/widgetComponents/ScrollBar.cpp.o: CXX_COMPILER__MFGUI_unscanned_Debug /home/mfischer/Marek/Work/DeepVertic/Games/Extermination/Yuna/mfGUI/src/widgetComponents/ScrollBar.cpp || cmake_object_order_depends_target_MFGUI
   DEP_FILE = CMakeFiles/MFGUI.dir/src/widgetComponents/ScrollBar.cpp.o.d
   FLAGS = -g -std=gnu++17
-  INCLUDES = -I/home/mfischer/Marek/Personal/C++/mfGUI/src -I/home/mfischer/Marek/Personal/C++/mfGUI/include
+  INCLUDES = -I/home/mfischer/Marek/Work/DeepVertic/Games/Extermination/Yuna/mfGUI/src -I/home/mfischer/Marek/Work/DeepVertic/Games/Extermination/Yuna/mfGUI/include
   OBJECT_DIR = CMakeFiles/MFGUI.dir
   OBJECT_FILE_DIR = CMakeFiles/MFGUI.dir/src/widgetComponents
 
-build CMakeFiles/MFGUI.dir/src/widgetComponents/Text.cpp.o: CXX_COMPILER__MFGUI_unscanned_Debug /home/mfischer/Marek/Personal/C++/mfGUI/src/widgetComponents/Text.cpp || cmake_object_order_depends_target_MFGUI
+build CMakeFiles/MFGUI.dir/src/widgetComponents/Text.cpp.o: CXX_COMPILER__MFGUI_unscanned_Debug /home/mfischer/Marek/Work/DeepVertic/Games/Extermination/Yuna/mfGUI/src/widgetComponents/Text.cpp || cmake_object_order_depends_target_MFGUI
   DEP_FILE = CMakeFiles/MFGUI.dir/src/widgetComponents/Text.cpp.o.d
   FLAGS = -g -std=gnu++17
-  INCLUDES = -I/home/mfischer/Marek/Personal/C++/mfGUI/src -I/home/mfischer/Marek/Personal/C++/mfGUI/include
+  INCLUDES = -I/home/mfischer/Marek/Work/DeepVertic/Games/Extermination/Yuna/mfGUI/src -I/home/mfischer/Marek/Work/DeepVertic/Games/Extermination/Yuna/mfGUI/include
   OBJECT_DIR = CMakeFiles/MFGUI.dir
   OBJECT_FILE_DIR = CMakeFiles/MFGUI.dir/src/widgetComponents
 
-build CMakeFiles/MFGUI.dir/src/widgets/Button.cpp.o: CXX_COMPILER__MFGUI_unscanned_Debug /home/mfischer/Marek/Personal/C++/mfGUI/src/widgets/Button.cpp || cmake_object_order_depends_target_MFGUI
+build CMakeFiles/MFGUI.dir/src/widgets/Button.cpp.o: CXX_COMPILER__MFGUI_unscanned_Debug /home/mfischer/Marek/Work/DeepVertic/Games/Extermination/Yuna/mfGUI/src/widgets/Button.cpp || cmake_object_order_depends_target_MFGUI
   DEP_FILE = CMakeFiles/MFGUI.dir/src/widgets/Button.cpp.o.d
   FLAGS = -g -std=gnu++17
-  INCLUDES = -I/home/mfischer/Marek/Personal/C++/mfGUI/src -I/home/mfischer/Marek/Personal/C++/mfGUI/include
+  INCLUDES = -I/home/mfischer/Marek/Work/DeepVertic/Games/Extermination/Yuna/mfGUI/src -I/home/mfischer/Marek/Work/DeepVertic/Games/Extermination/Yuna/mfGUI/include
   OBJECT_DIR = CMakeFiles/MFGUI.dir
   OBJECT_FILE_DIR = CMakeFiles/MFGUI.dir/src/widgets
 
-build CMakeFiles/MFGUI.dir/src/widgets/Container.cpp.o: CXX_COMPILER__MFGUI_unscanned_Debug /home/mfischer/Marek/Personal/C++/mfGUI/src/widgets/Container.cpp || cmake_object_order_depends_target_MFGUI
+build CMakeFiles/MFGUI.dir/src/widgets/Container.cpp.o: CXX_COMPILER__MFGUI_unscanned_Debug /home/mfischer/Marek/Work/DeepVertic/Games/Extermination/Yuna/mfGUI/src/widgets/Container.cpp || cmake_object_order_depends_target_MFGUI
   DEP_FILE = CMakeFiles/MFGUI.dir/src/widgets/Container.cpp.o.d
   FLAGS = -g -std=gnu++17
-  INCLUDES = -I/home/mfischer/Marek/Personal/C++/mfGUI/src -I/home/mfischer/Marek/Personal/C++/mfGUI/include
+  INCLUDES = -I/home/mfischer/Marek/Work/DeepVertic/Games/Extermination/Yuna/mfGUI/src -I/home/mfischer/Marek/Work/DeepVertic/Games/Extermination/Yuna/mfGUI/include
   OBJECT_DIR = CMakeFiles/MFGUI.dir
   OBJECT_FILE_DIR = CMakeFiles/MFGUI.dir/src/widgets
 
-build CMakeFiles/MFGUI.dir/src/widgets/Image.cpp.o: CXX_COMPILER__MFGUI_unscanned_Debug /home/mfischer/Marek/Personal/C++/mfGUI/src/widgets/Image.cpp || cmake_object_order_depends_target_MFGUI
+build CMakeFiles/MFGUI.dir/src/widgets/Image.cpp.o: CXX_COMPILER__MFGUI_unscanned_Debug /home/mfischer/Marek/Work/DeepVertic/Games/Extermination/Yuna/mfGUI/src/widgets/Image.cpp || cmake_object_order_depends_target_MFGUI
   DEP_FILE = CMakeFiles/MFGUI.dir/src/widgets/Image.cpp.o.d
   FLAGS = -g -std=gnu++17
-  INCLUDES = -I/home/mfischer/Marek/Personal/C++/mfGUI/src -I/home/mfischer/Marek/Personal/C++/mfGUI/include
+  INCLUDES = -I/home/mfischer/Marek/Work/DeepVertic/Games/Extermination/Yuna/mfGUI/src -I/home/mfischer/Marek/Work/DeepVertic/Games/Extermination/Yuna/mfGUI/include
   OBJECT_DIR = CMakeFiles/MFGUI.dir
   OBJECT_FILE_DIR = CMakeFiles/MFGUI.dir/src/widgets
 
-build CMakeFiles/MFGUI.dir/src/widgets/List.cpp.o: CXX_COMPILER__MFGUI_unscanned_Debug /home/mfischer/Marek/Personal/C++/mfGUI/src/widgets/List.cpp || cmake_object_order_depends_target_MFGUI
+build CMakeFiles/MFGUI.dir/src/widgets/List.cpp.o: CXX_COMPILER__MFGUI_unscanned_Debug /home/mfischer/Marek/Work/DeepVertic/Games/Extermination/Yuna/mfGUI/src/widgets/List.cpp || cmake_object_order_depends_target_MFGUI
   DEP_FILE = CMakeFiles/MFGUI.dir/src/widgets/List.cpp.o.d
   FLAGS = -g -std=gnu++17
-  INCLUDES = -I/home/mfischer/Marek/Personal/C++/mfGUI/src -I/home/mfischer/Marek/Personal/C++/mfGUI/include
+  INCLUDES = -I/home/mfischer/Marek/Work/DeepVertic/Games/Extermination/Yuna/mfGUI/src -I/home/mfischer/Marek/Work/DeepVertic/Games/Extermination/Yuna/mfGUI/include
   OBJECT_DIR = CMakeFiles/MFGUI.dir
   OBJECT_FILE_DIR = CMakeFiles/MFGUI.dir/src/widgets
 
-build CMakeFiles/MFGUI.dir/src/widgets/Slider.cpp.o: CXX_COMPILER__MFGUI_unscanned_Debug /home/mfischer/Marek/Personal/C++/mfGUI/src/widgets/Slider.cpp || cmake_object_order_depends_target_MFGUI
+build CMakeFiles/MFGUI.dir/src/widgets/Slider.cpp.o: CXX_COMPILER__MFGUI_unscanned_Debug /home/mfischer/Marek/Work/DeepVertic/Games/Extermination/Yuna/mfGUI/src/widgets/Slider.cpp || cmake_object_order_depends_target_MFGUI
   DEP_FILE = CMakeFiles/MFGUI.dir/src/widgets/Slider.cpp.o.d
   FLAGS = -g -std=gnu++17
-  INCLUDES = -I/home/mfischer/Marek/Personal/C++/mfGUI/src -I/home/mfischer/Marek/Personal/C++/mfGUI/include
+  INCLUDES = -I/home/mfischer/Marek/Work/DeepVertic/Games/Extermination/Yuna/mfGUI/src -I/home/mfischer/Marek/Work/DeepVertic/Games/Extermination/Yuna/mfGUI/include
   OBJECT_DIR = CMakeFiles/MFGUI.dir
   OBJECT_FILE_DIR = CMakeFiles/MFGUI.dir/src/widgets
 
-build CMakeFiles/MFGUI.dir/src/widgets/Text.cpp.o: CXX_COMPILER__MFGUI_unscanned_Debug /home/mfischer/Marek/Personal/C++/mfGUI/src/widgets/Text.cpp || cmake_object_order_depends_target_MFGUI
+build CMakeFiles/MFGUI.dir/src/widgets/Text.cpp.o: CXX_COMPILER__MFGUI_unscanned_Debug /home/mfischer/Marek/Work/DeepVertic/Games/Extermination/Yuna/mfGUI/src/widgets/Text.cpp || cmake_object_order_depends_target_MFGUI
   DEP_FILE = CMakeFiles/MFGUI.dir/src/widgets/Text.cpp.o.d
   FLAGS = -g -std=gnu++17
-  INCLUDES = -I/home/mfischer/Marek/Personal/C++/mfGUI/src -I/home/mfischer/Marek/Personal/C++/mfGUI/include
+  INCLUDES = -I/home/mfischer/Marek/Work/DeepVertic/Games/Extermination/Yuna/mfGUI/src -I/home/mfischer/Marek/Work/DeepVertic/Games/Extermination/Yuna/mfGUI/include
   OBJECT_DIR = CMakeFiles/MFGUI.dir
   OBJECT_FILE_DIR = CMakeFiles/MFGUI.dir/src/widgets
 
-build CMakeFiles/MFGUI.dir/src/widgets/Widget.cpp.o: CXX_COMPILER__MFGUI_unscanned_Debug /home/mfischer/Marek/Personal/C++/mfGUI/src/widgets/Widget.cpp || cmake_object_order_depends_target_MFGUI
+build CMakeFiles/MFGUI.dir/src/widgets/Widget.cpp.o: CXX_COMPILER__MFGUI_unscanned_Debug /home/mfischer/Marek/Work/DeepVertic/Games/Extermination/Yuna/mfGUI/src/widgets/Widget.cpp || cmake_object_order_depends_target_MFGUI
   DEP_FILE = CMakeFiles/MFGUI.dir/src/widgets/Widget.cpp.o.d
   FLAGS = -g -std=gnu++17
-  INCLUDES = -I/home/mfischer/Marek/Personal/C++/mfGUI/src -I/home/mfischer/Marek/Personal/C++/mfGUI/include
+  INCLUDES = -I/home/mfischer/Marek/Work/DeepVertic/Games/Extermination/Yuna/mfGUI/src -I/home/mfischer/Marek/Work/DeepVertic/Games/Extermination/Yuna/mfGUI/include
   OBJECT_DIR = CMakeFiles/MFGUI.dir
   OBJECT_FILE_DIR = CMakeFiles/MFGUI.dir/src/widgets
 
@@ -154,7 +154,7 @@ build lib/libMFGUId.a: CXX_STATIC_LIBRARY_LINKER__MFGUI_Debug CMakeFiles/MFGUI.d
 # Utility command for package
 
 build CMakeFiles/package.util: CUSTOM_COMMAND all
-  COMMAND = cd /home/mfischer/Marek/Personal/C++/mfGUI && /usr/bin/cpack --config ./CPackConfig.cmake
+  COMMAND = cd /home/mfischer/Marek/Work/DeepVertic/Games/Extermination/Yuna/mfGUI && /usr/bin/cpack --config ./CPackConfig.cmake
   DESC = Run CPack packaging tool...
   pool = console
   restat = 1
@@ -166,7 +166,7 @@ build package: phony CMakeFiles/package.util
 # Utility command for package_source
 
 build CMakeFiles/package_source.util: CUSTOM_COMMAND
-  COMMAND = cd /home/mfischer/Marek/Personal/C++/mfGUI && /usr/bin/cpack --config ./CPackSourceConfig.cmake /home/mfischer/Marek/Personal/C++/mfGUI/CPackSourceConfig.cmake
+  COMMAND = cd /home/mfischer/Marek/Work/DeepVertic/Games/Extermination/Yuna/mfGUI && /usr/bin/cpack --config ./CPackSourceConfig.cmake /home/mfischer/Marek/Work/DeepVertic/Games/Extermination/Yuna/mfGUI/CPackSourceConfig.cmake
   DESC = Run CPack packaging tool for source...
   pool = console
   restat = 1
@@ -178,7 +178,7 @@ build package_source: phony CMakeFiles/package_source.util
 # Utility command for edit_cache
 
 build CMakeFiles/edit_cache.util: CUSTOM_COMMAND
-  COMMAND = cd /home/mfischer/Marek/Personal/C++/mfGUI && /usr/bin/cmake-gui -S/home/mfischer/Marek/Personal/C++/mfGUI -B/home/mfischer/Marek/Personal/C++/mfGUI
+  COMMAND = cd /home/mfischer/Marek/Work/DeepVertic/Games/Extermination/Yuna/mfGUI && /usr/bin/cmake-gui -S/home/mfischer/Marek/Work/DeepVertic/Games/Extermination/Yuna/mfGUI -B/home/mfischer/Marek/Work/DeepVertic/Games/Extermination/Yuna/mfGUI
   DESC = Running CMake cache editor...
   pool = console
   restat = 1
@@ -190,7 +190,7 @@ build edit_cache: phony CMakeFiles/edit_cache.util
 # Utility command for rebuild_cache
 
 build CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
-  COMMAND = cd /home/mfischer/Marek/Personal/C++/mfGUI && /usr/bin/cmake --regenerate-during-build -S/home/mfischer/Marek/Personal/C++/mfGUI -B/home/mfischer/Marek/Personal/C++/mfGUI
+  COMMAND = cd /home/mfischer/Marek/Work/DeepVertic/Games/Extermination/Yuna/mfGUI && /usr/bin/cmake --regenerate-during-build -S/home/mfischer/Marek/Work/DeepVertic/Games/Extermination/Yuna/mfGUI -B/home/mfischer/Marek/Work/DeepVertic/Games/Extermination/Yuna/mfGUI
   DESC = Running CMake to regenerate build system...
   pool = console
   restat = 1
@@ -210,7 +210,7 @@ build libMFGUId.a: phony lib/libMFGUId.a
 # =============================================================================
 
 #############################################
-# Folder: /home/mfischer/Marek/Personal/C++/mfGUI
+# Folder: /home/mfischer/Marek/Work/DeepVertic/Games/Extermination/Yuna/mfGUI
 
 build all: phony lib/libMFGUId.a
 

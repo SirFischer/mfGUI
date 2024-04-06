@@ -13,6 +13,7 @@ namespace mf
 
 		Button					*mButton;
 		float					mValue = 0.f;
+		std::function<void()> 	mChangeListener = [](){};
 
 		/**
 		 * Components
@@ -44,6 +45,7 @@ namespace mf
 		//Slider
 		Slider					*SetValue(float tValue);
 		float					GetValue(){return (std::clamp(mValue, 0.f, 1.f));}
+		Slider					*SetChangeEventListener(std::function<void()> tListener);
 
 		Slider					*SetDirection(eDirection tDirection);
 

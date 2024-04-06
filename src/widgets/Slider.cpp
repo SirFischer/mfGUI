@@ -25,6 +25,7 @@ namespace mf
 			else
 				relpos = (manager->GetMousePosition().y - this->GetPosition().y) / (this->GetSize().y  - mButton->GetSize().y) - ((mButton->GetSize().y / 2.f) / this->GetSize().y);
 			this->SetValue(relpos);
+			this->mChangeListener();
 		});
 	}
 
@@ -62,6 +63,7 @@ namespace mf
 				SetValue((mEventManager.GetMousePosition().x - this->GetPosition().x) / (this->GetSize().x  - mButton->GetSize().x) - ((mButton->GetSize().x / 2.f) / this->GetSize().x));
 			else
 				SetValue((mEventManager.GetMousePosition().y - this->GetPosition().y) / (this->GetSize().y  - mButton->GetSize().y) - ((mButton->GetSize().y / 2.f) / this->GetSize().y));
+			this->mChangeListener();
 		}
 		Widget::HandleEvent(tEvent);
 	}
@@ -85,6 +87,13 @@ namespace mf
 		}
 		return (this);
 	};
+
+	Slider		*Slider::SetChangeEventListener(std::function<void()> tListener)
+	{
+		mChangeListener = tListener;
+		return (this);
+	}
+
 
 	Slider		*Slider::SetDirection(eDirection tDirection)
 	{
