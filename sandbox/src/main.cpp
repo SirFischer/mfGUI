@@ -3,43 +3,40 @@
 mf::Container *CreateMainMenu()
 {
 	mf::Container *container = mf::Container::Create();
-	container
-	->SetSize(80.f, 80.f)
-	->SetSizePercentage(true, true)
-	->SetOutlineColor(sf::Color::Blue)
-	->SetBackground(sf::Color(230, 230, 240))
-	->SetOutlineThickness(1.f)
-	->SetPosition(5.f, 20.f)
-	->SetPositionPercentage(true, false);
+	container->SetSize(80.f, 80.f);
+	container->SetSizePercentage(true, true);
+	container->SetPosition(5.f, 20.f);
+	container->SetPositionPercentage(true, false);
+	container->GetBackground()->SetBackground(sf::Color::Red);
 
 	mf::Button *button;
-	container->AddWidget((button = mf::Button::Create())
-	->SetPosition(5, 5)
-	->SetBackground(sf::Color::White)
-	->SetOutlineColor(sf::Color::Red)
-	->SetOutlineThickness(1.f)
-	->AddEventListener(mf::eEvent::ENTERED, [button](){
+	container->AddWidget((button = mf::Button::Create()));
+	button->SetPosition(5, 5);
+	button->GetBackground()->SetBackground(sf::Color::White);
+	button->GetBackground()->SetOutlineColor(sf::Color::Red);
+	button->GetBackground()->SetOutlineThickness(1.f);
+	button->AddEventListener(mf::eEvent::ENTERED, [button](){
 		std::cout << "entered" << "\n";
-		button->SetBackground(sf::Color::Green);
-	})
-	->AddEventListener(mf::eEvent::EXITED, [button](){
+		button->GetBackground()->SetBackground(sf::Color::Green);
+	});
+	button->AddEventListener(mf::eEvent::EXITED, [button](){
 		std::cout << "exited" << "\n";
-		button->SetBackground(sf::Color::White);
-	})
-	->SetText("test")
-	->SetClickEvent([](){std::cout << "test" << "\n";}));
+		button->GetBackground()->SetBackground(sf::Color::White);
+	});
+	button->GetText()->SetString("Button");
+	button->SetClickEvent([](){std::cout << "test" << "\n";});
 
 	mf::Image *image;
-	container->AddWidget((image = mf::Image::Create())
-	->SetPosition(5, 60)
-	->SetSize(200, 200)
-	->SetImage("assets/photo-1542044896530-05d85be9b11a.jpeg"));
+	container->AddWidget((image = mf::Image::Create()));
+	image->SetPosition(5, 60);
+	image->SetSize(200, 200);
+	image->SetImage("assets/photo-1542044896530-05d85be9b11a.jpeg");
 
 	mf::Slider *slider;
-	container->AddWidget((slider = mf::Slider::Create())
-	->SetPosition(5, 270)
-	->SetSize(200, 30)
-	->SetOutlineColor(sf::Color::Red));
+	container->AddWidget((slider = mf::Slider::Create()));
+	slider->SetPosition(5, 270);
+	slider->SetSize(200, 30);
+	slider->GetBackground()->SetOutlineColor(sf::Color::Red);
 
 	return (container);
 }
@@ -54,12 +51,11 @@ int main()
 	auto container = CreateMainMenu();
 	mf::GUI::AddWidget(container);
 
-	auto fpsCounter =
-	mf::Button::Create()
-	->SetPosition(90, 0)
-	->SetSize(200, 30)
-	->SetText("0 FPS")
-	->SetPositionPercentage(true, false);
+	auto fpsCounter = mf::Button::Create();
+	fpsCounter->SetPosition(90, 0);
+	fpsCounter->SetSize(200, 30);
+	fpsCounter->GetText()->SetString("0 FPS");
+	fpsCounter->SetPositionPercentage(true, false);
 
 	mf::GUI::AddWidget(fpsCounter);
 
@@ -70,7 +66,7 @@ int main()
 		fps++;
 		if (fpsClock.getElapsedTime().asSeconds() > 1.0)
 		{
-			fpsCounter->SetText(std::to_string(fps) + " FPS");
+			fpsCounter->GetText()->SetString(std::to_string(fps) + " FPS");
 			fps = 0;
 			fpsClock.restart();
 		}

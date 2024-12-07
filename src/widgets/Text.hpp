@@ -32,40 +32,18 @@ namespace mf
 		 **/
 		static Text		*Create();
 
-		Text			*EnableEdit();
-		Text			*DisableEdit();
+		void			EnableEdit();
+		void			DisableEdit();
 
-		/**
-		 * Setters
-		 **/
-		Text			*SetText(std::string tText);
-		Text			*AddText(std::string tText) {mText.AddString(tText); return (this);}
-		Text			*DeleteText(size_t tNum) {mText.DeleteString(tNum); return (this);}
-		Text			*SetTextFont(std::string tPath);
-		Text			*SetTextFont(sf::Font tFont);
-		Text			*SetTextPosition(sf::Vector2f tPos);
-		Text			*SetTextColor(sf::Color tColor);
-		Text			*SetCharacterSize(unsigned int tSize);
-
-		Text			*SetDisabled(bool tDisabled){mDisabled = tDisabled; return (this);}
 		
 		//Default: -1 for no limit
-		Text			*SetMaxTextLength(int tLength){mMaxTextLength = tLength; return (this);}
+		void			SetMaxTextLength(int tLength){mMaxTextLength = tLength;}
 
-		//Background
-		Text			*SetBackgroundColor(sf::Color tColor) {mBackground.SetBackground(tColor); return (this);}
-		Text			*SetOutlineThickness(float tThickness) {mBackground.SetOutlineThickness(tThickness); return (this);}
-		Text			*SetOutlineColor(sf::Color tColor){mBackground.SetOutlineColor(tColor); return (this);}
+		void			SetBackground(mf::component::Background tBackground){mBackground = tBackground;}
+		mf::component::Background	*GetBackground(){return (&mBackground);}
 
-		/**
-		 * Overides
-		 **/
-		Text			*SetPosition(sf::Vector2f tPos){Widget::SetPosition(tPos); return (this);}
-		Text			*SetPosition(float tX, float tY){Widget::SetPosition(tX, tY); return (this);}
-		Text			*SetSize(sf::Vector2f tSize){Widget::SetSize(tSize); return (this);}
-		Text			*SetSize(float tX, float tY){Widget::SetSize(tX, tY); return (this);}
-		Text			*SetSizePercentage(bool tPercentageX, bool tPercentageY) { Widget::SetSizePercentage(tPercentageX, tPercentageY); return (this);}
-		Text			*SetPositionPercentage(bool tPercentageX, bool tPercentageY) { Widget::SetPositionPercentage(tPercentageX, tPercentageY); return (this);}
+		void			SetText(mf::component::Text tText){mText = tText;}
+		mf::component::Text	*GetText(){return (&mText);}
 
 		/**
 		 * Getters

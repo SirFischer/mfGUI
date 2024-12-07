@@ -4,7 +4,7 @@ namespace mf
 {
 
 Image::Image()
-:mBackground(&mTransform.mPosition, &mTransform.mSize)
+:mBackground(&mPosition, &mSize)
 {
 
 }
@@ -26,28 +26,14 @@ Image      *Image::Create()
     return (img);
 }
 
-Image	*Image::SetImage(std::string tPath)
+void	Image::SetImage(std::string tPath)
 {
 	this->mBackground.SetBackground(tPath);
-	return (this);
 }
 
-Image	*Image::SetImage(sf::Texture	&tTexture)
+void	Image::SetImage(sf::Texture	&tTexture)
 {
 	this->mBackground.SetBackground(tTexture);
-	return (this);
-}
-
-Image	*Image::SetOutlineThickness(float tThickness)
-{
-	mBackground.SetOutlineThickness(tThickness);
-	return (this);
-}
-
-Image	*Image::SetOutlineColor(sf::Color tColor)
-{
-	mBackground.SetOutlineColor(tColor);
-	return (this);
 }
 
 } // namespace mf

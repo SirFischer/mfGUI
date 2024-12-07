@@ -49,26 +49,16 @@ namespace mf
 		 * Setters
 		 **/
 
-		List			*SetDisabled(bool tDisabled){mDisabled = tDisabled; return (this);}
-		
-		//Transform
-		List			*SetPosition(sf::Vector2f tPos){Widget::SetPosition(tPos); return (this);}
-		List			*SetPosition(float tX, float tY){Widget::SetPosition(tX, tY); return (this);}
-		List			*SetSize(sf::Vector2f tSize){Widget::SetSize(tSize); return (this);}
-		List			*SetSize(float tX, float tY){Widget::SetSize(tX, tY); return (this);}
-		List			*SetSizePercentage(bool tPercentageX, bool tPercentageY) { Widget::SetSizePercentage(tPercentageX, tPercentageY); return (this);}
-		List			*SetPositionPercentage(bool tPercentageX, bool tPercentageY) { Widget::SetPositionPercentage(tPercentageX, tPercentageY); return (this);}
-
 		//Background
-		List			*SetBackgroundColor(sf::Color tColor) {mBackground.SetBackground(tColor); return (this);}
-		List			*SetOutlineThickness(float tThickness) {mBackground.SetOutlineThickness(tThickness); return (this);}
-		List			*SetOutlineColor(sf::Color tColor){mBackground.SetOutlineColor(tColor); return (this);}
+		void			SetBackgroundColor(sf::Color tColor) {mBackground.SetBackground(tColor);}
+		void			SetOutlineThickness(float tThickness) {mBackground.SetOutlineThickness(tThickness);}
+		void			SetOutlineColor(sf::Color tColor){mBackground.SetOutlineColor(tColor);}
 
 		//List
-		List			*SetItemSpacing(float tSpacing) {mItemSpacing = tSpacing; return (this);}
-		List			*SetItemDirection(eDirection tDirection) {mListDirection = tDirection; return (this);}
-		List			*SetContentOverflow(eOverflow tOverflow) {mOverflow = tOverflow; return (this);}
-		List			*SetContentOffset(sf::Vector2f tPos){mContentOffset = tPos; return (this);}
+		void			SetItemSpacing(float tSpacing) {mItemSpacing = tSpacing;}
+		void			SetItemDirection(eDirection tDirection) {mListDirection = tDirection;}
+		void			SetContentOverflow(eOverflow tOverflow) {mOverflow = tOverflow;}
+		void			SetContentOffset(sf::Vector2f tPos){mContentOffset = tPos;}
 
 	};
 }

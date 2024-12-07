@@ -16,6 +16,7 @@ add_custom_command(OUTPUT update_library
                    COMMAND cd .. && ninja
                    COMMENT "Updating library using Ninja")
 
+
 # Add custom target that depends on the above command
 add_custom_target(UpdateLibrary DEPENDS update_library)
 
@@ -33,7 +34,7 @@ link_directories(${CMAKE_CURRENT_SOURCE_DIR}/../lib)
 set_target_properties(PROPERTIES LINKER_LANGUAGE CXX)
 
 
-target_link_libraries(Sandbox PUBLIC sfml-graphics sfml-window ${CMAKE_CURRENT_SOURCE_DIR}/../lib/libMFGUId.a)
+target_link_libraries(Sandbox PUBLIC sfml-graphics sfml-window sfml-system ${CMAKE_CURRENT_SOURCE_DIR}/../lib/libMFGUId.a)
 
 
 target_include_directories(Sandbox PUBLIC

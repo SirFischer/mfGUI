@@ -3,8 +3,8 @@
 namespace mf
 {
 	List::List(/* args */)
-	:mBackground(&mTransform.mPosition, &mTransform.mSize)
-	,mScrollBar(&mTransform.mPosition, &mTransform.mSize, &mContentSize, &mContentPosition)
+	:mBackground(&mPosition, &mSize)
+	,mScrollBar(&mPosition, &mSize, &mContentSize, &mContentPosition)
 	{
 		
 	}
@@ -30,11 +30,11 @@ namespace mf
 	{
 		UpdateChildren();
 		UpdateContentData();
-		mView.setViewport(sf::FloatRect(mTransform.mPosition.x / (float)tWindow->getSize().x,
-									mTransform.mPosition.y / (float)tWindow->getSize().y,
-									mTransform.mSize.x / (float)tWindow->getSize().x,
-									mTransform.mSize.y / (float)tWindow->getSize().y));
-		mView.reset(sf::FloatRect(sf::Vector2f(mTransform.mPosition.x, mTransform.mPosition.y + mContentPosition.y), mTransform.mSize));
+		mView.setViewport(sf::FloatRect(mPosition.x / (float)tWindow->getSize().x,
+									mPosition.y / (float)tWindow->getSize().y,
+									mSize.x / (float)tWindow->getSize().x,
+									mSize.y / (float)tWindow->getSize().y));
+		mView.reset(sf::FloatRect(sf::Vector2f(mPosition.x, mPosition.y + mContentPosition.y), mSize));
 		mBackground.Draw(tWindow);
 		sf::View tmp = tWindow->getView();
 		mScrollBar.Draw(tWindow);
@@ -57,7 +57,7 @@ namespace mf
 
 			if (mListDirection == eDirection::VERTICAL)
 			{
-				if (((lastWidget) ? lastWidget->GetPosition().y + lastWidget->GetSize().y + mItemSpacing : 0) + child->GetSize().y > mTransform.mSize.y + mTransform.mPosition.y   && mOverflow == eOverflow::WRAP)
+				if (((lastWidget) ? lastWidget->GetPosition().y + lastWidget->GetSize().y + mItemSpacing : 0) + child->GetSize().y > mSize.y + mPosition.y   && mOverflow == eOverflow::WRAP)
 				{
 					if (maxOffset != 0 && lastWidget)
 					{
@@ -70,7 +70,7 @@ namespace mf
 			}
 			else
 			{
-				if (((lastWidget) ? lastWidget->GetPosition().x + lastWidget->GetSize().x + mItemSpacing : 0) + child->GetSize().x > mTransform.mSize.x + mTransform.mPosition.x && mOverflow == eOverflow::WRAP)
+				if (((lastWidget) ? lastWidget->GetPosition().x + lastWidget->GetSize().x + mItemSpacing : 0) + child->GetSize().x > mSize.x + mPosition.x && mOverflow == eOverflow::WRAP)
 				{
 					if (maxOffset != 0 && lastWidget)
 					{

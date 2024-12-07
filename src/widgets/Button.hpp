@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Widget.hpp"
+#include "../widgetComponents/Background.hpp"
 
 namespace mf
 {
@@ -17,51 +18,25 @@ namespace mf
 
     public:
 		~Button();
-		void				Render(sf::RenderWindow *tWindow) override;
+		void					Render(sf::RenderWindow *tWindow) override;
 
         /**
 		 * Create
 		 **/
-        static Button      *Create();
+        static Button      		*Create();
 
 		/**
 		 * Setters
 		 **/
-		Button				*SetClickEvent(std::function<void()> tListener);
-		Button				*AddEventListener(eEvent tEvent, std::function<void()> tListener);
-
-		Button				*SetDisabled(bool tDisabled){mDisabled = tDisabled; return (this);}
-
-
-		//Text
-		Button				*SetText(std::string tText);
-		Button				*SetTextFont(std::string tPath);
-		Button				*SetTextFont(sf::Font tFont);
-		Button				*SetTextPosition(sf::Vector2f tPos);
-		Button				*SetTextPosition(float tX, float tY);
-		Button				*SetTextColor(sf::Color tColor);
-
-		Button				*SetCharacterSize(unsigned int tSize);
+		void					SetClickEvent(std::function<void()> tListener);
+		void					AddEventListener(eEvent tEvent, std::function<void()> tListener);
 
 		//Background
-		Button				*SetOutlineThickness(float tThickness);
-		Button				*SetOutlineColor(sf::Color tColor);
-		Button				*SetBackground(const sf::Color &tColor);
-		Button				*SetBackground(const sf::Texture &tTexture);
+		void					SetBackground(component::Background tBackground){mBackground = tBackground;}
+		component::Background	*GetBackground(){return (&mBackground);}
 
-		/**
-		 * Overides
-		 **/
-		Button				*SetPosition(sf::Vector2f tPos){Widget::SetPosition(tPos); return (this);}
-		Button				*SetPosition(float tX, float tY){Widget::SetPosition(tX, tY); return (this);}
-		Button				*SetSize(sf::Vector2f tSize){Widget::SetSize(tSize); return (this);}
-		Button				*SetSize(float tX, float tY){Widget::SetSize(tX, tY); return (this);}
-		Button				*SetSizePercentage(bool tPercentageX, bool tPercentageY) { Widget::SetSizePercentage(tPercentageX, tPercentageY); return (this);}
-		Button				*SetPositionPercentage(bool tPercentageX, bool tPercentageY) { Widget::SetPositionPercentage(tPercentageX, tPercentageY); return (this);}
-
-		/**
-		 * Getters
-		 */
-		sf::Vector2f		GetTextPosition(){return (mText.GetPosition());}
+		//Text
+		void					SetText(component::Text tText){mText = tText;}
+		component::Text			*GetText(){return (&mText);}
     };
 } // namespace mf

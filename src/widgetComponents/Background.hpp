@@ -17,7 +17,7 @@ namespace mf
 			sf::Vector2f                            *mSize = NULL;
 			
 		public:
-			Background(sf::Vector2f *tPos,sf::Vector2f *tSize);
+			Background(sf::Vector2f *tPos, sf::Vector2f *tSize);
 			~Background();
 
 			void            SetBackground(sf::RectangleShape *tBackground);

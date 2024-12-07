@@ -1,3 +1,13 @@
+/*
+ * File: Background.cpp
+ * File Created: Friday, 6th December 2024 5:00:07 pm
+ * Author: Marek
+ * -----
+ * Last Modified: Friday, 6th December 2024 5:00:10 pm
+ * Modified By: Marek 
+ * -----
+ * Copyright - 2024 Deep Vertic
+ */
 #include "Background.hpp"
 
 namespace mf

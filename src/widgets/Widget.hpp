@@ -8,82 +8,171 @@
 #include "../widgetComponents/Background.hpp"
 #include "../widgetComponents/EventManager.hpp"
 #include "../widgetComponents/Text.hpp"
-#include "../widgetComponents/Transform.hpp"
+#include "../widgetAttributes/Transform.hpp"
 
 namespace mf
 {
-	class Widget
+	class Widget : public attribute::Transformable
 	{
 	protected:
-		Widget(/* args */);
+		Widget(/* args */)
+			: mEventManager(&this->mPosition, &this->mSize)
+		{
+			
+			// Default resize function
+			mEventManager.AddEventListener(eEvent::RESIZE, [this] {
+				this->SetPosition(mRelativePosition);
+				this->SetSize(mRelativeSize);
+			});
+		}
 
-		//Components
-		component::EventManager			mEventManager;
-		component::Transform			mTransform;
+		// Components
+		component::EventManager mEventManager;
 
-		//tmp
-		sf::Vector2f					mContentSize = sf::Vector2f(0, 0);
-		sf::Vector2f					mContentPosition = sf::Vector2f(0, 0);
+		// tmp
+		sf::Vector2f mContentSize = sf::Vector2f(0, 0);
+		sf::Vector2f mContentPosition = sf::Vector2f(0, 0);
 
-		sf::View						mView;
+		sf::View mView;
 
-		bool							mDisabled = false;
-		bool							mClickThrough = false;
+		int mIndex = 0; // draw Order Index
+		bool mDisabled = false;
+		bool mClickThrough = false;
 
-		Widget							*mParent = NULL;
-		std::vector<Widget *>			mWidgets = std::vector<Widget *>();
+		std::vector<Widget *> mWidgets = std::vector<Widget *>();
 
 		/**
 		 * INTERNAL FUNCTIONS
 		 **/
-		virtual void	Resize();
-		virtual void	Init();
-		virtual void	SortWidgets();
-		virtual void	UpdatePosition();
-		virtual void	UpdateSize();
+		virtual void Resize()
+		{
+			mEventManager.TriggerEvent(mf::eEvent::RESIZE);
+			for (auto &i : mWidgets)
+				i->Resize();
+		}
+
+		virtual void Init()
+		{
+			this->SetPosition(mRelativePosition);
+			this->SetSize(mRelativeSize);
+		}
+
+		virtual void SortWidgets()
+		{
+			std::sort(mWidgets.begin(), mWidgets.end(), [](mf::Widget *first, mf::Widget *second){
+				return (first->GetIndex() < second->GetIndex());
+			});
+		}
+
+		virtual void UpdatePosition()
+		{
+			SetPosition(mRelativePosition);
+			for (auto &child : mWidgets)
+			{
+				child->UpdatePosition();
+			}
+		}
+
+		virtual void UpdateSize()
+		{
+			SetSize(mRelativeSize);
+			for (auto &child : mWidgets)
+			{
+				child->UpdateSize();
+			}
+		}
 
 	public:
-		friend class	GUI;
+		friend class GUI;
 
-		virtual ~Widget();
+		virtual ~Widget() {}
 
-		virtual void	Render(sf::RenderWindow *tWindow);
-		virtual void	HandleEvent(sf::Event &tEvent);
-		static Widget 	*Create();
-		Widget			*AddWidget(Widget *tWidget);
-		void			RemoveWidget(Widget *tWidget);
-		void			ClearWidgets();
-		void			ClearWidgets(bool tDelete);
+		static Widget *Create()
+		{
+			Widget *widget = new Widget();
+			return (widget);
+		}
+
+		virtual void Render(sf::RenderWindow *tWindow)
+		{
+			for (auto &i : mWidgets)
+				if (!i->mDisabled)
+					i->Render(tWindow);
+		}
+
+		virtual void HandleEvent(sf::Event &tEvent)
+		{
+			mEventManager.Update(tEvent);
+			bool isClickThrough = true;
+			for (auto &i : boost::adaptors::reverse(mWidgets))
+			{
+				eEvent event = i->GetEvent();
+				if (!i->mDisabled && isClickThrough)
+					i->HandleEvent(tEvent);
+				else
+					i->Resize();
+				if (!i->mDisabled && ((!i->IsClickThrough() && (event != eEvent::OUTSIDE && event != eEvent::EXITED))))
+					isClickThrough = false;
+			}
+		}
+
+		void			AddWidget(Widget *tWidget)
+		{
+			tWidget->SetParent(this);
+			tWidget->SetPosition(tWidget->mRelativePosition);
+			mWidgets.push_back(tWidget);
+			tWidget->Init();
+			SortWidgets();
+		}
+
+		void			RemoveWidget(Widget *tWidget)
+		{
+			std::vector<mf::Widget *>::iterator it;
+			if ((it = std::find(mWidgets.begin(), mWidgets.end(), tWidget)) != mWidgets.end())
+			{
+				(*it)->ClearWidgets();
+				mWidgets.erase(it);
+			}
+		}
+
+		void        ClearWidgets()
+		{
+			while (mWidgets.size())
+			{
+				mWidgets.back()->ClearWidgets();
+				delete mWidgets.back();
+				mWidgets.pop_back();
+			}
+		}
+
+		void		ClearWidgets(bool tDelete)
+		{
+			while (mWidgets.size())
+			{
+				mWidgets.back()->ClearWidgets(tDelete);
+				if (tDelete)
+					delete mWidgets.back();
+				mWidgets.pop_back();
+			}
+		}
 
 		/**
 		 * Setters
 		 **/
 
-		virtual Widget	*SetPosition(sf::Vector2f tPos);
-		virtual Widget	*SetPosition(float tX, float tY);
-		virtual Widget	*SetPositionPercentage(bool tPercentageX, bool tPercentageY);
-		virtual Widget	*SetSize(float tX, float tY);
-		virtual Widget	*SetSize(sf::Vector2f tSize);
-		virtual Widget	*SetSizePercentage(bool tPercentageX, bool tPercentageY);
-		virtual Widget	*SetIndex(int tIndex){mTransform.mIndex = tIndex; return (this);}
-		virtual Widget	*SetDisabled(bool tDisabled){mDisabled = tDisabled; return (this);}
-		virtual Widget	*SetClickThrough(bool tClickThrough){mClickThrough = tClickThrough; return (this);}
-		virtual Widget	*SetFocus(bool tFocus){mEventManager.SetFocus(tFocus); return (this);}
+		virtual void SetIndex(int tIndex) { mIndex = tIndex; }
+		virtual void SetDisabled(bool tDisabled) { mDisabled = tDisabled; }
+		virtual void SetClickThrough(bool tClickThrough) { mClickThrough = tClickThrough; }
+		virtual void SetFocus(bool tFocus) { mEventManager.SetFocus(tFocus); }
 
 		/**
 		 * Getters
 		 **/
-		sf::Vector2f	GetPosition(){return (mTransform.mPosition);}
-		sf::Vector2f	GetRelativePosition(){return (mTransform.mRelativePosition);}
-		sf::Vector2f	GetSize(){return (mTransform.mSize);}
-		sf::Vector2f	GetRelativeSize(){return (mTransform.mRelativeSize);}
-		int				GetIndex(){return (mTransform.mIndex);}
-		mf::eEvent		GetEvent(){return (mEventManager.GetEvent());}
-
-		bool			IsFocus(){return (mEventManager.GetFocus());}
-		bool			IsDisabled(){return (mDisabled);}
-		bool			IsClickThrough(){return (mClickThrough);}
-
+		int GetIndex() { return (mIndex); }
+		mf::eEvent GetEvent() { return (mEventManager.GetEvent()); }
+		bool IsFocus() { return (mEventManager.GetFocus()); }
+		bool IsDisabled() { return (mDisabled); }
+		bool IsClickThrough() { return (mClickThrough); }
 	};
-	
+
 } // namespace mf

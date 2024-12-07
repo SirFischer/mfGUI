@@ -25,25 +25,10 @@ namespace mf
 		static Container	*Create();
 
 		/**
-		 * Setters
+		 * Background
 		 **/
+		void					SetBackground(component::Background tBackground){mBackground = tBackground;}
+		component::Background	*GetBackground(){return (&mBackground);}
 
-		Container			*SetDisabled(bool tDisabled){mDisabled = tDisabled; return (this);}
-
-
-		Container			*SetOutlineThickness(float tThickness);
-		Container			*SetOutlineColor(sf::Color tColor);
-
-		Container			*SetBackground(sf::Color tColor){mBackground.SetBackground(tColor); return (this);}
-
-		/**
-		 * Overides
-		 **/
-		Container			*SetPosition(sf::Vector2f tPos){Widget::SetPosition(tPos); return (this);}
-		Container			*SetPosition(float tX, float tY){Widget::SetPosition(tX, tY); return (this);}
-		Container			*SetSize(sf::Vector2f tSize){Widget::SetSize(tSize); return (this);}
-		Container			*SetSize(float tX, float tY){Widget::SetSize(tX, tY); return (this);}
-		Container			*SetSizePercentage(bool tPercentageX, bool tPercentageY) { Widget::SetSizePercentage(tPercentageX, tPercentageY); return (this);}
-		Container			*SetPositionPercentage(bool tPercentageX, bool tPercentageY) { Widget::SetPositionPercentage(tPercentageX, tPercentageY); return (this);}
 	};
 } // namespace mf

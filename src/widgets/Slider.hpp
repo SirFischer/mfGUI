@@ -3,6 +3,7 @@
 #include "Widget.hpp"
 #include "Button.hpp"
 #include "../utils/Direction.hpp"
+#include "../widgetComponents/Background.hpp"
 
 namespace mf
 {
@@ -14,12 +15,12 @@ namespace mf
 		Button					*mButton;
 		float					mValue = 0.f;
 		std::function<void()> 	mChangeListener = [](){};
+		eDirection				mDirection = eDirection::HORIZONTAL;
 
 		/**
 		 * Components
 		 **/
 		component::Background  	mBackground;
-		eDirection				mDirection = eDirection::HORIZONTAL;
 
 		/**
 		 * HIDDEN MEMBERS
@@ -43,26 +44,24 @@ namespace mf
 		 **/
 
 		//Slider
-		Slider					*SetValue(float tValue);
+		void					SetValue(float tValue);
 		float					GetValue(){return (std::clamp(mValue, 0.f, 1.f));}
-		Slider					*SetChangeEventListener(std::function<void()> tListener);
+		void					SetChangeEventListener(std::function<void()> tListener) { mChangeListener = tListener; }
 
-		Slider					*SetDirection(eDirection tDirection);
+
+		void					SetDirection(eDirection tDirection);
 
 		//Transform
-		Slider					*SetPosition(sf::Vector2f tPos){Widget::SetPosition(tPos); mButton->SetPosition(mButton->GetRelativePosition()); return (this);}
-		Slider					*SetPosition(float tX, float tY){Widget::SetPosition(tX, tY); mButton->SetPosition(mButton->GetRelativePosition()); return (this);}
-		Slider					*SetSize(sf::Vector2f tSize) override;
-		Slider					*SetSize(float tX, float tY) override;
-		Slider					*SetSizePercentage(bool tPercentageX, bool tPercentageY) { Widget::SetSizePercentage(tPercentageX, tPercentageY); return (this);}
-		Slider					*SetPositionPercentage(bool tPercentageX, bool tPercentageY) { Widget::SetPositionPercentage(tPercentageX, tPercentageY); return (this);}
+		void					SetPosition(sf::Vector2f tPos){Widget::SetPosition(tPos); mButton->SetPosition(mButton->GetRelativePosition());}
+		void					SetPosition(float tX, float tY){Widget::SetPosition(tX, tY); mButton->SetPosition(mButton->GetRelativePosition());}
+		void					SetSize(sf::Vector2f tSize) override;
+		void					SetSize(float tX, float tY) override;
+		void					SetSizePercentage(bool tPercentageX, bool tPercentageY) { Widget::SetSizePercentage(tPercentageX, tPercentageY);}
+		void					SetPositionPercentage(bool tPercentageX, bool tPercentageY) { Widget::SetPositionPercentage(tPercentageX, tPercentageY);}
 
 		//Background
-		Slider					*SetBackgroundColor(sf::Color tColor) {mBackground.SetBackground(tColor); return (this);}
-		Slider					*SetOutlineThickness(float tThickness) {mBackground.SetOutlineThickness(tThickness); return (this);}
-		Slider					*SetOutlineColor(sf::Color tColor){mBackground.SetOutlineColor(tColor); return (this);}
-
-		Slider					*SetDisabled(bool tDisabled){mDisabled = tDisabled; return (this);}
+		void					SetBackground(component::Background tBackground){mBackground = tBackground;}
+		component::Background	*GetBackground(){return (&mBackground);}
 
 		/**
 		 * Getters

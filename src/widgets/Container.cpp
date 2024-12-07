@@ -4,7 +4,7 @@ namespace mf
 {
 
 Container::Container()
-:mBackground(&mTransform.mPosition, &mTransform.mSize)
+:mBackground(&mPosition, &mSize)
 {
 
 }
@@ -20,23 +20,11 @@ void		Container::Render(sf::RenderWindow *tWindow)
 	Widget::Render(tWindow);
 }
 
-Container      *Container::Create()
+Container     *Container::Create()
 {
     Container   *container = new Container();
    container->SetSize(300, 200);
     return (container);
-}
-
-Container	*Container::SetOutlineThickness(float tThickness)
-{
-	mBackground.SetOutlineThickness(tThickness);
-	return (this);
-}
-
-Container	*Container::SetOutlineColor(sf::Color tColor)
-{
-	mBackground.SetOutlineColor(tColor);
-	return (this);
 }
 
 } // namespace mf

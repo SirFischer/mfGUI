@@ -4,9 +4,9 @@ namespace mf
 {
 
 Text::Text()
-:mBackground(&mTransform.mPosition, &mTransform.mSize)
-,mScrollBar(&mTransform.mPosition, &mTransform.mSize, &mContentSize, &mContentPosition)
-,mText(&mTransform.mPosition, &mTransform.mSize)
+:mBackground(&mPosition, &mSize)
+,mScrollBar(&mPosition, &mSize, &mContentSize, &mContentPosition)
+,mText(&mPosition, &mSize)
 {
 
 }
@@ -35,18 +35,18 @@ void		Text::HandleEvent(sf::Event &tEvent)
 			}
 		}
 	}
-	mContentSize = sf::Vector2f(mTransform.mSize.x, mText.GetVerticalHeight());
+	mContentSize = sf::Vector2f(mSize.x, mText.GetVerticalHeight());
 	mScrollBar.HandleEvent(tEvent);
 	Widget::HandleEvent(tEvent);
 }
 
 void		Text::Render(sf::RenderWindow *tWindow)
 {
-	mView.setViewport(sf::FloatRect(mTransform.mPosition.x / (float)tWindow->getSize().x,
-									mTransform.mPosition.y / (float)tWindow->getSize().y,
-									mTransform.mSize.x / (float)tWindow->getSize().x,
-									mTransform.mSize.y / (float)tWindow->getSize().y));
-	mView.reset(sf::FloatRect(sf::Vector2f(mTransform.mPosition.x, mTransform.mPosition.y + mContentPosition.y), mTransform.mSize));
+	mView.setViewport(sf::FloatRect(mPosition.x / (float)tWindow->getSize().x,
+									mPosition.y / (float)tWindow->getSize().y,
+									mSize.x / (float)tWindow->getSize().x,
+									mSize.y / (float)tWindow->getSize().y));
+	mView.reset(sf::FloatRect(sf::Vector2f(mPosition.x, mPosition.y + mContentPosition.y), mSize));
 	
 	mBackground.Draw(tWindow);
 	sf::View		tmp = tWindow->getView();
@@ -66,59 +66,21 @@ Text      *Text::Create()
     return (txt);
 }
 
-Text			*Text::EnableEdit()
+void			Text::EnableEdit()
 {
 	mIsEditable = true;
 	Text* tmp = this;
 	mEventManager.AddEventListener(eEvent::FOCUS, [tmp] {
-		tmp->SetOutlineThickness(2);
+		tmp->mBackground.SetOutlineThickness(2);
 	});
 	mEventManager.AddEventListener(eEvent::LOST_FOCUS, [tmp] {
-		tmp->SetOutlineThickness(1);
+		tmp->mBackground.SetOutlineThickness(1);
 	});
-	return (this);
 }
 
-Text			*Text::DisableEdit()
+void			Text::DisableEdit()
 {
 	mIsEditable = false;
-	return (this);
-}
-
-Text		*Text::SetText(std::string tText)
-{
-	mText.SetString(tText);
-	return (this);
-}
-
-Text		*Text::SetTextFont(std::string tPath)
-{
-	mText.LoadFont(tPath);
-	return (this);
-}
-
-Text		*Text::SetTextFont(sf::Font tFont)
-{
-	mText.LoadFont(tFont);
-	return (this);
-}
-
-Text		*Text::SetTextPosition(sf::Vector2f tPos)
-{
-	mText.SetPos(tPos);
-	return (this);
-}
-
-Text		*Text::SetTextColor(sf::Color tColor)
-{
-	mText.SetColor(tColor);
-	return (this);
-}
-
-Text		*Text::SetCharacterSize(unsigned int tSize)
-{
-	mText.SetSize(tSize);
-	return (this);
 }
 
 
