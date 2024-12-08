@@ -12,7 +12,7 @@ namespace mf
 	private:
 		Slider(/* args */);
 
-		Button					*mButton;
+		std::shared_ptr<Button> mButton;
 		float					mValue = 0.f;
 		std::function<void()> 	mChangeListener = [](){};
 		eDirection				mDirection = eDirection::HORIZONTAL;
@@ -34,7 +34,7 @@ namespace mf
 
 	public:
 		~Slider();
-		static Slider			*Create();
+		static std::shared_ptr<Slider>			Create();
 
 		void					Render(sf::RenderWindow	*tWindow);
 		void					HandleEvent(sf::Event &tEvent);
@@ -66,7 +66,7 @@ namespace mf
 		/**
 		 * Getters
 		 **/
-		Button					*GetButton(){return (mButton);}
+		std::shared_ptr<Button>	GetButton(){return (mButton);}
 
 	};
 }

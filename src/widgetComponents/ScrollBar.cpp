@@ -12,8 +12,9 @@ namespace mf
 			mSlider = mf::Slider::Create();
 			mSlider->SetValue(1);
 		}
+		
 		ScrollBar::~ScrollBar() {
-			delete mSlider;
+			
 		}
 
 		void				ScrollBar::HandleEvent(sf::Event &tEvent)

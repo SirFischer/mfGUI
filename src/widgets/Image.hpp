@@ -22,7 +22,7 @@ namespace mf
 		/**
 		 * Create
 		 **/
-		static Image	*Create();
+		static std::shared_ptr<Image>	Create();
 
 		/**
 		 * Setters

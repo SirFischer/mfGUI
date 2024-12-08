@@ -22,9 +22,9 @@ void		Button::Render(sf::RenderWindow *tWindow)
 	Widget::Render(tWindow);
 }
 
-Button      *Button::Create()
+std::shared_ptr<Button>      Button::Create()
 {
-    Button *btn = new Button();
+	std::shared_ptr<Button> btn(new Button());
     btn->SetSize(sf::Vector2f(100, 50));
 	btn->GetText()->SetString("Button");
 

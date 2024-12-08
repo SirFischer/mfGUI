@@ -2,8 +2,8 @@
 
 namespace mf
 {
-	sf::RenderWindow	*GUI::mWindow = NULL;
-	Widget				*GUI::mBaseWidget = NULL;
+	sf::RenderWindow		*GUI::mWindow = NULL;
+	std::shared_ptr<Widget>	GUI::mBaseWidget = NULL;
 
 	void		GUI::Init(sf::RenderWindow *tWindow)
 	{
@@ -26,12 +26,12 @@ namespace mf
 		mBaseWidget->Render(mWindow);
 	}
 
-	void		GUI::AddWidget(Widget *tWidget)
+	void		GUI::AddWidget(std::shared_ptr<Widget> tWidget)
 	{
 		mBaseWidget->AddWidget(tWidget);
 	}
 
-	void		GUI::RemoveWidget(Widget *tWidget)
+	void		GUI::RemoveWidget(std::shared_ptr<Widget> tWidget)
 	{
 		mBaseWidget->RemoveWidget(tWidget);
 	}

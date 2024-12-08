@@ -13,9 +13,9 @@ namespace mf
 	{
 	}
 
-	List      *List::Create()
+	std::shared_ptr<List>      List::Create()
 	{
-		List   *list = new List();
+		std::shared_ptr<List> list(new List());
 		list->mScrollBar.GetSlider()->SetValue(1);
 		return (list);
 	}
@@ -45,7 +45,7 @@ namespace mf
 
 	void		List::UpdateChildren()
 	{
-		Widget	*lastWidget = NULL;
+		std::shared_ptr<Widget> lastWidget = NULL;
 		float offset = 0;
 		float maxOffset = 0;
 		mScrollBar.GetSlider()->SetValue(mScrollBar.GetSlider()->GetValue());

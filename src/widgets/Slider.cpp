@@ -37,10 +37,10 @@ namespace mf
 			mButton->SetSize(mSize.x, mButton->GetSize().y);
 	}
 
-	Slider      *Slider::Create()
+	std::shared_ptr<Slider>      Slider::Create()
 	{
 		try {
-			Slider *slider = new Slider();
+			std::shared_ptr<Slider> slider(new Slider());
 			slider->mButton = Button::Create();
 			slider->AddWidget(slider->mButton);
 			slider->SetSize(200, 40);

@@ -30,7 +30,7 @@ namespace mf
 		/**
 		 * Create
 		 **/
-		static Text		*Create();
+		static std::shared_ptr<Text>		Create();
 
 		void			EnableEdit();
 		void			DisableEdit();
@@ -48,8 +48,8 @@ namespace mf
 		/**
 		 * Getters
 		 **/
-		std::string		GetString() { return (mText.GetString());}
-		mf::Slider		*GetScrollBar(){return (mScrollBar.GetSlider());}
+		std::string					GetString() { return (mText.GetString());}
+		std::shared_ptr<Slider>		GetScrollBar(){return (mScrollBar.GetSlider());}
 
 	};
 } // namespace mf

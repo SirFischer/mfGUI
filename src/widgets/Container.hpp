@@ -22,7 +22,7 @@ namespace mf
 		/**
 		 * Create
 		 **/
-		static Container	*Create();
+		static std::shared_ptr<Container>	Create();
 
 		/**
 		 * Background

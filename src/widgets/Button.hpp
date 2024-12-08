@@ -23,7 +23,7 @@ namespace mf
         /**
 		 * Create
 		 **/
-        static Button      		*Create();
+        static std::shared_ptr<Button>      Create();
 
 		/**
 		 * Setters

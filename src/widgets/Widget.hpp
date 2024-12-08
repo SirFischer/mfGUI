@@ -1,8 +1,9 @@
 #pragma once
 
+#include <memory>
 #include <boost/range/adaptor/reversed.hpp>
-
 #include <SFML/Graphics.hpp>
+
 #include "../utils/Events.hpp"
 
 #include "../widgetComponents/Background.hpp"
@@ -39,7 +40,7 @@ namespace mf
 		bool mDisabled = false;
 		bool mClickThrough = false;
 
-		std::vector<Widget *> mWidgets = std::vector<Widget *>();
+		std::vector<std::shared_ptr<Widget>> mWidgets = std::vector<std::shared_ptr<Widget>>();
 
 		/**
 		 * INTERNAL FUNCTIONS
@@ -59,7 +60,10 @@ namespace mf
 
 		virtual void SortWidgets()
 		{
-			std::sort(mWidgets.begin(), mWidgets.end(), [](mf::Widget *first, mf::Widget *second){
+			std::sort(mWidgets.begin(), mWidgets.end(), [](
+				std::shared_ptr<Widget> first,
+				std::shared_ptr<Widget> second
+			){
 				return (first->GetIndex() < second->GetIndex());
 			});
 		}
@@ -87,10 +91,9 @@ namespace mf
 
 		virtual ~Widget() {}
 
-		static Widget *Create()
+		static std::shared_ptr<Widget> Create()
 		{
-			Widget *widget = new Widget();
-			return (widget);
+			return (std::shared_ptr<Widget>(new Widget()));
 		}
 
 		virtual void Render(sf::RenderWindow *tWindow)
@@ -116,7 +119,7 @@ namespace mf
 			}
 		}
 
-		void			AddWidget(Widget *tWidget)
+		void			AddWidget(std::shared_ptr<Widget> tWidget)
 		{
 			tWidget->SetParent(this);
 			tWidget->SetPosition(tWidget->mRelativePosition);
@@ -125,9 +128,9 @@ namespace mf
 			SortWidgets();
 		}
 
-		void			RemoveWidget(Widget *tWidget)
+		void			RemoveWidget(std::shared_ptr<Widget> tWidget)
 		{
-			std::vector<mf::Widget *>::iterator it;
+			std::vector<std::shared_ptr<Widget>>::iterator it;
 			if ((it = std::find(mWidgets.begin(), mWidgets.end(), tWidget)) != mWidgets.end())
 			{
 				(*it)->ClearWidgets();
@@ -140,18 +143,6 @@ namespace mf
 			while (mWidgets.size())
 			{
 				mWidgets.back()->ClearWidgets();
-				delete mWidgets.back();
-				mWidgets.pop_back();
-			}
-		}
-
-		void		ClearWidgets(bool tDelete)
-		{
-			while (mWidgets.size())
-			{
-				mWidgets.back()->ClearWidgets(tDelete);
-				if (tDelete)
-					delete mWidgets.back();
 				mWidgets.pop_back();
 			}
 		}

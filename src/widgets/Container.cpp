@@ -20,11 +20,11 @@ void		Container::Render(sf::RenderWindow *tWindow)
 	Widget::Render(tWindow);
 }
 
-Container     *Container::Create()
+std::shared_ptr<Container>     Container::Create()
 {
-    Container   *container = new Container();
-   container->SetSize(300, 200);
-    return (container);
+	std::shared_ptr<Container> container(new Container());
+	container->SetSize(300, 200);
+	return (container);
 }
 
 } // namespace mf

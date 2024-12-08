@@ -20,9 +20,9 @@ void		Image::Render(sf::RenderWindow *tWindow)
 	Widget::Render(tWindow);
 }
 
-Image      *Image::Create()
+std::shared_ptr<Image>      Image::Create()
 {
-    Image   *img = new Image();
+	std::shared_ptr<Image> img(new Image());
     return (img);
 }
 

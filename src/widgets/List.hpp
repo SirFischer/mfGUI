@@ -40,7 +40,7 @@ namespace mf
 
 	public:
 		~List();
-		static List		*Create();
+		static std::shared_ptr<List>		Create();
 
 		void			HandleEvent(sf::Event &tEvent);
 		void			Render(sf::RenderWindow	*tWindow);
