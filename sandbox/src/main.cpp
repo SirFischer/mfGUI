@@ -1,16 +1,16 @@
 #include "../../include/mfGUI.hpp"
 
-mf::Container *CreateMainMenu()
+std::shared_ptr<mf::Container>  CreateMainMenu()
 {
-	mf::Container *container = mf::Container::Create();
+	auto container = mf::Container::Create();
 	container->SetSize(80.f, 80.f);
 	container->SetSizePercentage(true, true);
 	container->SetPosition(5.f, 20.f);
 	container->SetPositionPercentage(true, false);
 	container->GetBackground()->SetBackground(sf::Color::Red);
 
-	mf::Button *button;
-	container->AddWidget((button = mf::Button::Create()));
+	auto button = mf::Button::Create();
+	container->AddWidget(button);
 	button->SetPosition(5, 5);
 	button->GetBackground()->SetBackground(sf::Color::White);
 	button->GetBackground()->SetOutlineColor(sf::Color::Red);
@@ -26,14 +26,14 @@ mf::Container *CreateMainMenu()
 	button->GetText()->SetString("Button");
 	button->SetClickEvent([](){std::cout << "test" << "\n";});
 
-	mf::Image *image;
-	container->AddWidget((image = mf::Image::Create()));
+	auto image = mf::Image::Create();
+	container->AddWidget(image);
 	image->SetPosition(5, 60);
 	image->SetSize(200, 200);
 	image->SetImage("assets/photo-1542044896530-05d85be9b11a.jpeg");
 
-	mf::Slider *slider;
-	container->AddWidget((slider = mf::Slider::Create()));
+	auto slider = mf::Slider::Create();
+	container->AddWidget(slider);
 	slider->SetPosition(5, 270);
 	slider->SetSize(200, 30);
 	slider->GetBackground()->SetOutlineColor(sf::Color::Red);
