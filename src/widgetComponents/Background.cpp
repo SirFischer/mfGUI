@@ -19,6 +19,7 @@ namespace mf
 		,mSize(tSize)
 		{
 			mBackground.setSize(*mSize);
+			mBackground.setFillColor(sf::Color::Transparent);
 		}
 		
 		Background::~Background()

@@ -66,7 +66,7 @@ namespace mf
 					}
 					maxOffset = 0;
 				}
-				child->SetPosition(offset, ((lastWidget) ? lastWidget->GetRelativePosition().y + lastWidget->GetSize().y : 0) + mItemSpacing);
+				child->SetPosition(offset + mContentOffset.x, ((lastWidget) ? lastWidget->GetRelativePosition().y + lastWidget->GetSize().y : 0) + mItemSpacing + mContentOffset.y);
 			}
 			else
 			{
@@ -79,7 +79,7 @@ namespace mf
 					}
 					maxOffset = 0;
 				}
-				child->SetPosition(((lastWidget) ? lastWidget->GetRelativePosition().x + lastWidget->GetSize().x : 0) + mItemSpacing, offset);
+				child->SetPosition(((lastWidget) ? lastWidget->GetRelativePosition().x + lastWidget->GetSize().x : 0) + mItemSpacing + mContentOffset.x, offset + mContentOffset.y);
 			}
 			lastWidget = child;
 			UpdatePosition();

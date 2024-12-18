@@ -6,9 +6,7 @@
 
 #include "../utils/Events.hpp"
 
-#include "../widgetComponents/Background.hpp"
 #include "../widgetComponents/EventManager.hpp"
-#include "../widgetComponents/Text.hpp"
 #include "../widgetAttributes/Transform.hpp"
 
 namespace mf

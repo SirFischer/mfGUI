@@ -55,5 +55,25 @@
 		"numbers": "cpp",
 		"cinttypes": "cpp"
 	},
-	"cmake.configureOnOpen": true
+	"cmake.configureOnOpen": true,
+	"workbench.colorCustomizations": {
+		"activityBar.activeBackground": "#19e140",
+		"activityBar.background": "#19e140",
+		"activityBar.foreground": "#15202b",
+		"activityBar.inactiveForeground": "#15202b99",
+		"activityBarBadge.background": "#8870ef",
+		"activityBarBadge.foreground": "#15202b",
+		"commandCenter.border": "#e7e7e799",
+		"sash.hoverBorder": "#19e140",
+		"statusBar.background": "#14b333",
+		"statusBar.foreground": "#e7e7e7",
+		"statusBarItem.hoverBackground": "#19e140",
+		"statusBarItem.remoteBackground": "#14b333",
+		"statusBarItem.remoteForeground": "#e7e7e7",
+		"titleBar.activeBackground": "#14b333",
+		"titleBar.activeForeground": "#e7e7e7",
+		"titleBar.inactiveBackground": "#14b33399",
+		"titleBar.inactiveForeground": "#e7e7e799"
+	},
+	"peacock.color": "#14b333"
 }

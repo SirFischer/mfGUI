@@ -49,10 +49,11 @@ namespace mf
 		 * Setters
 		 **/
 
-		//Background
-		void			SetBackgroundColor(sf::Color tColor) {mBackground.SetBackground(tColor);}
-		void			SetOutlineThickness(float tThickness) {mBackground.SetOutlineThickness(tThickness);}
-		void			SetOutlineColor(sf::Color tColor){mBackground.SetOutlineColor(tColor);}
+		/**
+		 * Background
+		 **/
+		void					SetBackground(component::Background tBackground){mBackground = tBackground;}
+		component::Background	*GetBackground(){return (&mBackground);}
 
 		//List
 		void			SetItemSpacing(float tSpacing) {mItemSpacing = tSpacing;}

@@ -39,7 +39,7 @@ include CMakeFiles/rules.ninja
 #############################################
 # Logical path to working directory; prefix for absolute paths.
 
-cmake_ninja_workdir = /home/mfischer/Marek/Work/DeepVertic/Libraries/MFGUI/
+cmake_ninja_workdir = /home/mfischer/Marek/Work/DeepVertic/Libraries/MFGUI/build/
 # =============================================================================
 # Object build statements for STATIC_LIBRARY target MFGUI
 
@@ -91,13 +91,6 @@ build CMakeFiles/MFGUI.dir/src/widgets/Button.cpp.o: CXX_COMPILER__MFGUI_unscann
   OBJECT_DIR = CMakeFiles/MFGUI.dir
   OBJECT_FILE_DIR = CMakeFiles/MFGUI.dir/src/widgets
 
-build CMakeFiles/MFGUI.dir/src/widgets/Checkbox.cpp.o: CXX_COMPILER__MFGUI_unscanned_Debug /home/mfischer/Marek/Work/DeepVertic/Libraries/MFGUI/src/widgets/Checkbox.cpp || cmake_object_order_depends_target_MFGUI
-  DEP_FILE = CMakeFiles/MFGUI.dir/src/widgets/Checkbox.cpp.o.d
-  FLAGS = -g -std=gnu++17
-  INCLUDES = -I/home/mfischer/Marek/Work/DeepVertic/Libraries/MFGUI/src -I/home/mfischer/Marek/Work/DeepVertic/Libraries/MFGUI/include
-  OBJECT_DIR = CMakeFiles/MFGUI.dir
-  OBJECT_FILE_DIR = CMakeFiles/MFGUI.dir/src/widgets
-
 build CMakeFiles/MFGUI.dir/src/widgets/Container.cpp.o: CXX_COMPILER__MFGUI_unscanned_Debug /home/mfischer/Marek/Work/DeepVertic/Libraries/MFGUI/src/widgets/Container.cpp || cmake_object_order_depends_target_MFGUI
   DEP_FILE = CMakeFiles/MFGUI.dir/src/widgets/Container.cpp.o.d
   FLAGS = -g -std=gnu++17
@@ -141,7 +134,7 @@ build CMakeFiles/MFGUI.dir/src/widgets/Text.cpp.o: CXX_COMPILER__MFGUI_unscanned
 #############################################
 # Link the static library lib/libMFGUId.a
 
-build lib/libMFGUId.a: CXX_STATIC_LIBRARY_LINKER__MFGUI_Debug CMakeFiles/MFGUI.dir/src/mfGUI.cpp.o CMakeFiles/MFGUI.dir/src/widgetComponents/Background.cpp.o CMakeFiles/MFGUI.dir/src/widgetComponents/EventManager.cpp.o CMakeFiles/MFGUI.dir/src/widgetComponents/ScrollBar.cpp.o CMakeFiles/MFGUI.dir/src/widgetComponents/Text.cpp.o CMakeFiles/MFGUI.dir/src/widgets/Button.cpp.o CMakeFiles/MFGUI.dir/src/widgets/Checkbox.cpp.o CMakeFiles/MFGUI.dir/src/widgets/Container.cpp.o CMakeFiles/MFGUI.dir/src/widgets/Image.cpp.o CMakeFiles/MFGUI.dir/src/widgets/List.cpp.o CMakeFiles/MFGUI.dir/src/widgets/Slider.cpp.o CMakeFiles/MFGUI.dir/src/widgets/Text.cpp.o
+build lib/libMFGUId.a: CXX_STATIC_LIBRARY_LINKER__MFGUI_Debug CMakeFiles/MFGUI.dir/src/mfGUI.cpp.o CMakeFiles/MFGUI.dir/src/widgetComponents/Background.cpp.o CMakeFiles/MFGUI.dir/src/widgetComponents/EventManager.cpp.o CMakeFiles/MFGUI.dir/src/widgetComponents/ScrollBar.cpp.o CMakeFiles/MFGUI.dir/src/widgetComponents/Text.cpp.o CMakeFiles/MFGUI.dir/src/widgets/Button.cpp.o CMakeFiles/MFGUI.dir/src/widgets/Container.cpp.o CMakeFiles/MFGUI.dir/src/widgets/Image.cpp.o CMakeFiles/MFGUI.dir/src/widgets/List.cpp.o CMakeFiles/MFGUI.dir/src/widgets/Slider.cpp.o CMakeFiles/MFGUI.dir/src/widgets/Text.cpp.o
   LANGUAGE_COMPILE_FLAGS = -g
   OBJECT_DIR = CMakeFiles/MFGUI.dir
   POST_BUILD = :
@@ -154,7 +147,7 @@ build lib/libMFGUId.a: CXX_STATIC_LIBRARY_LINKER__MFGUI_Debug CMakeFiles/MFGUI.d
 # Utility command for edit_cache
 
 build CMakeFiles/edit_cache.util: CUSTOM_COMMAND
-  COMMAND = cd /home/mfischer/Marek/Work/DeepVertic/Libraries/MFGUI && /usr/bin/ccmake -S/home/mfischer/Marek/Work/DeepVertic/Libraries/MFGUI -B/home/mfischer/Marek/Work/DeepVertic/Libraries/MFGUI
+  COMMAND = cd /home/mfischer/Marek/Work/DeepVertic/Libraries/MFGUI/build && /usr/bin/ccmake -S/home/mfischer/Marek/Work/DeepVertic/Libraries/MFGUI -B/home/mfischer/Marek/Work/DeepVertic/Libraries/MFGUI/build
   DESC = Running CMake cache editor...
   pool = console
   restat = 1
@@ -166,7 +159,7 @@ build edit_cache: phony CMakeFiles/edit_cache.util
 # Utility command for rebuild_cache
 
 build CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
-  COMMAND = cd /home/mfischer/Marek/Work/DeepVertic/Libraries/MFGUI && /usr/bin/cmake --regenerate-during-build -S/home/mfischer/Marek/Work/DeepVertic/Libraries/MFGUI -B/home/mfischer/Marek/Work/DeepVertic/Libraries/MFGUI
+  COMMAND = cd /home/mfischer/Marek/Work/DeepVertic/Libraries/MFGUI/build && /usr/bin/cmake --regenerate-during-build -S/home/mfischer/Marek/Work/DeepVertic/Libraries/MFGUI -B/home/mfischer/Marek/Work/DeepVertic/Libraries/MFGUI/build
   DESC = Running CMake to regenerate build system...
   pool = console
   restat = 1
@@ -186,7 +179,7 @@ build libMFGUId.a: phony lib/libMFGUId.a
 # =============================================================================
 
 #############################################
-# Folder: /home/mfischer/Marek/Work/DeepVertic/Libraries/MFGUI
+# Folder: /home/mfischer/Marek/Work/DeepVertic/Libraries/MFGUI/build
 
 build all: phony lib/libMFGUId.a
 
@@ -197,14 +190,14 @@ build all: phony lib/libMFGUId.a
 #############################################
 # Re-run CMake if any of its inputs changed.
 
-build build.ninja: RERUN_CMAKE | /usr/lib64/cmake/Boost-1.83.0/BoostConfig.cmake /usr/lib64/cmake/Boost-1.83.0/BoostConfigVersion.cmake /usr/lib64/cmake/SFML/SFMLConfig.cmake /usr/lib64/cmake/SFML/SFMLConfigDependencies.cmake /usr/lib64/cmake/SFML/SFMLConfigVersion.cmake /usr/lib64/cmake/SFML/SFMLSharedTargets-release.cmake /usr/lib64/cmake/SFML/SFMLSharedTargets.cmake /usr/lib64/cmake/boost_headers-1.83.0/boost_headers-config-version.cmake /usr/lib64/cmake/boost_headers-1.83.0/boost_headers-config.cmake /usr/share/cmake/Modules/CMakeCInformation.cmake /usr/share/cmake/Modules/CMakeCXXInformation.cmake /usr/share/cmake/Modules/CMakeCommonLanguageInclude.cmake /usr/share/cmake/Modules/CMakeGenericSystem.cmake /usr/share/cmake/Modules/CMakeInitializeConfigs.cmake /usr/share/cmake/Modules/CMakeLanguageInformation.cmake /usr/share/cmake/Modules/CMakeSystemSpecificInformation.cmake /usr/share/cmake/Modules/CMakeSystemSpecificInitialize.cmake /usr/share/cmake/Modules/Compiler/CMakeCommonCompilerMacros.cmake /usr/share/cmake/Modules/Compiler/GNU-C.cmake /usr/share/cmake/Modules/Compiler/GNU-CXX.cmake /usr/share/cmake/Modules/Compiler/GNU.cmake /usr/share/cmake/Modules/FindBoost.cmake /usr/share/cmake/Modules/FindPackageHandleStandardArgs.cmake /usr/share/cmake/Modules/FindPackageMessage.cmake /usr/share/cmake/Modules/Platform/Linux-GNU-C.cmake /usr/share/cmake/Modules/Platform/Linux-GNU-CXX.cmake /usr/share/cmake/Modules/Platform/Linux-GNU.cmake /usr/share/cmake/Modules/Platform/Linux-Initialize.cmake /usr/share/cmake/Modules/Platform/Linux.cmake /usr/share/cmake/Modules/Platform/UnixPaths.cmake CMakeCache.txt CMakeFiles/3.30.5/CMakeCCompiler.cmake CMakeFiles/3.30.5/CMakeCXXCompiler.cmake CMakeFiles/3.30.5/CMakeSystem.cmake CMakeLists.txt
+build build.ninja: RERUN_CMAKE | /home/mfischer/Marek/Work/DeepVertic/Libraries/MFGUI/CMakeLists.txt /usr/lib64/cmake/Boost-1.83.0/BoostConfig.cmake /usr/lib64/cmake/Boost-1.83.0/BoostConfigVersion.cmake /usr/lib64/cmake/SFML/SFMLConfig.cmake /usr/lib64/cmake/SFML/SFMLConfigDependencies.cmake /usr/lib64/cmake/SFML/SFMLConfigVersion.cmake /usr/lib64/cmake/SFML/SFMLSharedTargets-release.cmake /usr/lib64/cmake/SFML/SFMLSharedTargets.cmake /usr/lib64/cmake/boost_headers-1.83.0/boost_headers-config-version.cmake /usr/lib64/cmake/boost_headers-1.83.0/boost_headers-config.cmake /usr/share/cmake/Modules/CMakeCInformation.cmake /usr/share/cmake/Modules/CMakeCXXInformation.cmake /usr/share/cmake/Modules/CMakeCommonLanguageInclude.cmake /usr/share/cmake/Modules/CMakeGenericSystem.cmake /usr/share/cmake/Modules/CMakeInitializeConfigs.cmake /usr/share/cmake/Modules/CMakeLanguageInformation.cmake /usr/share/cmake/Modules/CMakeSystemSpecificInformation.cmake /usr/share/cmake/Modules/CMakeSystemSpecificInitialize.cmake /usr/share/cmake/Modules/Compiler/CMakeCommonCompilerMacros.cmake /usr/share/cmake/Modules/Compiler/GNU-C.cmake /usr/share/cmake/Modules/Compiler/GNU-CXX.cmake /usr/share/cmake/Modules/Compiler/GNU.cmake /usr/share/cmake/Modules/FindBoost.cmake /usr/share/cmake/Modules/FindPackageHandleStandardArgs.cmake /usr/share/cmake/Modules/FindPackageMessage.cmake /usr/share/cmake/Modules/Platform/Linux-GNU-C.cmake /usr/share/cmake/Modules/Platform/Linux-GNU-CXX.cmake /usr/share/cmake/Modules/Platform/Linux-GNU.cmake /usr/share/cmake/Modules/Platform/Linux-Initialize.cmake /usr/share/cmake/Modules/Platform/Linux.cmake /usr/share/cmake/Modules/Platform/UnixPaths.cmake CMakeCache.txt CMakeFiles/3.30.5/CMakeCCompiler.cmake CMakeFiles/3.30.5/CMakeCXXCompiler.cmake CMakeFiles/3.30.5/CMakeSystem.cmake
   pool = console
 
 
 #############################################
 # A missing CMake input file is not an error.
 
-build /usr/lib64/cmake/Boost-1.83.0/BoostConfig.cmake /usr/lib64/cmake/Boost-1.83.0/BoostConfigVersion.cmake /usr/lib64/cmake/SFML/SFMLConfig.cmake /usr/lib64/cmake/SFML/SFMLConfigDependencies.cmake /usr/lib64/cmake/SFML/SFMLConfigVersion.cmake /usr/lib64/cmake/SFML/SFMLSharedTargets-release.cmake /usr/lib64/cmake/SFML/SFMLSharedTargets.cmake /usr/lib64/cmake/boost_headers-1.83.0/boost_headers-config-version.cmake /usr/lib64/cmake/boost_headers-1.83.0/boost_headers-config.cmake /usr/share/cmake/Modules/CMakeCInformation.cmake /usr/share/cmake/Modules/CMakeCXXInformation.cmake /usr/share/cmake/Modules/CMakeCommonLanguageInclude.cmake /usr/share/cmake/Modules/CMakeGenericSystem.cmake /usr/share/cmake/Modules/CMakeInitializeConfigs.cmake /usr/share/cmake/Modules/CMakeLanguageInformation.cmake /usr/share/cmake/Modules/CMakeSystemSpecificInformation.cmake /usr/share/cmake/Modules/CMakeSystemSpecificInitialize.cmake /usr/share/cmake/Modules/Compiler/CMakeCommonCompilerMacros.cmake /usr/share/cmake/Modules/Compiler/GNU-C.cmake /usr/share/cmake/Modules/Compiler/GNU-CXX.cmake /usr/share/cmake/Modules/Compiler/GNU.cmake /usr/share/cmake/Modules/FindBoost.cmake /usr/share/cmake/Modules/FindPackageHandleStandardArgs.cmake /usr/share/cmake/Modules/FindPackageMessage.cmake /usr/share/cmake/Modules/Platform/Linux-GNU-C.cmake /usr/share/cmake/Modules/Platform/Linux-GNU-CXX.cmake /usr/share/cmake/Modules/Platform/Linux-GNU.cmake /usr/share/cmake/Modules/Platform/Linux-Initialize.cmake /usr/share/cmake/Modules/Platform/Linux.cmake /usr/share/cmake/Modules/Platform/UnixPaths.cmake CMakeCache.txt CMakeFiles/3.30.5/CMakeCCompiler.cmake CMakeFiles/3.30.5/CMakeCXXCompiler.cmake CMakeFiles/3.30.5/CMakeSystem.cmake CMakeLists.txt: phony
+build /home/mfischer/Marek/Work/DeepVertic/Libraries/MFGUI/CMakeLists.txt /usr/lib64/cmake/Boost-1.83.0/BoostConfig.cmake /usr/lib64/cmake/Boost-1.83.0/BoostConfigVersion.cmake /usr/lib64/cmake/SFML/SFMLConfig.cmake /usr/lib64/cmake/SFML/SFMLConfigDependencies.cmake /usr/lib64/cmake/SFML/SFMLConfigVersion.cmake /usr/lib64/cmake/SFML/SFMLSharedTargets-release.cmake /usr/lib64/cmake/SFML/SFMLSharedTargets.cmake /usr/lib64/cmake/boost_headers-1.83.0/boost_headers-config-version.cmake /usr/lib64/cmake/boost_headers-1.83.0/boost_headers-config.cmake /usr/share/cmake/Modules/CMakeCInformation.cmake /usr/share/cmake/Modules/CMakeCXXInformation.cmake /usr/share/cmake/Modules/CMakeCommonLanguageInclude.cmake /usr/share/cmake/Modules/CMakeGenericSystem.cmake /usr/share/cmake/Modules/CMakeInitializeConfigs.cmake /usr/share/cmake/Modules/CMakeLanguageInformation.cmake /usr/share/cmake/Modules/CMakeSystemSpecificInformation.cmake /usr/share/cmake/Modules/CMakeSystemSpecificInitialize.cmake /usr/share/cmake/Modules/Compiler/CMakeCommonCompilerMacros.cmake /usr/share/cmake/Modules/Compiler/GNU-C.cmake /usr/share/cmake/Modules/Compiler/GNU-CXX.cmake /usr/share/cmake/Modules/Compiler/GNU.cmake /usr/share/cmake/Modules/FindBoost.cmake /usr/share/cmake/Modules/FindPackageHandleStandardArgs.cmake /usr/share/cmake/Modules/FindPackageMessage.cmake /usr/share/cmake/Modules/Platform/Linux-GNU-C.cmake /usr/share/cmake/Modules/Platform/Linux-GNU-CXX.cmake /usr/share/cmake/Modules/Platform/Linux-GNU.cmake /usr/share/cmake/Modules/Platform/Linux-Initialize.cmake /usr/share/cmake/Modules/Platform/Linux.cmake /usr/share/cmake/Modules/Platform/UnixPaths.cmake CMakeCache.txt CMakeFiles/3.30.5/CMakeCCompiler.cmake CMakeFiles/3.30.5/CMakeCXXCompiler.cmake CMakeFiles/3.30.5/CMakeSystem.cmake: phony
 
 
 #############################################

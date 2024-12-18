@@ -61,7 +61,6 @@ void		Text::Render(sf::RenderWindow *tWindow)
 std::shared_ptr<Text>      Text::Create()
 {
 	std::shared_ptr<Text> txt(new Text());
-    txt->mBackground.SetBackground(sf::Color::White);
     txt->SetSize(sf::Vector2f(200, 100));
     return (txt);
 }

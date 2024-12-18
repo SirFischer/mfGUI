@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Widget.hpp"
+#include "../widgetComponents/Text.hpp"
 #include "../widgetComponents/Background.hpp"
 
 namespace mf

@@ -2,6 +2,8 @@
 
 #include "Widget.hpp"
 #include "../widgetComponents/ScrollBar.hpp"
+#include "../widgetComponents/Background.hpp"
+#include "../widgetComponents/Text.hpp"
 
 namespace mf
 {

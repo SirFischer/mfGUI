@@ -7,6 +7,7 @@
 #include "widgets/Text.hpp"
 #include "widgets/List.hpp"
 #include "widgets/Container.hpp"
+#include "widgets/Checkbox.hpp"
 
 namespace mf
 {
