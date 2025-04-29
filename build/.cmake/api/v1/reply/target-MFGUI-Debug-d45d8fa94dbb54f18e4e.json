@@ -33,13 +33,13 @@
 			{
 				"command" : 1,
 				"file" : 0,
-				"line" : 35,
+				"line" : 79,
 				"parent" : 0
 			},
 			{
 				"command" : 2,
 				"file" : 0,
-				"line" : 20,
+				"line" : 64,
 				"parent" : 0
 			}
 		]
@@ -75,17 +75,18 @@
 			},
 			"sourceIndexes" : 
 			[
+				0,
 				1,
+				2,
+				3,
+				4,
+				5,
 				6,
+				7,
 				8,
+				9,
 				10,
-				12,
-				14,
-				16,
-				18,
-				20,
-				22,
-				24
+				11
 			]
 		}
 	],
@@ -100,42 +101,43 @@
 	"sourceGroups" : 
 	[
 		{
-			"name" : "Header Files",
+			"name" : "Source Files",
 			"sourceIndexes" : 
 			[
 				0,
+				1,
 				2,
 				3,
 				4,
 				5,
+				6,
 				7,
+				8,
 				9,
-				11,
-				13,
-				15,
-				17,
-				19,
-				21,
-				23,
-				25,
-				26
+				10,
+				11
 			]
 		},
 		{
-			"name" : "Source Files",
+			"name" : "Header Files",
 			"sourceIndexes" : 
 			[
-				1,
-				6,
-				8,
-				10,
 				12,
+				13,
 				14,
+				15,
 				16,
+				17,
 				18,
+				19,
 				20,
+				21,
 				22,
-				24
+				23,
+				24,
+				25,
+				26,
+				27
 			]
 		}
 	],
@@ -143,149 +145,155 @@
 	[
 		{
 			"backtrace" : 3,
-			"path" : "include/mfGUI.hpp",
-			"sourceGroupIndex" : 0
-		},
-		{
-			"backtrace" : 3,
-			"compileGroupIndex" : 0,
-			"path" : "src/mfGUI.cpp",
-			"sourceGroupIndex" : 1
-		},
-		{
-			"backtrace" : 3,
-			"path" : "src/mfGUI.hpp",
-			"sourceGroupIndex" : 0
-		},
-		{
-			"backtrace" : 3,
-			"path" : "src/utils/Direction.hpp",
-			"sourceGroupIndex" : 0
-		},
-		{
-			"backtrace" : 3,
-			"path" : "src/utils/Events.hpp",
-			"sourceGroupIndex" : 0
-		},
-		{
-			"backtrace" : 3,
-			"path" : "src/widgetAttributes/Transform.hpp",
-			"sourceGroupIndex" : 0
-		},
-		{
-			"backtrace" : 3,
-			"compileGroupIndex" : 0,
-			"path" : "src/widgetComponents/Background.cpp",
-			"sourceGroupIndex" : 1
-		},
-		{
-			"backtrace" : 3,
-			"path" : "src/widgetComponents/Background.hpp",
-			"sourceGroupIndex" : 0
-		},
-		{
-			"backtrace" : 3,
-			"compileGroupIndex" : 0,
-			"path" : "src/widgetComponents/EventManager.cpp",
-			"sourceGroupIndex" : 1
-		},
-		{
-			"backtrace" : 3,
-			"path" : "src/widgetComponents/EventManager.hpp",
-			"sourceGroupIndex" : 0
-		},
-		{
-			"backtrace" : 3,
-			"compileGroupIndex" : 0,
-			"path" : "src/widgetComponents/ScrollBar.cpp",
-			"sourceGroupIndex" : 1
-		},
-		{
-			"backtrace" : 3,
-			"path" : "src/widgetComponents/ScrollBar.hpp",
-			"sourceGroupIndex" : 0
-		},
-		{
-			"backtrace" : 3,
-			"compileGroupIndex" : 0,
-			"path" : "src/widgetComponents/Text.cpp",
-			"sourceGroupIndex" : 1
-		},
-		{
-			"backtrace" : 3,
-			"path" : "src/widgetComponents/Text.hpp",
-			"sourceGroupIndex" : 0
-		},
-		{
-			"backtrace" : 3,
 			"compileGroupIndex" : 0,
 			"path" : "src/widgets/Button.cpp",
-			"sourceGroupIndex" : 1
+			"sourceGroupIndex" : 0
 		},
 		{
 			"backtrace" : 3,
-			"path" : "src/widgets/Button.hpp",
+			"compileGroupIndex" : 0,
+			"path" : "src/widgets/Checkbox.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{
 			"backtrace" : 3,
 			"compileGroupIndex" : 0,
 			"path" : "src/widgets/Container.cpp",
-			"sourceGroupIndex" : 1
-		},
-		{
-			"backtrace" : 3,
-			"path" : "src/widgets/Container.hpp",
 			"sourceGroupIndex" : 0
 		},
 		{
 			"backtrace" : 3,
 			"compileGroupIndex" : 0,
 			"path" : "src/widgets/Image.cpp",
-			"sourceGroupIndex" : 1
-		},
-		{
-			"backtrace" : 3,
-			"path" : "src/widgets/Image.hpp",
 			"sourceGroupIndex" : 0
 		},
 		{
 			"backtrace" : 3,
 			"compileGroupIndex" : 0,
 			"path" : "src/widgets/List.cpp",
-			"sourceGroupIndex" : 1
-		},
-		{
-			"backtrace" : 3,
-			"path" : "src/widgets/List.hpp",
 			"sourceGroupIndex" : 0
 		},
 		{
 			"backtrace" : 3,
 			"compileGroupIndex" : 0,
 			"path" : "src/widgets/Slider.cpp",
-			"sourceGroupIndex" : 1
-		},
-		{
-			"backtrace" : 3,
-			"path" : "src/widgets/Slider.hpp",
 			"sourceGroupIndex" : 0
 		},
 		{
 			"backtrace" : 3,
 			"compileGroupIndex" : 0,
 			"path" : "src/widgets/Text.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "src/widgetComponents/Background.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "src/widgetComponents/EventManager.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "src/widgetComponents/ScrollBar.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "src/widgetComponents/Text.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "src/mfGUI.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"path" : "include/mfGUI.hpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 3,
+			"path" : "src/utils/Direction.hpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 3,
+			"path" : "src/utils/Events.hpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 3,
+			"path" : "src/widgetAttributes/Transform.hpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 3,
+			"path" : "src/widgetComponents/Background.hpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 3,
+			"path" : "src/widgetComponents/EventManager.hpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 3,
+			"path" : "src/widgetComponents/ScrollBar.hpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 3,
+			"path" : "src/widgetComponents/Text.hpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 3,
+			"path" : "src/widgets/Button.hpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 3,
+			"path" : "src/widgets/Checkbox.hpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 3,
+			"path" : "src/widgets/Container.hpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 3,
+			"path" : "src/widgets/Image.hpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 3,
+			"path" : "src/widgets/List.hpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 3,
+			"path" : "src/widgets/Slider.hpp",
 			"sourceGroupIndex" : 1
 		},
 		{
 			"backtrace" : 3,
 			"path" : "src/widgets/Text.hpp",
-			"sourceGroupIndex" : 0
+			"sourceGroupIndex" : 1
 		},
 		{
 			"backtrace" : 3,
 			"path" : "src/widgets/Widget.hpp",
-			"sourceGroupIndex" : 0
+			"sourceGroupIndex" : 1
 		}
 	],
 	"type" : "STATIC_LIBRARY"

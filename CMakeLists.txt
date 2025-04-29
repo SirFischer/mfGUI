@@ -14,10 +14,54 @@ add_library(${PROJECT_NAME} STATIC)
 
 
 ##FILES##
-file(GLOB_RECURSE sources src/*.cpp src/*.hpp include/*.hpp)
-#########
+set(WIDGET_SOURCES
+    src/widgets/Button.cpp
+    src/widgets/Checkbox.cpp
+    src/widgets/Container.cpp
+    src/widgets/Image.cpp
+    src/widgets/List.cpp
+    src/widgets/Slider.cpp
+    src/widgets/Text.cpp
+)
 
-target_sources(${PROJECT_NAME} PRIVATE ${sources})
+set(WIDGET_COMPONENTS_SOURCES
+    src/widgetComponents/Background.cpp
+    src/widgetComponents/EventManager.cpp
+    src/widgetComponents/ScrollBar.cpp
+    src/widgetComponents/Text.cpp
+)
+
+set(CORE_SOURCES
+    src/mfGUI.cpp
+)
+
+set(HEADERS
+    include/mfGUI.hpp
+    src/utils/Direction.hpp
+    src/utils/Events.hpp
+    src/widgetAttributes/Transform.hpp
+    src/widgetComponents/Background.hpp
+    src/widgetComponents/EventManager.hpp
+    src/widgetComponents/ScrollBar.hpp
+    src/widgetComponents/Text.hpp
+    src/widgets/Button.hpp
+    src/widgets/Checkbox.hpp
+    src/widgets/Container.hpp
+    src/widgets/Image.hpp
+    src/widgets/List.hpp
+    src/widgets/Slider.hpp
+    src/widgets/Text.hpp
+    src/widgets/Widget.hpp
+)
+
+set(ALL_SOURCES
+    ${WIDGET_SOURCES}
+    ${WIDGET_COMPONENTS_SOURCES}
+    ${CORE_SOURCES}
+    ${HEADERS}
+)
+
+target_sources(${PROJECT_NAME} PRIVATE ${ALL_SOURCES})
 
 find_package(SFML REQUIRED COMPONENTS graphics)
 target_link_libraries(${PROJECT_NAME} PRIVATE sfml-graphics)

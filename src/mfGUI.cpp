@@ -2,8 +2,8 @@
 
 namespace mf
 {
-	sf::RenderWindow		*GUI::mWindow = NULL;
-	std::shared_ptr<Widget>	GUI::mBaseWidget = NULL;
+	sf::RenderWindow		*GUI::mWindow = nullptr;
+	std::shared_ptr<Widget>	GUI::mBaseWidget = nullptr;
 
 	void		GUI::Init(sf::RenderWindow *tWindow)
 	{

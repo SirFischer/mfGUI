@@ -1,5 +1,9 @@
 {
 	"files.associations": {
+		"*.sqlbook": "sql",
+		"*.ndjson": "jsonl",
+		"*.dbclient-js": "javascript",
+		"*.ejs": "html",
 		"array": "cpp",
 		"atomic": "cpp",
 		"bit": "cpp",
@@ -53,7 +57,12 @@
 		"set": "cpp",
 		"iomanip": "cpp",
 		"numbers": "cpp",
-		"cinttypes": "cpp"
+		"cinttypes": "cpp",
+		"charconv": "cpp",
+		"format": "cpp",
+		"span": "cpp",
+		"text_encoding": "cpp",
+		"variant": "cpp"
 	},
 	"cmake.configureOnOpen": true,
 	"workbench.colorCustomizations": {
