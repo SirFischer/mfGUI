@@ -39,7 +39,13 @@ namespace mf
 
 			eEvent			GetEvent(){return (mEvent);}
 
+			/**
+			 * Returns if the widget has focus
+			 * @return true if the widget has focus,
+			 * @return false if the widget has no focus
+			 */
 			bool			GetFocus() {return (mFocus);}
+
 			char			GetCharInput() {return (mCharInput);}
 			sf::Vector2f	GetMousePosition(){return (mMousePos);}
 

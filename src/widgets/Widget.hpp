@@ -101,6 +101,13 @@ namespace mf
 					i->Render(tWindow);
 		}
 
+		virtual void Update()
+		{
+			for (auto &i : mWidgets)
+				if (!i->mDisabled)
+					i->Update();
+		}
+
 		virtual void HandleEvent(sf::Event &tEvent)
 		{
 			mEventManager.Update(tEvent);

@@ -21,6 +21,11 @@ namespace mf
 		mBaseWidget->HandleEvent(tEvent);
 	}
 
+	void	GUI::Update()
+	{
+		mBaseWidget->Update();
+	}
+
 	void		GUI::Render()
 	{
 		mBaseWidget->Render(mWindow);

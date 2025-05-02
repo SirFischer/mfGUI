@@ -40,6 +40,11 @@ void		Text::HandleEvent(sf::Event &tEvent)
 	Widget::HandleEvent(tEvent);
 }
 
+void		Text::Update()
+{
+	if (mIsEditable) FlashingCursor();
+}
+
 void		Text::Render(sf::RenderWindow *tWindow)
 {
 	mView.setViewport(sf::FloatRect(mPosition.x / (float)tWindow->getSize().x,
@@ -51,7 +56,19 @@ void		Text::Render(sf::RenderWindow *tWindow)
 	mBackground.Draw(tWindow);
 	sf::View		tmp = tWindow->getView();
 	tWindow->setView(mView);
+
+	if (mFlashingCursor && mEventManager.GetFocus())
+	{
+		mText.SetString(mText.GetString() + "|");
+	}
+
 	mText.Draw(tWindow);
+
+	if (mFlashingCursor && mEventManager.GetFocus())
+	{
+		mText.SetString(mText.GetString().substr(0, mText.GetString().length() - 1));
+	}
+
 	tWindow->setView(tmp);
 	mScrollBar.Draw(tWindow);
 	Widget::Render(tWindow);
@@ -82,5 +99,17 @@ void			Text::DisableEdit()
 	mIsEditable = false;
 }
 
+
+void			Text::FlashingCursor()
+{
+	if (mEventManager.GetFocus())
+	{
+		if (mFlashingCursorClock.getElapsedTime().asMilliseconds() > 500)
+		{
+			mFlashingCursor = !mFlashingCursor;
+			mFlashingCursorClock.restart();
+		}
+	}
+}
 
 } // namespace mf

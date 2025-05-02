@@ -24,10 +24,15 @@ namespace mf
 
 		int						mMaxTextLength = -1;
 
+		void					FlashingCursor();
+		sf::Clock				mFlashingCursorClock;
+		bool					mFlashingCursor = false;
+
 	public:
 		~Text();
-		void			HandleEvent(sf::Event &tEvent);
-		void			Render(sf::RenderWindow	*tWindow);
+		void			HandleEvent(sf::Event &tEvent) override;
+		void			Update() override;
+		void			Render(sf::RenderWindow	*tWindow) override;
 
 		/**
 		 * Create

@@ -21,6 +21,7 @@ namespace mf
 
 	public:
 		static void				Init(sf::RenderWindow *tWindow);
+		static void				Update();
 		static void				HandleEvent(sf::Event	&tEvent);
 		static void				Render();
 
