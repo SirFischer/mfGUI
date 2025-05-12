@@ -26,6 +26,7 @@ std::shared_ptr<Button>      Button::Create()
 {
 	std::shared_ptr<Button> btn(new Button());
     btn->SetSize(sf::Vector2f(100, 50));
+	btn->SetPosition(sf::Vector2f(0, 0));
 	btn->GetText()->SetString("Button");
 
     return (btn);
