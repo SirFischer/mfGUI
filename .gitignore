@@ -53,3 +53,14 @@ install_manifest.txt
 compile_commands.json
 CTestTestfile.cmake
 _deps
+
+# Cmake filed & ninja files
+CMakeCache.txt
+CMakeFiles/
+cmake_install.cmake
+Makefile
+Makefile.in
+build.ninja
+
+.ninja_deps
+.ninja_log
