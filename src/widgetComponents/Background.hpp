@@ -24,7 +24,8 @@ namespace mf
 			void			SetBackground(sf::Texture tTexture);
 			void            SetBackground(sf::Color tColor);
 			void            SetBackground(std::string tPath);
-
+			void			SetTextureRect(sf::IntRect tRect);
+		
 			void			SetOutlineColor(sf::Color tColor);
 			void			SetOutlineThickness(float tThickness);
 

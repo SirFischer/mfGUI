@@ -53,6 +53,12 @@ namespace mf
 			mBackground.setTexture(&mTexture);
 		}
 
+		void			Background::SetTextureRect(sf::IntRect tRect)
+		{
+			if (mBackground.getTexture())
+				mBackground.setTextureRect(tRect);
+		}
+
 		void			Background::SetOutlineColor(sf::Color tColor)
 		{
 			mBackground.setOutlineColor(tColor);
